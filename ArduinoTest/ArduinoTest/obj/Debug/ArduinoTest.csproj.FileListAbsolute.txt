@@ -11,3 +11,17 @@ C:\Users\제5강의실-3\Desktop\일일수업내용\C#\ArduinoTest\ArduinoTest\o
 C:\Users\제5강의실-3\Desktop\일일수업내용\C#\ArduinoTest\ArduinoTest\bin\Debug\lg\ArduinoTest.resources.dll
 C:\Users\제5강의실-3\Desktop\일일수업내용\C#\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Form1.lg.resources
 C:\Users\제5강의실-3\Desktop\일일수업내용\C#\ArduinoTest\ArduinoTest\obj\Debug\lg\ArduinoTest.resources.dll
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.csproj.AssemblyReference.cache
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Form1.resources
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Properties.Resources.resources
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Form1.lg.resources
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.csproj.GenerateResource.cache
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.csproj.CoreCompileInputs.cache
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.exe
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.pdb
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.exe.config
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.exe
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.pdb
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\lg\ArduinoTest.resources.dll
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Form2.resources
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\lg\ArduinoTest.resources.dll
