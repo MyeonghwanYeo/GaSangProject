@@ -63,9 +63,9 @@ namespace ArduinoTest.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap 배경_1 {
+        internal static System.Drawing.Bitmap LogOut_Icon {
             get {
-                object obj = ResourceManager.GetObject("배경_1", resourceCulture);
+                object obj = ResourceManager.GetObject("LogOut_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,19 @@ namespace ArduinoTest.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap 아이콘 {
+        internal static System.Drawing.Bitmap Monitoring_Icon {
             get {
-                object obj = ResourceManager.GetObject("아이콘", resourceCulture);
+                object obj = ResourceManager.GetObject("Monitoring_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Simulation_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Simulation_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

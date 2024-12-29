@@ -17,11 +17,13 @@ D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Propertie
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Form1.lg.resources
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.csproj.GenerateResource.cache
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.csproj.CoreCompileInputs.cache
-D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.exe
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.pdb
-D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.exe.config
-D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.exe
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.pdb
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\lg\ArduinoTest.resources.dll
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.Form2.resources
 D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\lg\ArduinoTest.resources.dll
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.dll
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.exe.config
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\bin\Debug\ArduinoTest.exe
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoT.FFE06B85.Up2Date
+D:\Arduino\GaSangProject\ArduinoTest\ArduinoTest\obj\Debug\ArduinoTest.exe
