@@ -13,19 +13,23 @@ namespace ArduinoTest
 {
     public partial class Form2 : Form
     {
-        int password = 123456;
+        string password = "123456";
 
         public Form2()
         {
             InitializeComponent();
 
             passwordBox.Focus();
+
+            presentPWBox.Enabled = false;
+            newPWBox.Enabled = false;
+            newPWCheckBox.Enabled = false;
         }
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-            // 로그인 화면에서 비밀번호 입력에 따른 메뉴창 또는 메세지박스 띄우기 
-            if (passwordBox.Text == password.ToString())
+            // 로그인 창에서 비밀번호 입력에 따른 메뉴창 또는 메세지박스 띄우기 
+            if (passwordBox.Text == password)
             {
                 panel2.Visible = false;
                 monitoringIcon.Visible = true;
@@ -48,17 +52,52 @@ namespace ArduinoTest
             }
         }
 
-        private void passwordBox_KeyDown(object sender, KeyEventArgs e)
+        private void changeButton_Click(object sender, EventArgs e)
         {
-            // 로그인 창에서 엔터키를 누르면 "Log In" 버튼과 동인한 작업 수행
-            if (e.KeyCode == Keys.Enter && panel2.Visible == true)
-            {
-                if (passwordBox.Text == password.ToString())
-                {
-                    e.SuppressKeyPress = true;
-                }
+            passwordBox.Text = "";
 
-                this.logInButton_Click(sender, e);
+            passwordBox.Enabled = false;
+            presentPWBox.Enabled = true;
+            newPWBox.Enabled = true;
+            newPWCheckBox.Enabled = true;
+            panel2.Visible = false;
+            panel3.Visible = true;
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            presentPWBox.Text = "";
+            newPWBox.Text = "";
+            newPWCheckBox.Text = "";
+
+            presentPWBox.Enabled = false;
+            newPWBox.Enabled = false;
+            newPWCheckBox.Enabled = false;
+            passwordBox.Enabled = true;
+            panel2.Visible = true;
+            panel3.Visible = false;
+        }
+
+        private void changePWButton_Click(object sender, EventArgs e)
+        {
+            if (presentPWBox.Text == password)
+            {
+                if (newPWBox.Text == newPWCheckBox.Text)
+                {
+                    password = newPWBox.Text;
+
+                    MessageBox.Show("Your password is changed.", "Password change message", MessageBoxButtons.OK);
+
+                    cancelButton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("New passwords are not match.", "Password change error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("The present password is incorrect.", "Password change error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -77,7 +116,13 @@ namespace ArduinoTest
 
         private void monitoringIcon_Click(object sender, EventArgs e)
         {
+            // 현재 창 "Form2"를 닫고, 모니터링 창 "Form1" 열기
+            this.Visible = false;
 
+            Form1 showForm1 = new Form1();
+            showForm1.ShowDialog();
+
+            Application.Exit();
         }
 
         private void monitoringIcon_MouseEnter(object sender, EventArgs e)
@@ -91,6 +136,7 @@ namespace ArduinoTest
             string path = System.IO.Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;
             monitoringIcon.Image = Image.FromFile(path + @"\Resources\Monitoring_Icon.png");
         }
+
         private void SimulationIcon_MouseEnter(object sender, EventArgs e)
         {
             string path = System.IO.Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;

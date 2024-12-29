@@ -121,8 +121,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\배경_1.png" />
-    <None Include="Resources\아이콘.png" />
     <None Include="Resources\LogOut_Icon.png" />
     <None Include="Resources\Monitoring_Icon.png" />
     <None Include="Resources\Simulation_Icon.png" />
