@@ -88,7 +88,7 @@ namespace ArduinoTest
             this.panel3.Controls.Add(this.chanePWButton);
             this.panel3.Controls.Add(this.presentPWBox);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(638, 320);
+            this.panel3.Location = new System.Drawing.Point(638, 317);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(630, 330);
             this.panel3.TabIndex = 6;
@@ -98,7 +98,7 @@ namespace ArduinoTest
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(30)))), ((int)(((byte)(91)))));
             this.cancelButton.Location = new System.Drawing.Point(327, 246);
             this.cancelButton.Name = "cancelButton";
@@ -112,11 +112,11 @@ namespace ArduinoTest
             // 
             this.newPWCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newPWCheckBox.BackColor = System.Drawing.SystemColors.Window;
-            this.newPWCheckBox.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.newPWCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.newPWCheckBox.Location = new System.Drawing.Point(327, 175);
             this.newPWCheckBox.MaxLength = 16;
             this.newPWCheckBox.Name = "newPWCheckBox";
-            this.newPWCheckBox.Size = new System.Drawing.Size(247, 36);
+            this.newPWCheckBox.Size = new System.Drawing.Size(247, 32);
             this.newPWCheckBox.TabIndex = 2;
             this.newPWCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.newPWCheckBox.UseSystemPasswordChar = true;
@@ -125,11 +125,11 @@ namespace ArduinoTest
             // 
             this.newPWBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newPWBox.BackColor = System.Drawing.SystemColors.Window;
-            this.newPWBox.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.newPWBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.newPWBox.Location = new System.Drawing.Point(327, 104);
             this.newPWBox.MaxLength = 16;
             this.newPWBox.Name = "newPWBox";
-            this.newPWBox.Size = new System.Drawing.Size(247, 36);
+            this.newPWBox.Size = new System.Drawing.Size(247, 32);
             this.newPWBox.TabIndex = 1;
             this.newPWBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.newPWBox.UseSystemPasswordChar = true;
@@ -137,22 +137,22 @@ namespace ArduinoTest
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Variable Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(37)))), ((int)(((byte)(91)))));
             this.label5.Location = new System.Drawing.Point(48, 168);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(272, 43);
+            this.label5.Size = new System.Drawing.Size(272, 45);
             this.label5.TabIndex = 5;
             this.label5.Text = "New PW (Check)";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Variable Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(37)))), ((int)(((byte)(91)))));
             this.label4.Location = new System.Drawing.Point(48, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 43);
+            this.label4.Size = new System.Drawing.Size(150, 45);
             this.label4.TabIndex = 5;
             this.label4.Text = "New PW";
             // 
@@ -160,7 +160,7 @@ namespace ArduinoTest
             // 
             this.chanePWButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.chanePWButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chanePWButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.chanePWButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.chanePWButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(30)))), ((int)(((byte)(91)))));
             this.chanePWButton.Location = new System.Drawing.Point(50, 246);
             this.chanePWButton.Name = "chanePWButton";
@@ -174,11 +174,11 @@ namespace ArduinoTest
             // 
             this.presentPWBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.presentPWBox.BackColor = System.Drawing.SystemColors.Window;
-            this.presentPWBox.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.presentPWBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.presentPWBox.Location = new System.Drawing.Point(327, 33);
             this.presentPWBox.MaxLength = 16;
             this.presentPWBox.Name = "presentPWBox";
-            this.presentPWBox.Size = new System.Drawing.Size(247, 36);
+            this.presentPWBox.Size = new System.Drawing.Size(247, 32);
             this.presentPWBox.TabIndex = 0;
             this.presentPWBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.presentPWBox.UseSystemPasswordChar = true;
@@ -186,11 +186,11 @@ namespace ArduinoTest
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Variable Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(37)))), ((int)(((byte)(91)))));
             this.label3.Location = new System.Drawing.Point(48, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 43);
+            this.label3.Size = new System.Drawing.Size(194, 45);
             this.label3.TabIndex = 5;
             this.label3.Text = "Present PW";
             // 
@@ -225,7 +225,7 @@ namespace ArduinoTest
             // 
             this.changeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.changeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.changeButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.changeButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.changeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(30)))), ((int)(((byte)(91)))));
             this.changeButton.Location = new System.Drawing.Point(252, 182);
             this.changeButton.Name = "changeButton";
@@ -239,7 +239,7 @@ namespace ArduinoTest
             // 
             this.logInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.logInButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logInButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.logInButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.logInButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(37)))), ((int)(((byte)(91)))));
             this.logInButton.Location = new System.Drawing.Point(46, 182);
             this.logInButton.Name = "logInButton";
@@ -253,11 +253,11 @@ namespace ArduinoTest
             // 
             this.passwordBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordBox.BackColor = System.Drawing.SystemColors.Window;
-            this.passwordBox.Font = new System.Drawing.Font("Segoe UI Variable Display", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.passwordBox.Location = new System.Drawing.Point(227, 120);
             this.passwordBox.MaxLength = 16;
             this.passwordBox.Name = "passwordBox";
-            this.passwordBox.Size = new System.Drawing.Size(212, 36);
+            this.passwordBox.Size = new System.Drawing.Size(212, 32);
             this.passwordBox.TabIndex = 0;
             this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordBox.UseSystemPasswordChar = true;
@@ -265,11 +265,11 @@ namespace ArduinoTest
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(37)))), ((int)(((byte)(91)))));
             this.label2.Location = new System.Drawing.Point(46, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 43);
+            this.label2.Size = new System.Drawing.Size(163, 45);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
@@ -288,11 +288,11 @@ namespace ArduinoTest
             // 
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Display", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(37)))), ((int)(((byte)(91)))));
             this.label1.Location = new System.Drawing.Point(75, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 47);
+            this.label1.Size = new System.Drawing.Size(133, 47);
             this.label1.TabIndex = 4;
             this.label1.Text = "odelab";
             // 

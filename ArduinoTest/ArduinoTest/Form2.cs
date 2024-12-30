@@ -31,14 +31,7 @@ namespace ArduinoTest
             // 로그인 창에서 비밀번호 입력에 따른 메뉴창 또는 메세지박스 띄우기 
             if (passwordBox.Text == password)
             {
-                panel2.Visible = false;
-                monitoringIcon.Visible = true;
-                simulationIcon.Visible = true;
-                logOutIcon.Visible = true;
-
-                // 기존 입력한 비밀번호 지운 후 비밀번호 창 비활성화
-                passwordBox.Text = "";
-                passwordBox.Enabled = false;
+                MainPanelVisibility();
             }
             else if (passwordBox.Text == "")
             {
@@ -159,6 +152,17 @@ namespace ArduinoTest
         {
             string path = System.IO.Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;
             logOutIcon.Image = Image.FromFile(path + @"\Resources\LogOut_Icon.png");
+        }
+
+        public void MainPanelVisibility()
+        {
+            panel2.Visible = false;
+            monitoringIcon.Visible = true;
+            simulationIcon.Visible = true;
+            logOutIcon.Visible = true;
+
+            passwordBox.Text = "";
+            passwordBox.Enabled = false;
         }
     }
 }

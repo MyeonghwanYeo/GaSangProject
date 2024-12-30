@@ -27,45 +27,34 @@ void setup()
   
   dxl.begin(1000000);
   dxl.setPortProtocolVersion(DXL_PROTOCOL_VERSION);
-  
+
   dxl.ping(DXL_ID1);
+
   dxl.torqueOff(DXL_ID1);
+
   dxl.setOperatingMode(DXL_ID1, OP_POSITION);
+
   dxl.setGoalPosition(DXL_ID1, 0, UNIT_DEGREE);
+
   delay(1000);
-  dxl.setOperatingMode(DXL_ID1, OP_VELOCITY);
+
   dxl.torqueOn(DXL_ID1);
 }
 
 void loop() 
 {
-  if(DEBUG_SERIAL.available() > 0)
-  {
-    String inputRPM = DEBUG_SERIAL.readString();
+  int temperature1 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID1);
+  int voltage1 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID1);
 
-    String strRPM1 = inputRPM.substring(0, inputRPM.indexOf(","));
-    String strRPM2 = inputRPM.substring(inputRPM.indexOf(",") + 1, inputRPM.length());
+  float presentAngle = dxl.getPresentPosition(DXL_ID1, UNIT_DEGREE);
+  float targetAngle = presentAngle + 2.0f;
 
-    float rpm1 = strRPM1.toFloat();
-    float rpm2 = strRPM2.toFloat();
+  dxl.setGoalPosition(DXL_ID1, targetAngle, UNIT_DEGREE);
 
-    //int voltage1 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID1);
-    //int temperature1 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID1);
-    dxl.setGoalVelocity(DXL_ID1, rpm1);
+  DEBUG_SERIAL.write(temperature1 & 0xFF);
+  DEBUG_SERIAL.write(voltage1 & 0xFF);
+  //DEBUG_SERIAL.write(temperature1 & 0xFF);
 
-    bool stopSign = false;
-    while(!stopSign)
-    {
-      if(dxl.getPresentPosition(DXL_ID1, UNIT_DEGREE) >= 135)
-      {
-        stopSign = true;
-      }
-
-      DEBUG_SERIAL.write(dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID1) & 0xFF);
-      DEBUG_SERIAL.write(dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID1) & 0xFF);
-      DEBUG_SERIAL.write(stopSign & 0xFF);
-    }
-
-    dxl.setGoalVelocity(DXL_ID1, 0);
-  }
+  delay(1);
+  //String inputRPM = DEBUG_SERIAL.readString();
 }

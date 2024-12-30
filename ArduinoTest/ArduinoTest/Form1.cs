@@ -16,48 +16,63 @@ namespace ArduinoTest
     public partial class Form1 : Form
     {
         SerialPort serialPort1 = new SerialPort();
+        List<int> tempData = new List<int>();
         List<float> voltData = new List<float>();
-        List<float> tempData = new List<float>();
+
+        int stopNum = 0;
 
         public Form1()
         {
             InitializeComponent();
 
-            chart1.ChartAreas[0].AxisY.Minimum = 11;
-            chart1.ChartAreas[0].AxisY.Maximum = 12;
+            chart1.ChartAreas[0].AxisY.Minimum = 0;
+            chart1.ChartAreas[0].AxisY.Maximum = 100;
 
-            chart2.ChartAreas[0].AxisY.Minimum = 0;
-            chart2.ChartAreas[0].AxisY.Maximum = 100;
+            chart2.ChartAreas[0].AxisY.Minimum = 11;
+            chart2.ChartAreas[0].AxisY.Maximum = 12;
+        }
+
+        public void Delay(int ms)
+        {
+            DateTime dateTimeNow = DateTime.Now;
+            TimeSpan duration = new TimeSpan(0, 0, 0, 0, ms);
+            DateTime dateTimeAdd = dateTimeNow.Add(duration);
+
+            while (dateTimeAdd >= dateTimeNow)
+            {
+                System.Windows.Forms.Application.DoEvents();
+                dateTimeNow = DateTime.Now;
+            }
+            return;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            button2.Focus();
             if (!serialPort1.IsOpen) return;
-            serialPort1.Write(textBox1.Text);
+            //serialPort1.Write(textBox1.Text);
 
-            int stopSign = 0;
-            textBox2.Text = stopSign.ToString();
-            while (stopSign == 0)
-            { 
+            // 데이터 읽기
+            stopNum = 0;
+            while (stopNum == 0)
+            {
+                int tempValue = serialPort1.ReadByte();
                 float voltValue = serialPort1.ReadByte()/10.0f;
-                float tempValue = serialPort1.ReadByte();
-                stopSign = serialPort1.ReadByte();
-                textBox2.Text = stopSign.ToString();
+                //float angleValue = serialPort1.ReadByte();
 
-                voltData.Add(voltValue);
-                tempData.Add(tempValue);
+                chart1.Series[0].Points.Add(tempValue);
+                chart2.Series[0].Points.Add(voltValue);
+                //tempData.Add(tempValue);
+
+                Delay(10);
             }
-
-            chart1.Series[0].Points.DataBindY(voltData);
-            chart2.Series[0].Points.DataBindY(tempData);
-
-            textBox2.Text = stopSign.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (!serialPort1.IsOpen) return;
-            serialPort1.Write("0");
+
+            stopNum = 1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -116,6 +131,19 @@ namespace ArduinoTest
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void mainButton_Click(object sender, EventArgs e)
+        {
+            // 현재 창 "Form1"를 닫고, 모니터링 창 "Form2" 열기
+            this.Visible = false;
+
+            Form2 showForm2 = new Form2();
+
+            showForm2.MainPanelVisibility();
+            showForm2.ShowDialog();
+
+            Application.Exit();
         }
     }
 }
