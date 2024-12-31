@@ -1385,7 +1385,7 @@
     <value>Segoe UI, 24pt, style=Bold</value>
   </data>
   <data name="mainButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1258, 52</value>
+    <value>1260, 52</value>
   </data>
   <data name="mainButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>287, 86</value>
@@ -1415,7 +1415,7 @@
     <value>NoControl</value>
   </data>
   <data name="simulationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1563, 52</value>
+    <value>1565, 52</value>
   </data>
   <data name="simulationButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>287, 86</value>

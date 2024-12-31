@@ -164,5 +164,16 @@ namespace ArduinoTest
             passwordBox.Text = "";
             passwordBox.Enabled = false;
         }
+
+        private void simulationIcon_Click(object sender, EventArgs e)
+        {
+            // 현재 창 "Form2"를 닫고, 모니터링 창 "Form3" 열기
+            this.Visible = false;
+
+            Form3 showForm3 = new Form3();
+            showForm3.ShowDialog();
+
+            Application.Exit();
+        }
     }
 }

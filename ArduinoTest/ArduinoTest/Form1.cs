@@ -145,5 +145,10 @@ namespace ArduinoTest
 
             Application.Exit();
         }
+
+        private void simulationButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
