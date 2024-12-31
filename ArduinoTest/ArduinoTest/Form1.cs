@@ -30,6 +30,9 @@ namespace ArduinoTest
 
             chart2.ChartAreas[0].AxisY.Minimum = 11;
             chart2.ChartAreas[0].AxisY.Maximum = 12;
+
+            chart3.ChartAreas[0].AxisY.Minimum = 0;
+            chart3.ChartAreas[0].AxisY.Maximum = 300;
         }
 
         public void Delay(int ms)
@@ -56,13 +59,19 @@ namespace ArduinoTest
             stopNum = 0;
             while (stopNum == 0)
             {
-                int tempValue = serialPort1.ReadByte();
-                float voltValue = serialPort1.ReadByte()/10.0f;
-                //float angleValue = serialPort1.ReadByte();
+                int tempValue1 = serialPort1.ReadByte();
+                //int tempValue2 = serialPort1.ReadByte();
+                float voltValue1 = serialPort1.ReadByte()/10.0f;
+                //float voltValue2 = serialPort1.ReadByte()/10.0f;
+                int loadValue1 = serialPort1.ReadByte();
+                //int loadValue2 = serialPort1.ReadByte();
 
-                chart1.Series[0].Points.Add(tempValue);
-                chart2.Series[0].Points.Add(voltValue);
-                //tempData.Add(tempValue);
+                chart1.Series[0].Points.Add(tempValue1);
+                //chart1.Series[1].Points.Add(tempValue2);
+                chart2.Series[0].Points.Add(voltValue1);
+                //chart2.Series[1].Points.Add(voltValue2);
+                chart3.Series[0].Points.Add(loadValue1);
+                //chart3.Series[1].Points.Add(loadValue2);
 
                 Delay(10);
             }
