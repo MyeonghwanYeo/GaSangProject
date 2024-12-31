@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|solutionrelative:arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|c:\\users\\\uC81C5\uAC15\uC758\uC2E4-3\\desktop\\group\\gasangproject\\arduinotest\\arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|C:\\Users\\\uC81C5\uAC15\uC758\uC2E4-3\\Desktop\\Group\\GaSangProject\\ArduinoTest\\arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|solutionrelative:arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "ArduinoTest\\Form1.cs",
               "ToolTip": "C:\\Users\\\uC81C5\uAC15\uC758\uC2E4-3\\Desktop\\Group\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs",
               "RelativeToolTip": "ArduinoTest\\Form1.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAAAzAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAwDgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-31T06:49:55.86Z",
               "EditorCaption": ""
@@ -50,8 +50,7 @@
               "ToolTip": "C:\\Users\\\uC81C5\uAC15\uC758\uC2E4-3\\Desktop\\Group\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "ArduinoTest\\Form1.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T09:41:17.597Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
+              "WhenOpened": "2024-12-27T09:41:17.597Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "ArduinoTest\\Form2.cs",
               "ViewState": "AQIAAF8AAAAAAAAAAAAYwEIAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T11:29:25.501Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-28T11:29:25.501Z"
             },
             {
               "$type": "Document",
@@ -75,8 +73,7 @@
               "ToolTip": "C:\\Users\\\uC81C5\uAC15\uC758\uC2E4-3\\Desktop\\Group\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form2.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "ArduinoTest\\Form2.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T11:16:20.457Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
+              "WhenOpened": "2024-12-28T11:16:20.457Z"
             }
           ]
         }

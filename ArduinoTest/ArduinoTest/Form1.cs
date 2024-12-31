@@ -53,7 +53,7 @@ namespace ArduinoTest
         {
             button2.Focus();
             if (!serialPort1.IsOpen) return;
-            //serialPort1.Write(textBox1.Text);
+            serialPort1.Write("240.0");
 
             // 데이터 읽기
             stopNum = 0;

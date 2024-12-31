@@ -18,9 +18,19 @@ const uint8_t DXL_ID1 = 1;
 const uint8_t DXL_ID2 = 3;
 const float DXL_PROTOCOL_VERSION = 1.0;
 
-// float targetAngle1 = 0;
-// float targetAngle2 = 0;
-// int startNum = 0;
+int temperature1 = 0;
+int temperature2 = 0;
+int voltage1 = 0;
+int voltage2 = 0;
+int load1 = 0;
+int load2 = 0;
+float presentAngle1 = 0;
+float presentAngle2 = 0;
+float targetAngle1 = 0;
+float targetAngle2 = 0;
+int startNum = 0;
+
+String stringTarget;
 
 DynamixelShield dxl;
 
@@ -45,32 +55,34 @@ void setup()
   //dxl.writeControlTableItem(OPERATING_MODE, DXL_ID1, 3);
   //dxl.writeControlTableItem(OPERATING_MODE, DXL_ID2, 3);
 
-  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID1, 100);
-  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID2, 100);
-
-  dxl.setGoalPosition(DXL_ID1, 60, UNIT_DEGREE);
-  dxl.setGoalPosition(DXL_ID2, 240, UNIT_DEGREE);
-
-  delay(3000);
-
   dxl.torqueOn(DXL_ID1);
   dxl.torqueOn(DXL_ID2);
 }
 
 void loop() 
 {
-  int temperature1 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID1);
-  int temperature2 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID2);
-  int voltage1 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID1);
-  int voltage2 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID2);
-  int load1 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID1);
-  int load2 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID2);
+  if(DEBUG_SERIAL.available() > 0 && startNum == 0)
+  {
+    stringTarget = DEBUG_SERIAL.readString();
 
-  float presentAngle1 = dxl.getPresentPosition(DXL_ID1, UNIT_DEGREE);
-  float presentAngle2 = dxl.getPresentPosition(DXL_ID2, UNIT_DEGREE);
+    startNum = 1;
+  }
 
-  float targetAngle1 = presentAngle1 + 4.0f;
-  float targetAngle2 = presentAngle2 - 4.0f;
+  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID1, 30);
+  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID2, 30);
+  
+  temperature1 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID1);
+  temperature2 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID2);
+  voltage1 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID1);
+  voltage2 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID2);
+  load1 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID1);
+  load2 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID2);
+
+  presentAngle1 = dxl.getPresentPosition(DXL_ID1, UNIT_DEGREE);
+  presentAngle2 = dxl.getPresentPosition(DXL_ID2, UNIT_DEGREE);
+
+  targetAngle1 = stringTarget.toFloat();
+  targetAngle2 = stringTarget.toFloat();
 
   dxl.setGoalPosition(DXL_ID1, targetAngle1, UNIT_DEGREE);
   dxl.setGoalPosition(DXL_ID2, targetAngle2, UNIT_DEGREE);
@@ -81,8 +93,6 @@ void loop()
   //DEBUG_SERIAL.write(voltage2 & 0xFF);
   DEBUG_SERIAL.write(load1 & 0xFF);
   //DEBUG_SERIAL.write(load2 & 0xFF);
-  //DEBUG_SERIAL.write(temperature1 & 0xFF);
 
-  delay(10);
-  //String inputRPM = DEBUG_SERIAL.readString();
+  delay(1);
 }
