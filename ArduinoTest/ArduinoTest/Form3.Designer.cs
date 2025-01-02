@@ -33,7 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.monitoringButton = new System.Windows.Forms.Button();
             this.mainButton = new System.Windows.Forms.Button();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -89,6 +91,18 @@
             this.mainButton.UseVisualStyleBackColor = false;
             this.mainButton.Click += new System.EventHandler(this.mainButton_Click);
             // 
+            // webView
+            // 
+            this.webView.AllowExternalDrop = true;
+            this.webView.CreationProperties = null;
+            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView.Location = new System.Drawing.Point(367, 203);
+            this.webView.Name = "webView";
+            this.webView.Size = new System.Drawing.Size(700, 400);
+            this.webView.Source = new System.Uri("http://localhost:99/", System.UriKind.Absolute);
+            this.webView.TabIndex = 38;
+            this.webView.ZoomFactor = 1D;
+            // 
             // Form3
             // 
             this.AllowDrop = true;
@@ -96,6 +110,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(232)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.webView);
             this.Controls.Add(this.monitoringButton);
             this.Controls.Add(this.mainButton);
             this.Controls.Add(this.pictureBox1);
@@ -104,6 +119,7 @@
             this.Text = "Form3";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +131,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button monitoringButton;
         private System.Windows.Forms.Button mainButton;
+        public Microsoft.Web.WebView2.WinForms.WebView2 webView;
     }
 }
