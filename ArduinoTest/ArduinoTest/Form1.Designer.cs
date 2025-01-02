@@ -287,6 +287,7 @@ namespace ArduinoTest
             this.simulationButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(30)))), ((int)(((byte)(91)))));
             this.simulationButton.Name = "simulationButton";
             this.simulationButton.UseVisualStyleBackColor = false;
+            this.simulationButton.Click += new System.EventHandler(this.simulationButton_Click);
             // 
             // Form1
             // 
