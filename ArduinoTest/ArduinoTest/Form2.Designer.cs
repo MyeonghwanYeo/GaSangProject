@@ -43,20 +43,20 @@ namespace ArduinoTest
             this.chanePWButton = new System.Windows.Forms.Button();
             this.presentPWBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.monitoringIcon = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.changeButton = new System.Windows.Forms.Button();
             this.logInButton = new System.Windows.Forms.Button();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.monitoringIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.logOutIcon = new System.Windows.Forms.PictureBox();
             this.simulationIcon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monitoringIcon)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOutIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simulationIcon)).BeginInit();
@@ -194,6 +194,21 @@ namespace ArduinoTest
             this.label3.TabIndex = 5;
             this.label3.Text = "Present PW";
             // 
+            // monitoringIcon
+            // 
+            this.monitoringIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.monitoringIcon.Image = ((System.Drawing.Image)(resources.GetObject("monitoringIcon.Image")));
+            this.monitoringIcon.Location = new System.Drawing.Point(92, 252);
+            this.monitoringIcon.Name = "monitoringIcon";
+            this.monitoringIcon.Size = new System.Drawing.Size(540, 540);
+            this.monitoringIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.monitoringIcon.TabIndex = 7;
+            this.monitoringIcon.TabStop = false;
+            this.monitoringIcon.Visible = false;
+            this.monitoringIcon.Click += new System.EventHandler(this.monitoringIcon_Click);
+            this.monitoringIcon.MouseEnter += new System.EventHandler(this.monitoringIcon_MouseEnter);
+            this.monitoringIcon.MouseLeave += new System.EventHandler(this.monitoringIcon_MouseLeave);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -258,6 +273,17 @@ namespace ArduinoTest
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -269,32 +295,6 @@ namespace ArduinoTest
             this.label1.Size = new System.Drawing.Size(133, 47);
             this.label1.TabIndex = 4;
             this.label1.Text = "odelab";
-            // 
-            // monitoringIcon
-            // 
-            this.monitoringIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.monitoringIcon.Image = ((System.Drawing.Image)(resources.GetObject("monitoringIcon.Image")));
-            this.monitoringIcon.Location = new System.Drawing.Point(92, 252);
-            this.monitoringIcon.Name = "monitoringIcon";
-            this.monitoringIcon.Size = new System.Drawing.Size(540, 540);
-            this.monitoringIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.monitoringIcon.TabIndex = 7;
-            this.monitoringIcon.TabStop = false;
-            this.monitoringIcon.Visible = false;
-            this.monitoringIcon.Click += new System.EventHandler(this.monitoringIcon_Click);
-            this.monitoringIcon.MouseEnter += new System.EventHandler(this.monitoringIcon_MouseEnter);
-            this.monitoringIcon.MouseLeave += new System.EventHandler(this.monitoringIcon_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // logOutIcon
             // 
@@ -332,7 +332,7 @@ namespace ArduinoTest
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(232)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1904, 1021);
             this.Controls.Add(this.panel1);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -341,9 +341,9 @@ namespace ArduinoTest
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monitoringIcon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.monitoringIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logOutIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simulationIcon)).EndInit();
