@@ -30,6 +30,8 @@ float targetAngle1 = 0;
 float targetAngle2 = 0;
 int startNum = 0;
 
+unsigned long pretime;
+
 String stringTarget;
 
 DynamixelShield dxl;
@@ -57,6 +59,8 @@ void setup()
 
   dxl.torqueOn(DXL_ID1);
   dxl.torqueOn(DXL_ID2);
+
+  pretime = millis();
 }
 
 void loop() 
@@ -87,12 +91,17 @@ void loop()
   dxl.setGoalPosition(DXL_ID1, targetAngle1, UNIT_DEGREE);
   dxl.setGoalPosition(DXL_ID2, targetAngle2, UNIT_DEGREE);
 
-  DEBUG_SERIAL.write(temperature1 & 0xFF);
-  //DEBUG_SERIAL.write(temperature2 & 0xFF);
-  DEBUG_SERIAL.write(voltage1 & 0xFF);
-  //DEBUG_SERIAL.write(voltage2 & 0xFF);
-  DEBUG_SERIAL.write(load1 & 0xFF);
-  //DEBUG_SERIAL.write(load2 & 0xFF);
+  unsigned long nowtime = millis();
 
-  delay(1);
+  if(nowtime - pretime >= 1000)
+  {
+    DEBUG_SERIAL.println(temperature1);
+    //DEBUG_SERIAL.write(temperature2 & 0xFF);
+    DEBUG_SERIAL.println(voltage1);
+    //DEBUG_SERIAL.write(voltage2 & 0xFF);
+    DEBUG_SERIAL.println(load1);
+    //DEBUG_SERIAL.write(load2 & 0xFF);
+
+    pretime = nowtime;
+  }
 }

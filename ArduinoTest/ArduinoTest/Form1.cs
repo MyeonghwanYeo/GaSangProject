@@ -10,81 +10,122 @@ using System.IO.Ports;
 using System.Threading;
 using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Timers;
 
 namespace ArduinoTest
 {
+
     public partial class Form1 : Form
     {
         SerialPort serialPort1 = new SerialPort();
         List<int> tempData = new List<int>();
         List<float> voltData = new List<float>();
-
         int stopNum = 0;
+
+        //public void Delay(int ms)
+        //{
+        //    DateTime dateTimeNow = DateTime.Now;
+        //    TimeSpan duration = new TimeSpan(0, 0, 0, 0, ms);
+        //    DateTime dateTimeAdd = dateTimeNow.Add(duration);
+        //
+        //    while (dateTimeAdd >= dateTimeNow)
+        //    {
+        //        System.Windows.Forms.Application.DoEvents();
+        //        dateTimeNow = DateTime.Now;
+        //    }
+        //
+        //    return;
+        //}
 
         public Form1()
         {
             InitializeComponent();
 
-            chart1.ChartAreas[0].AxisY.Minimum = 0;
-            chart1.ChartAreas[0].AxisY.Maximum = 100;
+            tempChart.ChartAreas[0].AxisX.Minimum = 0;
+            tempChart.ChartAreas[0].AxisX.Maximum = 300;
+            tempChart.ChartAreas[0].AxisY.Minimum = 0;
+            tempChart.ChartAreas[0].AxisY.Maximum = 100;
+            tempChart.Series[0].Points.Add();
+            tempChart.Series[1].Points.Add();
+            tempChart.Series[2].Points.Add();
+            tempChart.Series[3].Points.Add();
 
-            chart2.ChartAreas[0].AxisY.Minimum = 11;
-            chart2.ChartAreas[0].AxisY.Maximum = 12;
+            powerChart.ChartAreas[0].AxisX.Minimum = 0;
+            powerChart.ChartAreas[0].AxisX.Maximum = 300;
+            powerChart.ChartAreas[0].AxisY.Minimum = 11;
+            powerChart.ChartAreas[0].AxisY.Maximum = 12;
+            powerChart.Series[0].Points.Add();
+            powerChart.Series[1].Points.Add();
+            powerChart.Series[2].Points.Add();
+            powerChart.Series[3].Points.Add();
 
-            chart3.ChartAreas[0].AxisY.Minimum = 0;
-            chart3.ChartAreas[0].AxisY.Maximum = 300;
+            loadChart.ChartAreas[0].AxisX.Minimum = 0;
+            loadChart.ChartAreas[0].AxisX.Maximum = 300;
+            loadChart.ChartAreas[0].AxisY.Minimum = 0;
+            loadChart.ChartAreas[0].AxisY.Maximum = 200;
+            loadChart.Series[0].Points.Add();
+            loadChart.Series[1].Points.Add();
+            loadChart.Series[2].Points.Add();
+            loadChart.Series[3].Points.Add();
         }
 
-        public void Delay(int ms)
+        string data;
+        private void onButton_Click(object sender, EventArgs e)
         {
-            DateTime dateTimeNow = DateTime.Now;
-            TimeSpan duration = new TimeSpan(0, 0, 0, 0, ms);
-            DateTime dateTimeAdd = dateTimeNow.Add(duration);
-
-            while (dateTimeAdd >= dateTimeNow)
-            {
-                System.Windows.Forms.Application.DoEvents();
-                dateTimeNow = DateTime.Now;
-            }
-            return;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            button2.Focus();
+            offButton.Focus();
             if (!serialPort1.IsOpen) return;
-            serialPort1.Write("240.0");
+            serialPort1.Write("240");
+            //serialPort1.Write(rpmA.Text);
+            //serialPort1.Write(rpmB.Text);
+            //serialPort1.Write(rpmC.Text);
+            //serialPort1.Write(rpmD.Text);
 
-            // 데이터 읽기
             stopNum = 0;
+
+            onButton.Enabled = false;
+            offButton.Enabled = true;
+
+            DateTime dateTimeNow = DateTime.Now;
             while (stopNum == 0)
             {
-                int tempValue1 = serialPort1.ReadByte();
-                //int tempValue2 = serialPort1.ReadByte();
-                float voltValue1 = serialPort1.ReadByte()/10.0f;
-                //float voltValue2 = serialPort1.ReadByte()/10.0f;
-                int loadValue1 = serialPort1.ReadByte();
-                //int loadValue2 = serialPort1.ReadByte();
+                data = serialPort1.ReadLine();
+                int tempValue1 = int.Parse(data);
 
-                chart1.Series[0].Points.Add(tempValue1);
+                data = serialPort1.ReadLine();
+                float voltValue1 = float.Parse(data)/10.0f;
+
+                data = serialPort1.ReadLine();
+                int loadValue1 = int.Parse(data);
+
+                tempChart.Series[0].Points.Add(tempValue1);
                 //chart1.Series[1].Points.Add(tempValue2);
-                chart2.Series[0].Points.Add(voltValue1);
+                powerChart.Series[0].Points.Add(voltValue1);
                 //chart2.Series[1].Points.Add(voltValue2);
-                chart3.Series[0].Points.Add(loadValue1);
+                loadChart.Series[0].Points.Add(loadValue1);
                 //chart3.Series[1].Points.Add(loadValue2);
 
-                Delay(10);
+                TimeSpan duration = new TimeSpan(0, 0, 0, 0, 1000);
+                DateTime dateTimeAdd = dateTimeNow.Add(duration);
+
+                while (dateTimeAdd >= dateTimeNow)
+                {
+                    System.Windows.Forms.Application.DoEvents();
+                    dateTimeNow = DateTime.Now;
+                }
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void offButton_Click(object sender, EventArgs e)
         {
             if (!serialPort1.IsOpen) return;
 
             stopNum = 1;
+
+            onButton.Enabled = true;
+            offButton.Enabled = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void connectButton_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text == "") return;
             try
@@ -109,7 +150,7 @@ namespace ArduinoTest
                 MessageBox.Show("연결에러", "알림", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            button3.Text = serialPort1.IsOpen ? "Disconnect" : "Connect";
+            button3.Text = serialPort1.IsOpen ? "DISCONNECT" : "CONNECT";
             comboBox1.Enabled = !serialPort1.IsOpen;
         }
 
@@ -123,21 +164,6 @@ namespace ArduinoTest
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
