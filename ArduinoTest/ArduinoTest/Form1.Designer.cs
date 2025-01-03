@@ -91,6 +91,7 @@ namespace ArduinoTest
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.panel3 = new System.Windows.Forms.Panel();
             this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tempChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadChart)).BeginInit();
@@ -413,6 +414,7 @@ namespace ArduinoTest
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.monitoringButton);
@@ -611,6 +613,17 @@ namespace ArduinoTest
             this.webView.Source = new System.Uri("http://192.168.0.160:99/", System.UriKind.Absolute);
             this.webView.ZoomFactor = 1D;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.exportButton_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -680,6 +693,7 @@ namespace ArduinoTest
         private System.Windows.Forms.Button monitoringButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

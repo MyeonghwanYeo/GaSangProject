@@ -11,6 +11,12 @@ using System.Threading;
 using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Timers;
+using System.IO;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace ArduinoTest
 {
@@ -69,7 +75,181 @@ namespace ArduinoTest
             loadChart.Series[3].Points.Add();
         }
 
+        // Firebase 클라이언트 세팅
+        class connection
+        {
+            public IFirebaseConfig fc = new FirebaseConfig()
+            {
+                AuthSecret = "E09Dva4dBklDbRCYPQi9TGPkvCU8Ut0vn9Iji737",
+                BasePath = "https://arduinoconnectex-default-rtdb.firebaseio.com/"
+            };
+
+            public IFirebaseClient client;
+            //Code to warn console if class cannot connect when called.
+            public connection()
+            {
+                try
+                {
+                    client = new FireSharp.FirebaseClient(fc);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("오류가 발생했습니다.");
+                }
+            }
+        }
+
+        // 데이터 정보 세팅
+        public class Data
+        {
+            public string Timestamp { get; set; }
+            public string Category { get; set; }
+            public float Value { get; set; }
+        }
+
+        SerialPort port = new SerialPort();
+        Crud_temperature crud_temperature = new Crud_temperature();
+        Crud_voltage crud_voltage = new Crud_voltage();
+        Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
+
+        // Firebase 1.온도 데이터 트리 세팅 ________________________________________________
+        class Crud_temperature
+        {
+            connection conn = new connection();
+
+            //C#(windowform) -> Firebase
+            public async Task SetData(string Category, int Value, string Timestamp)
+            {
+                try
+                {
+                    Data data = new Data()
+                    {
+                        Timestamp = Timestamp,
+                        Category = Category,
+                        Value = Value
+                    };
+                    var SetData = conn.client.Set("Arduino/Crud_temperature/" + Timestamp, data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
+            }
+
+            //C#(windowform) <- Firebase
+            public Dictionary<string, Data> LoadData()
+            {
+                try
+                {
+                    FirebaseResponse al = conn.client.Get("Arduino/Crud_temperature/");
+                    Dictionary<string, Data> ListData = JsonConvert.DeserializeObject<Dictionary<string, Data>>(al.Body.ToString());
+
+                    return ListData;
+
+                }
+                catch (Exception ex)
+                {
+                    // 예외 처리
+                    Console.WriteLine("데이터를 가져오는 중 오류가 발생했습니다: " + ex.Message);
+                    return null; // 오류 발생 시 null 반환
+                }
+            }
+        }
+
+        // Firebase 2.전압 데이터 트리 세팅 ________________________________________________
+        class Crud_voltage
+        {
+            connection conn = new connection();
+
+            //C#(windowform) -> Firebase
+            public async Task SetData(string Category, float Value, string Timestamp)
+            {
+                try
+                {
+                    Data data = new Data()
+                    {
+                        Timestamp = Timestamp,
+                        Category = Category,
+                        Value = Value
+                    };
+                    var SetData = conn.client.Set("Arduino/Crud_voltage/" + Timestamp, data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
+            }
+
+            //C#(windowform) <- Firebase
+            public Dictionary<string, Data> LoadData()
+            {
+                try
+                {
+                    FirebaseResponse al = conn.client.Get("Arduino/Crud_voltage/");
+                    Dictionary<string, Data> ListData = JsonConvert.DeserializeObject<Dictionary<string, Data>>(al.Body.ToString());
+
+                    return ListData;
+                }
+                catch (Exception ex)
+                {
+                    // 예외 처리
+                    Console.WriteLine("데이터를 가져오는 중 오류가 발생했습니다: " + ex.Message);
+                    return null; // 오류 발생 시 null 반환
+                }
+            }
+        }
+
+        // Firebase 3.상대하중 데이터 트리 세팅 ________________________________________________
+        class Crud_relativeLoad
+        {
+            connection conn = new connection();
+
+            //C#(windowform) -> Firebase
+            public async Task SetData(string Category, int Value, string Timestamp)
+            {
+                try
+                {
+                    Data data = new Data()
+                    {
+                        Timestamp = Timestamp,
+                        Category = Category,
+                        Value = Value
+                    };
+                    var SetData = conn.client.Set("Arduino/Crud_relativeLoad/" + Timestamp, data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
+            }
+
+            //C#(windowform) <- Firebase
+            public Dictionary<string, Data> LoadData()
+            {
+                try
+                {
+                    FirebaseResponse al = conn.client.Get("Arduino/Crud_relativeLoad/");
+                    Dictionary<string, Data> ListData = JsonConvert.DeserializeObject<Dictionary<string, Data>>(al.Body.ToString());
+
+                    return ListData;
+                }
+                catch (Exception ex)
+                {
+                    // 예외 처리
+                    Console.WriteLine("데이터를 가져오는 중 오류가 발생했습니다: " + ex.Message);
+                    return null; // 오류 발생 시 null 반환
+                }
+            }
+        }
+
         string data;
+        public Data data_Firebase_temperature { get; private set; }
+        public Data data_Firebase_voltage { get; private set; }
+        public Data data_Firebase_relativeLoad { get; private set; }
+
         private void onButton_Click(object sender, EventArgs e)
         {
             offButton.Focus();
@@ -106,6 +286,54 @@ namespace ArduinoTest
 
                 TimeSpan duration = new TimeSpan(0, 0, 0, 0, 1000);
                 DateTime dateTimeAdd = dateTimeNow.Add(duration);
+
+                // 현재 날짜와 시간을 가져옴
+                string currentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                //-------------------------------------------------------------------------------------------------------
+                // Firebase 1.온도에 데이터 저장
+                 data_Firebase_temperature = new Data
+                {
+                    Timestamp = currentDateTime,
+                    Category = "temperature",
+                    Value = tempValue1
+
+                };
+                // 데이터 전송
+                crud_temperature.SetData("temperature", tempValue1, currentDateTime);
+
+                //-------------------------------------------------------------------------------------------------------
+                // Firebase 2.전압에 데이터 저장
+                data_Firebase_voltage = new Data
+                {
+                    Timestamp = currentDateTime,
+                    Category = "voltage",
+                    Value = voltValue1
+
+                };
+                // 데이터 전송
+                crud_voltage.SetData("voltage", voltValue1, currentDateTime);
+
+
+                while (dateTimeAdd >= dateTimeNow)
+                {
+                    System.Windows.Forms.Application.DoEvents();
+                    dateTimeNow = DateTime.Now;
+                }
+
+                //-------------------------------------------------------------------------------------------------------
+                // Firebase 3.상대하중에 데이터 저장
+                data_Firebase_relativeLoad = new Data
+                {
+                    Timestamp = currentDateTime,
+                    Category = "relativeLoad",
+                    Value = loadValue1
+
+                };
+
+                // 데이터 전송
+                crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
+
 
                 while (dateTimeAdd >= dateTimeNow)
                 {
@@ -152,6 +380,69 @@ namespace ArduinoTest
 
             button3.Text = serialPort1.IsOpen ? "DISCONNECT" : "CONNECT";
             comboBox1.Enabled = !serialPort1.IsOpen;
+        }
+
+        private async void exportButton_Click(object sender, EventArgs e)
+        {
+            if (stopNum == 0)
+            {
+                MessageBox.Show("데이터 송신을 멈추고 진행해주세요");
+                return; // 조기 반환
+            }
+
+            try
+            {
+                // 데이터 수집을 위한 StringBuilder
+                var csvData = new StringBuilder();
+                csvData.AppendLine("Timestamp,Category,Value"); // CSV 헤더
+
+                Crud_temperature crud_temperature = new Crud_temperature();
+                Crud_voltage crud_voltage = new Crud_voltage();
+                Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
+
+                // Firebase에서 데이터 가져오기
+                foreach (var item in crud_temperature.LoadData())
+                {
+                    Console.WriteLine("Timestamp :" + item.Value.Timestamp);
+                    Console.WriteLine("Category :" + item.Value.Category);
+                    Console.WriteLine("Value :" + item.Value.Value);
+                    csvData.AppendLine($"{item.Value.Timestamp},{item.Value.Category},{item.Value.Value}");
+                }
+
+                foreach (var item in crud_voltage.LoadData())
+                {
+                    Console.WriteLine("Timestamp :" + item.Value.Timestamp);
+                    Console.WriteLine("Category :" + item.Value.Category);
+                    Console.WriteLine("Value :" + item.Value.Value);
+                    csvData.AppendLine($"{item.Value.Timestamp},{item.Value.Category},{item.Value.Value}");
+                }
+                foreach (var item in crud_relativeLoad.LoadData())
+                {
+                    Console.WriteLine("Timestamp :" + item.Value.Timestamp);
+                    Console.WriteLine("Category :" + item.Value.Category);
+                    Console.WriteLine("Value :" + item.Value.Value);
+                    csvData.AppendLine($"{item.Value.Timestamp},{item.Value.Category},{item.Value.Value}");
+                }
+
+                // SaveFileDialog를 사용하여 파일 저장 위치 선택
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+                    saveFileDialog.Title = "CSV 파일 저장 위치 선택";
+                    saveFileDialog.FileName = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_data.csv"; // 기본 파일명 설정
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // 파일에 데이터 쓰기
+                        File.WriteAllText(saveFileDialog.FileName, csvData.ToString());
+                        MessageBox.Show("데이터가 성공적으로 저장되었습니다.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"오류 발생: {ex.Message}");
+            }
         }
 
         private void comboBox1_Click(object sender, EventArgs e)
