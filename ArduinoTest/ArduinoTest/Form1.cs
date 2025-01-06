@@ -17,11 +17,26 @@ using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using System.Net.Sockets;
+using System.Net;
+using System.Reactive;
+using System.Messaging;
+using System.Diagnostics;
 
 namespace ArduinoTest
 {
     public partial class Form1 : Form
     {
+        public TcpListener server;
+        public NetworkStream stream;
+        public bool isRunning = false;
+        string message_angle1 = "0";
+        string message_angle2 = "0";
+        string message_angle3 = "0";
+        string message_angle4 = "0";
+        string response = "";
+        bool cDataProcessed = false; // C_DATA가 처리되었는지 여부를 나타내는 플래그
+        private Process unityProcess;
         static double l1 = 10.0; // 첫 번째 링크 길이
         static double l2 = 15.0; // 두 번째 링크 길이
         static double l3 = 2.0; // 세 번째 링크 길이
@@ -32,9 +47,11 @@ namespace ArduinoTest
 
         double r = 0;
 
+        // winform 실행시 서버를 켠다.
         public Form1()
         {
             InitializeComponent();
+            server = new TcpListener(IPAddress.Any, 7000);
 
             maxXBox.Text = (l1 + l2 + l3).ToString();
             maxYBox.Text = (l1 + l2 + l3).ToString();
@@ -280,6 +297,12 @@ namespace ArduinoTest
                 double theta4 = 90 - (theta2Minu + theta3Minu);
                 angle4Box.Text = Math.Round(theta4, 3).ToString();
 
+                //유니티로 데이터 보내기 위해 담는 것.
+                message_angle1 = Math.Round(theta1, 3).ToString();
+                message_angle2 = Math.Round(theta2Minu, 3).ToString();
+                message_angle3 = Math.Round(theta3Minu, 3).ToString();
+                message_angle4 = Math.Round(theta4, 3).ToString();
+
                 textBox4.Text = Math.Round(theta1, 3).ToString();
                 textBox3.Text = Math.Round(theta2Plus, 3).ToString();
                 textBox2.Text = Math.Round(theta3Plus, 3).ToString();
@@ -425,6 +448,19 @@ namespace ArduinoTest
 
         private void connectButton_Click(object sender, EventArgs e)
         {
+            if (isRunning)
+            {
+                return;
+            }
+
+            isRunning = true;
+
+            server.Start();
+
+            // Thread문 활용
+            Thread thread = new Thread(update);
+            thread.Start();
+
             if (comboBox1.Text == "") return;
             try
             {
@@ -450,6 +486,46 @@ namespace ArduinoTest
 
             button3.Text = serialPort1.IsOpen ? "DISCONNECT" : "CONNECT";
             comboBox1.Enabled = !serialPort1.IsOpen;
+        }
+
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        string messageFromClient;
+
+        // 서버가 실행되고 나서 반복 실행이 되게끔.. Thread를 만들고 위에서 버튼 클릭시 무한 작동함.
+        void update()
+        {
+            TcpClient client = server.AcceptTcpClient(); // 클라이언트가 서버로 들어갈때 사용하는 코드
+            stream = client.GetStream(); // 서버로 들어온 후 클라이언트가 열은 소통창구인 stream
+
+            while (isRunning)
+            {
+                bytesRead = stream.Read(buffer, 0, buffer.Length); // 클라이언트와 서버간 소통 내용을 bytesRead에 담음
+                messageFromClient = Encoding.UTF8.GetString(buffer, 0, bytesRead); // 서버 언어 -> 클라이언트 언어으로 통역
+
+                if (messageFromClient.Contains("Connect")) // 서버로 들어온 클라이언트 언어가 connect일때 response으로 담음.
+                {
+                    response = "서버에 잘 연결 되었습니다.";
+                }
+                else if (messageFromClient.Contains("C_DATA")) // C_DATA가 처음 들어왔을 때만 처리
+                {
+                    response = $"{ message_angle1},{message_angle2},{message_angle3},{message_angle4}";
+                    cDataProcessed = false; // 다음 C_DATA를 위해 플래그를 초기화
+                }
+                else if (messageFromClient.Contains("Disconnect"))
+                {
+                    response = "서버가 종료되었습니다.";
+                }
+                else
+                {
+                    response = "";
+                }
+
+                byte[] responseBytes = new byte[1024]; // 1024개의 바이트를 저장할 수 있는 배열 준비
+                responseBytes = Encoding.UTF8.GetBytes(response); // response의 새로운 배열 준비
+                stream.Write(responseBytes, 0, responseBytes.Length); // responseBytes의 내용을 stream에 작성함.
+
+            }
         }
 
         private async void exportButton_Click(object sender, EventArgs e)

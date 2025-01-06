@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 public class TCPClientEx : MonoBehaviour
 {
-    public float waitTime = 0.5f;
-    public Transform obj;
-    public Transform pointA;
-    public Transform pointB;
+    public float waitTime = 1.0f;
+    public float message_angle1;
+    public float message_angle2;
+    public float message_angle3;
+    public float message_angle4;
     private bool isConnected;
     NetworkStream stream;
     TcpClient client;
@@ -72,6 +73,8 @@ public class TCPClientEx : MonoBehaviour
             string ret = Request("C_DATA");
             print(ret);
 
+            ProcessReceivedData(ret);
+
             yield return new WaitForSeconds(waitTime);
         }
     }
@@ -108,6 +111,24 @@ public class TCPClientEx : MonoBehaviour
         }
     }
 
+    // 이 메서드는 서버로부터 받은 메시지를 처리합니다.
+    public void ProcessReceivedData(string data)
+    {
+        // 데이터 문자열을 파싱하여 각 값을 추출합니다.
+        string[] values = data.Trim('(', ')').Split(',');
+            // 각 값을 float로 변환합니다.
+            float angle1 = float.Parse(values[0]);
+            float angle2 = float.Parse(values[1]);
+            float angle3 = float.Parse(values[2]);
+            float angle4 = float.Parse(values[3]);
+
+        // Transform 객체의 회전값을 설정합니다.
+        message_angle1 = angle1;
+        message_angle2 = angle2;
+        message_angle3 = angle3;
+        message_angle4 = angle4;
+
+    }
 
     public void OnDisconnectBtnClkEvent()
     {
