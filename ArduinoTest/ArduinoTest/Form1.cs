@@ -297,6 +297,11 @@ namespace ArduinoTest
                 double theta4 = 90 - (theta2CW - theta3CW);
                 angle4Box.Text = Math.Round(theta4, 3).ToString();
 
+               message_angle1 = Math.Round(theta1, 3).ToString();
+               message_angle2 = Math.Round(theta2CW, 3).ToString();
+               message_angle3 = Math.Round(-theta3CW, 3).ToString();
+               message_angle4 = Math.Round(theta4, 3).ToString();
+
                 textBox4.Text = Math.Round(theta1, 3).ToString();
                 textBox3.Text = Math.Round(theta2CCW, 3).ToString();
                 textBox2.Text = Math.Round(-theta3CCW, 3).ToString();
