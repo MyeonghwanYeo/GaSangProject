@@ -20,32 +20,25 @@ using System.Threading.Tasks;
 
 namespace ArduinoTest
 {
-
     public partial class Form1 : Form
     {
+        static double l1 = 10.0; // 첫 번째 링크 길이
+        static double l2 = 15.0; // 두 번째 링크 길이
+        static double l3 = 2.0; // 세 번째 링크 길이
+
         SerialPort serialPort1 = new SerialPort();
-        List<int> tempData = new List<int>();
-        List<float> voltData = new List<float>();
+
         int stopNum = 0;
 
-        //public void Delay(int ms)
-        //{
-        //    DateTime dateTimeNow = DateTime.Now;
-        //    TimeSpan duration = new TimeSpan(0, 0, 0, 0, ms);
-        //    DateTime dateTimeAdd = dateTimeNow.Add(duration);
-        //
-        //    while (dateTimeAdd >= dateTimeNow)
-        //    {
-        //        System.Windows.Forms.Application.DoEvents();
-        //        dateTimeNow = DateTime.Now;
-        //    }
-        //
-        //    return;
-        //}
+        double r = 0;
 
         public Form1()
         {
             InitializeComponent();
+
+            maxXBox.Text = (l1 + l2 + l3).ToString();
+            maxYBox.Text = (l1 + l2 + l3).ToString();
+            maxZBox.Text = (l1 + l2 + l3).ToString();
 
             tempChart.ChartAreas[0].AxisX.Minimum = 0;
             tempChart.ChartAreas[0].AxisX.Maximum = 300;
@@ -249,6 +242,83 @@ namespace ArduinoTest
         public Data data_Firebase_temperature { get; private set; }
         public Data data_Firebase_voltage { get; private set; }
         public Data data_Firebase_relativeLoad { get; private set; }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            if (endXBox.Text != "" && endYBox.Text != "" && endZBox.Text != "")
+            {
+                double x = double.Parse(endXBox.Text);
+
+                double y = double.Parse(endYBox.Text);
+
+                double z = double.Parse(endZBox.Text);
+
+                r = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+
+                double theta1 = Math.Atan2(y, x) * (180 / Math.PI);
+
+                z = z - l3;
+
+                double cosTheta3 = (Math.Pow(r, 2) + Math.Pow(z, 2) - Math.Pow(l1, 2) - Math.Pow(l2, 2)) / (2 * l1 * l2);
+
+                double sinTheta3Plus = Math.Sqrt(1 - Math.Pow(cosTheta3, 2));
+
+                double theta3Plus = Math.Atan2(sinTheta3Plus, cosTheta3) * (180 / Math.PI);
+
+                double theta2Plus = (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3Plus, l1 + l2 * cosTheta3)) * (180 / Math.PI);
+
+                double sinTheta3Minu = Math.Sqrt(1 - Math.Pow(cosTheta3, 2)) * (-1);
+
+                double theta3Minu = Math.Atan2(sinTheta3Minu, cosTheta3) * (180 / Math.PI);
+
+                double theta2Minu = (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3Minu, l1 + l2 * cosTheta3)) * (180 / Math.PI);
+
+                angle1Box.Text = Math.Round(theta1, 3).ToString();
+                angle2Box.Text = Math.Round(theta2Minu, 3).ToString();
+                angle3Box.Text = Math.Round(theta3Minu, 3).ToString();
+
+                double theta4 = 90 - (theta2Minu + theta3Minu);
+                angle4Box.Text = Math.Round(theta4, 3).ToString();
+
+                textBox4.Text = Math.Round(theta1, 3).ToString();
+                textBox3.Text = Math.Round(theta2Plus, 3).ToString();
+                textBox2.Text = Math.Round(theta3Plus, 3).ToString();
+
+                theta4 = 90 - (theta2Plus + theta3Plus);
+                textBox1.Text = Math.Round(theta4, 3).ToString();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void endXBox_TextChanged(object sender, EventArgs e)
+        {
+            double maxReach = l1 + l2 + l3;
+
+            double x = double.Parse(endXBox.Text);
+
+            maxYBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(x, 2))), 3).ToString();
+        }
+
+        private void endYBox_TextChanged(object sender, EventArgs e)
+        {
+            double maxReach = l1 + l2 + l3;
+
+            double x = double.Parse(endXBox.Text);
+
+            double y = 0;
+
+            if (endYBox.Text != "")
+            {
+                y = double.Parse(endYBox.Text);
+            }
+
+            r = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+
+            maxZBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(r, 2))), 3).ToString();
+        }
 
         private void onButton_Click(object sender, EventArgs e)
         {
