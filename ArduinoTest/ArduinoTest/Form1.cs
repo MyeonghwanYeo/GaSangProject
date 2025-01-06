@@ -264,51 +264,48 @@ namespace ArduinoTest
         {
             if (endXBox.Text != "" && endYBox.Text != "" && endZBox.Text != "")
             {
-                double x = double.Parse(endXBox.Text);
+                double x = double.Parse(endYBox.Text);
 
-                double y = double.Parse(endYBox.Text);
+                double y = double.Parse(endXBox.Text);
 
                 double z = double.Parse(endZBox.Text);
 
                 r = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
 
-                double theta1 = Math.Atan2(y, x) * (180 / Math.PI);
+                double theta1 = Math.Atan2(y, x) * (-180 / Math.PI);
 
                 z = z - l3;
 
                 double cosTheta3 = (Math.Pow(r, 2) + Math.Pow(z, 2) - Math.Pow(l1, 2) - Math.Pow(l2, 2)) / (2 * l1 * l2);
 
-                double sinTheta3Plus = Math.Sqrt(1 - Math.Pow(cosTheta3, 2));
+                double sinTheta3CW = Math.Sqrt(1 - Math.Pow(cosTheta3, 2)) * (-1);
 
-                double theta3Plus = Math.Atan2(sinTheta3Plus, cosTheta3) * (180 / Math.PI);
+                double theta3CW = Math.Atan2(sinTheta3CW, cosTheta3) * (180 / Math.PI);
 
-                double theta2Plus = (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3Plus, l1 + l2 * cosTheta3)) * (180 / Math.PI);
+                double theta2CW = 90 - (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3CW, l1 + l2 * cosTheta3)) * (180 / Math.PI);
 
-                double sinTheta3Minu = Math.Sqrt(1 - Math.Pow(cosTheta3, 2)) * (-1);
+                double sinTheta3CCW = Math.Sqrt(1 - Math.Pow(cosTheta3, 2));
 
-                double theta3Minu = Math.Atan2(sinTheta3Minu, cosTheta3) * (180 / Math.PI);
+                double theta3CCW = Math.Atan2(sinTheta3CCW, cosTheta3) * (180 / Math.PI);
 
-                double theta2Minu = (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3Minu, l1 + l2 * cosTheta3)) * (180 / Math.PI);
+                double theta2CCW = 90 - (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3CCW, l1 + l2 * cosTheta3)) * (180 / Math.PI);
 
                 angle1Box.Text = Math.Round(theta1, 3).ToString();
-                angle2Box.Text = Math.Round(theta2Minu, 3).ToString();
-                angle3Box.Text = Math.Round(theta3Minu, 3).ToString();
+                angle2Box.Text = Math.Round(theta2CW, 3).ToString();
+                angle3Box.Text = Math.Round(-theta3CW, 3).ToString();
 
-                double theta4 = 90 - (theta2Minu + theta3Minu);
+                double theta4 = 90 - (theta2CW - theta3CW);
                 angle4Box.Text = Math.Round(theta4, 3).ToString();
 
-                //유니티로 데이터 보내기 위해 담는 것.
-                message_angle1 = Math.Round(theta1, 3).ToString();
-                message_angle2 = Math.Round(theta2Minu, 3).ToString();
-                message_angle3 = Math.Round(theta3Minu, 3).ToString();
-                message_angle4 = Math.Round(theta4, 3).ToString();
-
                 textBox4.Text = Math.Round(theta1, 3).ToString();
-                textBox3.Text = Math.Round(theta2Plus, 3).ToString();
-                textBox2.Text = Math.Round(theta3Plus, 3).ToString();
+                textBox3.Text = Math.Round(theta2CCW, 3).ToString();
+                textBox2.Text = Math.Round(-theta3CCW, 3).ToString();
 
-                theta4 = 90 - (theta2Plus + theta3Plus);
+                theta4 = 90 - (theta2CCW - theta3CCW);
                 textBox1.Text = Math.Round(theta4, 3).ToString();
+
+                textBox6.Text = Math.Round((l1 * Math.Sin(theta2CW * Math.PI / 180) + l2 * Math.Sin((theta2CW - theta3CW) * Math.PI / 180)), 3).ToString();
+                textBox5.Text = Math.Round((l1 * Math.Cos(theta2CW * Math.PI / 180) + l2 * Math.Cos((theta2CW - theta3CW) * Math.PI / 180) + l3), 3).ToString();
             }
             else
             {
@@ -318,29 +315,43 @@ namespace ArduinoTest
 
         private void endXBox_TextChanged(object sender, EventArgs e)
         {
+            textChanged();
+        }
+
+        private void endYBox_TextChanged(object sender, EventArgs e)
+        {
+            textChanged();
+        }
+
+        private void endZBox_TextChanged(object sender, EventArgs e)
+        {
+            textChanged();
+        }
+
+        public void textChanged()
+        {
             double maxReach = l1 + l2 + l3;
 
             double x = double.Parse(endXBox.Text);
 
             maxYBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(x, 2))), 3).ToString();
-        }
-
-        private void endYBox_TextChanged(object sender, EventArgs e)
-        {
-            double maxReach = l1 + l2 + l3;
-
-            double x = double.Parse(endXBox.Text);
 
             double y = 0;
 
             if (endYBox.Text != "")
             {
                 y = double.Parse(endYBox.Text);
+
+                r = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+
+                maxZBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(r, 2))), 3).ToString();
+
+                textBox7.Text = Math.Round(r, 3).ToString();
             }
-
-            r = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
-
-            maxZBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(r, 2))), 3).ToString();
+            else
+            {
+                return;
+            }
         }
 
         private void onButton_Click(object sender, EventArgs e)
