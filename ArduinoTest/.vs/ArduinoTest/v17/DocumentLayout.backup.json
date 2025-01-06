@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|c:\\git_group_project\\gasangproject\\arduinotest\\arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|solutionrelative:arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|c:\\git_group_project\\gasangproject\\arduinotest\\arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82D795DC-29BC-4093-B031-D0049024337C}|ArduinoTest\\ArduinoTest.csproj|solutionrelative:arduinotest\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -62,8 +62,7 @@
               "RelativeToolTip": "ArduinoTest\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T02:33:37.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T02:33:37.052Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,8 @@
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "ArduinoTest\\Form1.Designer.cs",
-              "ToolTip": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.Designer.cs",
-              "RelativeToolTip": "ArduinoTest\\Form1.Designer.cs",
+              "ToolTip": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.Designer.cs*",
+              "RelativeToolTip": "ArduinoTest\\Form1.Designer.cs*",
               "ViewState": "AgIAAPECAAAAAAAAAAAQwAQDAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-02T05:24:47.811Z",
@@ -84,8 +83,8 @@
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs",
               "RelativeDocumentMoniker": "ArduinoTest\\Form1.cs",
-              "ToolTip": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs",
-              "RelativeToolTip": "ArduinoTest\\Form1.cs",
+              "ToolTip": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs*",
+              "RelativeToolTip": "ArduinoTest\\Form1.cs*",
               "ViewState": "AgIAAOEAAAAAAAAAAAAuwPUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-02T05:24:15.817Z",
@@ -97,8 +96,8 @@
               "Title": "Form1.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs",
               "RelativeDocumentMoniker": "ArduinoTest\\Form1.cs",
-              "ToolTip": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "ArduinoTest\\Form1.cs [\uB514\uC790\uC778]",
+              "ToolTip": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form1.cs [\uB514\uC790\uC778]*",
+              "RelativeToolTip": "ArduinoTest\\Form1.cs [\uB514\uC790\uC778]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-31T07:59:15.896Z",
               "EditorCaption": " [\uB514\uC790\uC778]"
@@ -113,8 +112,7 @@
               "RelativeToolTip": "ArduinoTest\\Form2.cs",
               "ViewState": "AgIAAHIAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T08:04:40.911Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T08:04:40.911Z"
             },
             {
               "$type": "Document",
@@ -125,8 +123,7 @@
               "ToolTip": "C:\\Git_Group_Project\\GaSangProject\\ArduinoTest\\ArduinoTest\\Form2.cs [\uB514\uC790\uC778]",
               "RelativeToolTip": "ArduinoTest\\Form2.cs [\uB514\uC790\uC778]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T11:16:20.457Z",
-              "EditorCaption": " [\uB514\uC790\uC778]"
+              "WhenOpened": "2024-12-28T11:16:20.457Z"
             }
           ]
         }
