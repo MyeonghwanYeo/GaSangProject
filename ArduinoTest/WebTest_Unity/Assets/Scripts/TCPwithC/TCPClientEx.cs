@@ -67,7 +67,6 @@ public class TCPClientEx : MonoBehaviour
     [SerializeField] Transform motorAxis4;
 
     public List<Step> steps = new List<Step>();
-    Step step1 = new Step();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -85,14 +84,15 @@ public class TCPClientEx : MonoBehaviour
         }
 
 
+        Step stepO = new Step();
         steps = new List<Step>();
 
-        step1.angleAxis1 = 0;
-        step1.angleAxis2 = 0;
-        step1.angleAxis3 = 0;
-        step1.angleAxis4 = 0;
+        stepO.angleAxis1 = 0;
+        stepO.angleAxis2 = 0;
+        stepO.angleAxis3 = 0;
+        stepO.angleAxis4 = 0;
 
-        steps.Add(step1);
+        steps.Add(stepO);
     }
 
     // Update is called once per frame
@@ -136,6 +136,7 @@ public class TCPClientEx : MonoBehaviour
             print(ret);
 
             int collect = ProcessReceivedData(ret);
+
             if (collect == 1)
             {
                 yield return RunOrigin(steps[steps.Count-2], steps[steps.Count-1]);
@@ -191,6 +192,7 @@ public class TCPClientEx : MonoBehaviour
 
         if(angle1 != steps[steps.Count - 1].angleAxis1 || angle2 != steps[steps.Count - 1].angleAxis2 || angle3 != steps[steps.Count - 1].angleAxis3 || angle4 != steps[steps.Count - 1].angleAxis4)
         {
+            Step step1 = new Step();
             step1.angleAxis1 = angle1;
             step1.angleAxis2 = angle2;
             step1.angleAxis3 = angle3;
@@ -208,13 +210,13 @@ public class TCPClientEx : MonoBehaviour
             InputField4.text = angle4.ToString();
             
             steps.Add(step1);
+            return 1;
         }
         else
         {
             return 0;
         }
 
-        return 1;
     }
 
     IEnumerator RunOrigin(Step prevStep, Step nextStep)
@@ -233,16 +235,20 @@ public class TCPClientEx : MonoBehaviour
         Vector3 nextAxis4AEuler = new Vector3(0, 0, nextStep.angleAxis4);
 
         float currentTime = 0;
-        currentTime += Time.deltaTime;
 
-        motorAxis1.localRotation = RotateAngle(prevAxis1Euler, nextAxis1AEuler, currentTime / (prevStep.speed * 0.01f) );
-        motorAxis2.localRotation = RotateAngle(prevAxis2Euler, nextAxis2AEuler, currentTime / (prevStep.speed * 0.01f));
-        motorAxis3.localRotation = RotateAngle(prevAxis3Euler, nextAxis3AEuler, currentTime / (prevStep.speed * 0.01f));
-        motorAxis4.localRotation = RotateAngle(prevAxis4Euler, nextAxis4AEuler, currentTime / (prevStep.speed * 0.01f));
 
-        cycleTime += Time.deltaTime;
+        while (currentTime < (prevStep.speed * 0.01f))
+        {
+            currentTime += Time.deltaTime;
 
-        yield return new WaitForEndOfFrame();
+            motorAxis1.localRotation = RotateAngle(prevAxis1Euler, nextAxis1AEuler, currentTime / (prevStep.speed * 0.01f));
+            motorAxis2.localRotation = RotateAngle(prevAxis2Euler, nextAxis2AEuler, currentTime / (prevStep.speed * 0.01f));
+            motorAxis3.localRotation = RotateAngle(prevAxis3Euler, nextAxis3AEuler, currentTime / (prevStep.speed * 0.01f));
+            motorAxis4.localRotation = RotateAngle(prevAxis4Euler, nextAxis4AEuler, currentTime / (prevStep.speed * 0.01f));
+
+            //cycleTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     private Quaternion RotateAngle(Vector3 from, Vector3 to, float t)
