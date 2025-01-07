@@ -655,5 +655,10 @@ namespace ArduinoTest
             monitoringButton.Enabled = false;
             monitoringButton.Visible = false;
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
+        }
     }
 }
