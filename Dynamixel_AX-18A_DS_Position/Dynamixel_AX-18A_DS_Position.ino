@@ -15,10 +15,10 @@
 #endif
 
 const uint8_t DXL_ID1 = 6;
-const uint8_t DXL_ID2 = 3;
-const uint8_t DXL_ID3 = 2;
-const uint8_t DXL_ID4 = 1;
-const uint8_t DXL_ID5 = 0;
+const uint8_t DXL_ID2 = 2;
+const uint8_t DXL_ID3 = 3;
+const uint8_t DXL_ID4 = 4;
+const uint8_t DXL_ID5 = 5;
 const float DXL_PROTOCOL_VERSION = 1.0;
 
 int startNum = 0;
@@ -102,37 +102,37 @@ void loop()
   }
 
   dxl.writeControlTableItem(MOVING_SPEED, DXL_ID1, stringRPM1.toInt()*114/1024);
-  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID2, stringRPM2.toInt()*114/1024);
-  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID3, stringRPM1.toInt()*114/1024);
-  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID4, stringRPM2.toInt()*114/1024);
-  dxl.writeControlTableItem(MOVING_SPEED, DXL_ID5, stringRPM1.toInt()*114/1024);
+  // dxl.writeControlTableItem(MOVING_SPEED, DXL_ID2, stringRPM2.toInt()*114/1024);
+  // dxl.writeControlTableItem(MOVING_SPEED, DXL_ID3, stringRPM1.toInt()*114/1024);
+  // dxl.writeControlTableItem(MOVING_SPEED, DXL_ID4, stringRPM2.toInt()*114/1024);
+  // dxl.writeControlTableItem(MOVING_SPEED, DXL_ID5, stringRPM1.toInt()*114/1024);
   
   int temperature1 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID1);
-  int temperature2 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID2);
-  int temperature3 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID3);
-  int temperature4 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID4);
-  int temperature5 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID5);
+  // int temperature2 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID2);
+  // int temperature3 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID3);
+  // int temperature4 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID4);
+  // int temperature5 = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID5);
   int voltage1 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID1);
-  int voltage2 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID2);
-  int voltage3 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID3);
-  int voltage4 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID4);
-  int voltage5 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID5);
+  // int voltage2 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID2);
+  // int voltage3 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID3);
+  // int voltage4 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID4);
+  // int voltage5 = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID5);
   int load1 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID1);
-  int load2 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID2);
-  int load3 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID3);
-  int load4 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID4);
-  int load5 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID5);
+  // int load2 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID2);
+  // int load3 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID3);
+  // int load4 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID4);
+  // int load5 = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID5);
 
   float presentAngle1 = dxl.getPresentPosition(DXL_ID1, UNIT_DEGREE);
-  float presentAngle2 = dxl.getPresentPosition(DXL_ID2, UNIT_DEGREE);
-  float presentAngle3 = dxl.getPresentPosition(DXL_ID3, UNIT_DEGREE);
-  float presentAngle4 = dxl.getPresentPosition(DXL_ID4, UNIT_DEGREE);
-  float presentAngle5 = dxl.getPresentPosition(DXL_ID5, UNIT_DEGREE);
+  // float presentAngle2 = dxl.getPresentPosition(DXL_ID2, UNIT_DEGREE);
+  // float presentAngle3 = dxl.getPresentPosition(DXL_ID3, UNIT_DEGREE);
+  // float presentAngle4 = dxl.getPresentPosition(DXL_ID4, UNIT_DEGREE);
+  // float presentAngle5 = dxl.getPresentPosition(DXL_ID5, UNIT_DEGREE);
   float targetAngle1 = stringTarget1.toFloat();
-  float targetAngle2 = stringTarget2.toFloat();
-  float targetAngle3 = stringTarget3.toFloat();
-  float targetAngle4 = stringTarget4.toFloat();
-  float targetAngle5 = stringTarget5.toFloat();
+  // float targetAngle2 = stringTarget2.toFloat();
+  // float targetAngle3 = stringTarget3.toFloat();
+  // float targetAngle4 = stringTarget4.toFloat();
+  // float targetAngle5 = stringTarget5.toFloat();
 
   dxl.setGoalPosition(DXL_ID1, targetAngle1, UNIT_DEGREE);
   // dxl.setGoalPosition(DXL_ID2, targetAngle2, UNIT_DEGREE);

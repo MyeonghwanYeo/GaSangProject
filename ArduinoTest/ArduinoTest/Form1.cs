@@ -47,7 +47,11 @@ namespace ArduinoTest
 
         double r = 0;
 
-        // winform 실행시 서버를 켠다.
+        Crud_temperature crud_temperature = new Crud_temperature();
+        Crud_voltage crud_voltage = new Crud_voltage();
+        Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
+
+        // 윈폼 실행시 서버 오픈
         public Form1()
         {
             InitializeComponent();
@@ -117,17 +121,13 @@ namespace ArduinoTest
             public float Value { get; set; }
         }
 
-        SerialPort port = new SerialPort();
-        Crud_temperature crud_temperature = new Crud_temperature();
-        Crud_voltage crud_voltage = new Crud_voltage();
-        Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
 
-        // Firebase 1.온도 데이터 트리 세팅 ________________________________________________
+        // Firebase 1. 온도 데이터 트리 세팅
         class Crud_temperature
         {
             connection conn = new connection();
 
-            //C#(windowform) -> Firebase
+            // C# (Windows Forms) => Firebase
             public async Task SetData(string Category, int Value, string Timestamp)
             {
                 try
@@ -147,7 +147,7 @@ namespace ArduinoTest
 
             }
 
-            //C#(windowform) <- Firebase
+            // C# (Windows Forms) <= Firebase
             public Dictionary<string, Data> LoadData()
             {
                 try
@@ -162,17 +162,17 @@ namespace ArduinoTest
                 {
                     // 예외 처리
                     Console.WriteLine("데이터를 가져오는 중 오류가 발생했습니다: " + ex.Message);
-                    return null; // 오류 발생 시 null 반환
+                    return null;
                 }
             }
         }
 
-        // Firebase 2.전압 데이터 트리 세팅 ________________________________________________
+        // Firebase 2. 전압 데이터 트리 세팅
         class Crud_voltage
         {
             connection conn = new connection();
 
-            //C#(windowform) -> Firebase
+            // C# (Windows Forms) => Firebase
             public async Task SetData(string Category, float Value, string Timestamp)
             {
                 try
@@ -192,7 +192,7 @@ namespace ArduinoTest
 
             }
 
-            //C#(windowform) <- Firebase
+            // C# (Windows Forms) <= Firebase
             public Dictionary<string, Data> LoadData()
             {
                 try
@@ -206,17 +206,17 @@ namespace ArduinoTest
                 {
                     // 예외 처리
                     Console.WriteLine("데이터를 가져오는 중 오류가 발생했습니다: " + ex.Message);
-                    return null; // 오류 발생 시 null 반환
+                    return null;
                 }
             }
         }
 
-        // Firebase 3.상대하중 데이터 트리 세팅 ________________________________________________
+        // Firebase 3. 상대하중 데이터 트리 세팅
         class Crud_relativeLoad
         {
             connection conn = new connection();
 
-            //C#(windowform) -> Firebase
+            // C# (Windows Forms) => Firebase
             public async Task SetData(string Category, int Value, string Timestamp)
             {
                 try
@@ -236,7 +236,7 @@ namespace ArduinoTest
 
             }
 
-            //C#(windowform) <- Firebase
+            // C# (Windows Forms) <= Firebase
             public Dictionary<string, Data> LoadData()
             {
                 try
@@ -250,7 +250,7 @@ namespace ArduinoTest
                 {
                     // 예외 처리
                     Console.WriteLine("데이터를 가져오는 중 오류가 발생했습니다: " + ex.Message);
-                    return null; // 오류 발생 시 null 반환
+                    return null;
                 }
             }
         }
@@ -363,11 +363,20 @@ namespace ArduinoTest
         {
             offButton.Focus();
             if (!serialPort1.IsOpen) return;
-            serialPort1.Write("240");
-            //serialPort1.Write(rpmA.Text);
-            //serialPort1.Write(rpmB.Text);
-            //serialPort1.Write(rpmC.Text);
-            //serialPort1.Write(rpmD.Text);
+
+            // 각도 정보 "Arduino IDE"에 전달
+            serialPort1.Write("200");
+            serialPort1.Write("140");
+            serialPort1.Write("140");
+            serialPort1.Write("130");
+            serialPort1.Write("130");
+
+            // RPM 정보 "Arduino IDE"에 전달
+            serialPort1.Write(rpmA.Text);
+            serialPort1.Write(rpmB.Text);
+            serialPort1.Write(rpmB.Text);
+            serialPort1.Write(rpmC.Text);
+            serialPort1.Write(rpmD.Text);
 
             stopNum = 0;
 
@@ -381,38 +390,36 @@ namespace ArduinoTest
                 int tempValue1 = int.Parse(data);
 
                 data = serialPort1.ReadLine();
-                float voltValue1 = float.Parse(data)/10.0f;
+                float voltValue1 = float.Parse(data) / 10.0f;
 
                 data = serialPort1.ReadLine();
                 int loadValue1 = int.Parse(data);
 
                 tempChart.Series[0].Points.Add(tempValue1);
-                //chart1.Series[1].Points.Add(tempValue2);
+                //tempChart.Series[1].Points.Add(tempValue2);
                 powerChart.Series[0].Points.Add(voltValue1);
-                //chart2.Series[1].Points.Add(voltValue2);
+                //powerChart.Series[1].Points.Add(voltValue2);
                 loadChart.Series[0].Points.Add(loadValue1);
-                //chart3.Series[1].Points.Add(loadValue2);
+                //loadChart.Series[1].Points.Add(loadValue2);
 
                 TimeSpan duration = new TimeSpan(0, 0, 0, 0, 1000);
                 DateTime dateTimeAdd = dateTimeNow.Add(duration);
 
-                // 현재 날짜와 시간을 가져옴
-                string currentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                // 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
+                string currentDateTime = dateTimeNow.ToString("yyyy-MM-dd HH:mm:ss");
 
-                //-------------------------------------------------------------------------------------------------------
-                // Firebase 1.온도에 데이터 저장
-                 data_Firebase_temperature = new Data
+                // Firebase 1. 온도 데이터 저장
+                data_Firebase_temperature = new Data
                 {
                     Timestamp = currentDateTime,
                     Category = "temperature",
                     Value = tempValue1
 
                 };
-                // 데이터 전송
+                // 온도 데이터 전송
                 crud_temperature.SetData("temperature", tempValue1, currentDateTime);
 
-                //-------------------------------------------------------------------------------------------------------
-                // Firebase 2.전압에 데이터 저장
+                // Firebase 2. 전압 데이터 저장
                 data_Firebase_voltage = new Data
                 {
                     Timestamp = currentDateTime,
@@ -420,18 +427,10 @@ namespace ArduinoTest
                     Value = voltValue1
 
                 };
-                // 데이터 전송
+                // 전압 데이터 전송
                 crud_voltage.SetData("voltage", voltValue1, currentDateTime);
 
-
-                while (dateTimeAdd >= dateTimeNow)
-                {
-                    System.Windows.Forms.Application.DoEvents();
-                    dateTimeNow = DateTime.Now;
-                }
-
-                //-------------------------------------------------------------------------------------------------------
-                // Firebase 3.상대하중에 데이터 저장
+                // Firebase 3. 하중 데이터 저장
                 data_Firebase_relativeLoad = new Data
                 {
                     Timestamp = currentDateTime,
@@ -439,10 +438,8 @@ namespace ArduinoTest
                     Value = loadValue1
 
                 };
-
-                // 데이터 전송
+                // 하중 데이터 전송
                 crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
-
 
                 while (dateTimeAdd >= dateTimeNow)
                 {
@@ -473,11 +470,12 @@ namespace ArduinoTest
 
             server.Start();
 
-            // Thread문 활용
+            // "Thread"구문 활용
             Thread thread = new Thread(update);
             thread.Start();
 
-            if (comboBox1.Text == "") return;
+            if (portBox.Text == "") return;
+
             try
             {
                 if (serialPort1.IsOpen)
@@ -487,8 +485,8 @@ namespace ArduinoTest
                 }
                 else
                 {
-                    serialPort1.PortName = comboBox1.SelectedItem.ToString();
-                    serialPort1.BaudRate = 115200;                              
+                    serialPort1.PortName = portBox.SelectedItem.ToString();
+                    serialPort1.BaudRate = int.Parse(baudRateBox.SelectedItem.ToString());
                     serialPort1.DataBits = 8;
                     serialPort1.StopBits = StopBits.One;                      // "StopBits": 정지비트의 수를 나타내는 열거형
                     serialPort1.Parity = Parity.None;                         // "Parity Bit": 데이터 전송 중 오류를 감지하는데 활용
@@ -501,7 +499,7 @@ namespace ArduinoTest
             }
 
             button3.Text = serialPort1.IsOpen ? "DISCONNECT" : "CONNECT";
-            comboBox1.Enabled = !serialPort1.IsOpen;
+            portBox.Enabled = !serialPort1.IsOpen;
         }
 
         byte[] buffer = new byte[1024];
@@ -554,7 +552,7 @@ namespace ArduinoTest
 
             try
             {
-                // 데이터 수집을 위한 StringBuilder
+                // 데이터 수집을 위한 "StringBuilder"
                 var csvData = new StringBuilder();
                 csvData.AppendLine("Timestamp,Category,Value"); // CSV 헤더
 
@@ -562,7 +560,7 @@ namespace ArduinoTest
                 Crud_voltage crud_voltage = new Crud_voltage();
                 Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
 
-                // Firebase에서 데이터 가져오기
+                // "Firebase"에서 데이터 가져오기
                 foreach (var item in crud_temperature.LoadData())
                 {
                     Console.WriteLine("Timestamp :" + item.Value.Timestamp);
@@ -586,7 +584,7 @@ namespace ArduinoTest
                     csvData.AppendLine($"{item.Value.Timestamp},{item.Value.Category},{item.Value.Value}");
                 }
 
-                // SaveFileDialog를 사용하여 파일 저장 위치 선택
+                // "SaveFileDialog"를 사용하여 파일 저장 위치 선택
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
                     saveFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
@@ -607,13 +605,34 @@ namespace ArduinoTest
             }
         }
 
-        private void comboBox1_Click(object sender, EventArgs e)
+        private void portBox_Click(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
+            portBox.Items.Clear();
+            
             foreach (var item in SerialPort.GetPortNames())
             {
-                comboBox1.Items.Add(item);
+                portBox.Items.Add(item);
             }
+        }
+
+        private void baudRateBox_Click(object sender, EventArgs e)
+        {
+            baudRateBox.Items.Clear();
+
+            baudRateBox.Items.Add("2400");
+            baudRateBox.Items.Add("4800");
+            baudRateBox.Items.Add("9600");
+            baudRateBox.Items.Add("14400");
+            baudRateBox.Items.Add("19200");
+            baudRateBox.Items.Add("28800");
+            baudRateBox.Items.Add("38400");
+            baudRateBox.Items.Add("57600");
+            baudRateBox.Items.Add("76800");
+            baudRateBox.Items.Add("115200");
+            baudRateBox.Items.Add("230400");
+            baudRateBox.Items.Add("250000");
+            baudRateBox.Items.Add("500000");
+            baudRateBox.Items.Add("1000000");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -656,9 +675,24 @@ namespace ArduinoTest
             monitoringButton.Visible = false;
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void motorABar_Scroll(object sender, EventArgs e)
         {
+            rpmA.Text = (motorABar.Value).ToString();
+        }
 
+        private void motorBBar_Scroll(object sender, EventArgs e)
+        {
+            rpmB.Text = (motorBBar.Value).ToString();
+        }
+
+        private void motorCBar_Scroll(object sender, EventArgs e)
+        {
+            rpmC.Text = (motorCBar.Value).ToString();
+        }
+
+        private void motorDBar_Scroll(object sender, EventArgs e)
+        {
+            rpmD.Text = (motorCBar.Value).ToString();
         }
     }
 }
