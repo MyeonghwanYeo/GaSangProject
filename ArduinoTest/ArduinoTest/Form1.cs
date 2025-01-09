@@ -50,6 +50,7 @@ namespace ArduinoTest
         Crud_temperature crud_temperature = new Crud_temperature();
         Crud_voltage crud_voltage = new Crud_voltage();
         Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
+        Crud_Robotaxis robotAxis;
 
         // 윈폼 실행시 서버 오픈
         public Form1()
@@ -119,6 +120,10 @@ namespace ArduinoTest
             public string Timestamp { get; set; }
             public string Category { get; set; }
             public float Value { get; set; }
+            public string Axis1Value { get; set; }
+            public string Axis2Value { get; set; }
+            public string Axis3Value { get; set; }
+            public string Axis4Value { get; set; }
         }
 
 
@@ -255,12 +260,40 @@ namespace ArduinoTest
             }
         }
 
-        string data;
-        public Data data_Firebase_temperature { get; private set; }
-        public Data data_Firebase_voltage { get; private set; }
-        public Data data_Firebase_relativeLoad { get; private set; }
+        // Firebase 4. 4축 로봇 각도 데이터 트리 세팅
+        class Crud_Robotaxis
+        {
+            connection conn = new connection();
 
-        private void findButton_Click(object sender, EventArgs e)
+            // C# (Windows Forms) => Firebase
+            public async Task SetData(string axis1, string axis2, string axis3, string axis4)
+            {
+                try
+                {
+                    Data data = new Data()
+                    {
+                        Axis1Value = axis1,
+                        Axis2Value = axis2,
+                        Axis3Value = axis3,
+                        Axis4Value = axis4
+                    };
+
+                    var SetData = conn.client.Set("Arduino/Crud_Robotaxis/", data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+        }
+
+        string data;
+        public Data data_Firebase_temperature { get; set; }
+        public Data data_Firebase_voltage { get; set; }
+        public Data data_Firebase_relativeLoad { get; set; }
+        public Data data_Firebase_robotaxis { get; set; }
+
+        private async void findButton_Click(object sender, EventArgs e)
         {
             if (endXBox.Text != "" && endYBox.Text != "" && endZBox.Text != "")
             {
@@ -311,6 +344,23 @@ namespace ArduinoTest
 
                 textBox6.Text = Math.Round((l1 * Math.Sin(theta2CW * Math.PI / 180) + l2 * Math.Sin((theta2CW - theta3CW) * Math.PI / 180)), 3).ToString();
                 textBox5.Text = Math.Round((l1 * Math.Cos(theta2CW * Math.PI / 180) + l2 * Math.Cos((theta2CW - theta3CW) * Math.PI / 180) + l3), 3).ToString();
+
+                // 4축로봇 각도 C# -> Firebase에 데이터 업로드
+                // Firebase에 데이터 전송
+                try
+                {
+                    Crud_Robotaxis robotAxis = new Crud_Robotaxis();
+                    await robotAxis.SetData(
+                        message_angle1,
+                        message_angle2,
+                        message_angle3,
+                        message_angle4
+                    );
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
             else
             {
@@ -337,7 +387,15 @@ namespace ArduinoTest
         {
             double maxReach = l1 + l2 + l3;
 
-            double x = double.Parse(endXBox.Text);
+            double x = 0;
+            if (double.TryParse(endXBox.Text, out x))
+            {
+                x = double.Parse(endXBox.Text);
+            }
+            else
+            {
+                return;
+            }
 
             maxYBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(x, 2))), 3).ToString();
 
@@ -395,15 +453,37 @@ namespace ArduinoTest
                 data = serialPort1.ReadLine();
                 int loadValue1 = int.Parse(data);
 
+                data = serialPort1.ReadLine();
+                float axis1Value1 = float.Parse(data);
+
+                data = serialPort1.ReadLine();
+                float axis2Value1 = float.Parse(data);
+
+                data = serialPort1.ReadLine();
+                float axis3Value1 = float.Parse(data);
+
+                data = serialPort1.ReadLine();
+                float axis4Value1 = float.Parse(data);
+
                 tempChart.Series[0].Points.Add(tempValue1);
                 //tempChart.Series[1].Points.Add(tempValue2);
                 powerChart.Series[0].Points.Add(voltValue1);
                 //powerChart.Series[1].Points.Add(voltValue2);
                 loadChart.Series[0].Points.Add(loadValue1);
                 //loadChart.Series[1].Points.Add(loadValue2);
+                loadChart.Series[0].Points.Add(axis1Value1);
+                loadChart.Series[0].Points.Add(axis2Value1);
+                loadChart.Series[0].Points.Add(axis3Value1);
+                loadChart.Series[0].Points.Add(axis4Value1);
 
                 TimeSpan duration = new TimeSpan(0, 0, 0, 0, 1000);
                 DateTime dateTimeAdd = dateTimeNow.Add(duration);
+
+                while (dateTimeAdd >= dateTimeNow)
+                {
+                    System.Windows.Forms.Application.DoEvents();
+                    dateTimeNow = DateTime.Now;
+                }
 
                 // 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
                 string currentDateTime = dateTimeNow.ToString("yyyy-MM-dd HH:mm:ss");
@@ -434,18 +514,12 @@ namespace ArduinoTest
                 data_Firebase_relativeLoad = new Data
                 {
                     Timestamp = currentDateTime,
-                    Category = "relativeLoad",
+                    Category = "relativeLoad ",
                     Value = loadValue1
 
                 };
                 // 하중 데이터 전송
                 crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
-
-                while (dateTimeAdd >= dateTimeNow)
-                {
-                    System.Windows.Forms.Application.DoEvents();
-                    dateTimeNow = DateTime.Now;
-                }
             }
         }
 

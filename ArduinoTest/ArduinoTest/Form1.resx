@@ -144,7 +144,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;tempChart.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="powerChart.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -171,7 +171,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;powerChart.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="loadChart.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -198,7 +198,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;loadChart.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="Motor1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1683,30 +1683,6 @@
   <data name="&gt;&gt;motorABar.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="webView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="webView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1578, 807</value>
-  </data>
-  <data name="webView.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="webView.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;webView.Name" xml:space="preserve">
-    <value>webView</value>
-  </data>
-  <data name="&gt;&gt;webView.Type" xml:space="preserve">
-    <value>Microsoft.Web.WebView2.WinForms.WebView2, Microsoft.Web.WebView2.WinForms, Version=1.0.2903.40, Culture=neutral, PublicKeyToken=2a8ab48044d2601e</value>
-  </data>
-  <data name="&gt;&gt;webView.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;webView.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="textBox7.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1738,7 +1714,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;textBox7.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="textBox5.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1771,7 +1747,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;textBox5.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="textBox6.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1804,7 +1780,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;textBox6.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="textBox1.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1837,7 +1813,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="textBox2.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1870,7 +1846,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="textBox3.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1903,7 +1879,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="textBox4.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1936,7 +1912,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;textBox4.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="angle4Box.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1969,7 +1945,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;angle4Box.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="angle3Box.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2002,7 +1978,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;angle3Box.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="angle2Box.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2035,7 +2011,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;angle2Box.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="angle1Box.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2068,7 +2044,31 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;angle1Box.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
+  </data>
+  <data name="webView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="webView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1578, 807</value>
+  </data>
+  <data name="webView.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="webView.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;webView.Name" xml:space="preserve">
+    <value>webView</value>
+  </data>
+  <data name="&gt;&gt;webView.Type" xml:space="preserve">
+    <value>Microsoft.Web.WebView2.WinForms.WebView2, Microsoft.Web.WebView2.WinForms, Version=1.0.2903.40, Culture=neutral, PublicKeyToken=2a8ab48044d2601e</value>
+  </data>
+  <data name="&gt;&gt;webView.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;webView.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>314, 193</value>
