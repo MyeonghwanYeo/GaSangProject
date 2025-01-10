@@ -9,6 +9,8 @@ using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEngine.Rendering;
 using System.Collections.Generic;
+using Firebase;
+using Firebase.Database;
 
 public class TCPClientEx : MonoBehaviour
 {
@@ -68,9 +70,12 @@ public class TCPClientEx : MonoBehaviour
 
     public List<Step> steps = new List<Step>();
 
+    // Firebase -> unity 데이터 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // C# -> unity 코드1
         try
         {
             client = new TcpClient("127.0.0.1", 7000);
@@ -82,16 +87,12 @@ public class TCPClientEx : MonoBehaviour
             print(e);
             print("서버를 먼저 작동시켜 주세요.");
         }
-
-
         Step stepO = new Step();
         steps = new List<Step>();
-
         stepO.angleAxis1 = 0;
         stepO.angleAxis2 = 0;
         stepO.angleAxis3 = 0;
         stepO.angleAxis4 = 0;
-
         steps.Add(stepO);
     }
 
@@ -104,6 +105,7 @@ public class TCPClientEx : MonoBehaviour
         }
     }
 
+    // C# -> unity 코드2
     // 코루틴 사용 동기화 요청 버튼
     private bool isCoroutineRunning = false; // 코루틴 실행 상태를 추적하는 변수
 
@@ -197,7 +199,7 @@ public class TCPClientEx : MonoBehaviour
             step1.angleAxis2 = angle2;
             step1.angleAxis3 = angle3;
             step1.angleAxis4 = angle4;
-        
+     
             // Transform 객체의 회전값을 설정합니다. && inputField에 회전값을 출력합니다.
             message_angle1 = angle1;
             message_angle2 = angle2;
@@ -208,7 +210,7 @@ public class TCPClientEx : MonoBehaviour
             InputField2.text = angle2.ToString();
             InputField3.text = angle3.ToString();
             InputField4.text = angle4.ToString();
-            
+         
             steps.Add(step1);
             return 1;
         }

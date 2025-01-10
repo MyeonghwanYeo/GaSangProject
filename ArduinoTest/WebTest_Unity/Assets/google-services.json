@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "512876753970",
+    "firebase_url": "https://arduinoconnectex-default-rtdb.firebaseio.com",
+    "project_id": "arduinoconnectex",
+    "storage_bucket": "arduinoconnectex.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512876753970:android:acf8a973c5f5e7f8bf782b",
+        "android_client_info": {
+          "package_name": "com.son.Robot4axisdata"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbS-iHX0U95nMZwM6IFY2by7HZrV3oXBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
