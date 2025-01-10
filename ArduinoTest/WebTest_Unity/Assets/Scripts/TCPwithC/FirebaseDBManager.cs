@@ -10,6 +10,7 @@ using System.Net.Sockets;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 
 namespace MPS
@@ -67,7 +68,9 @@ namespace MPS
         [SerializeField] Transform motorAxis3;
         [SerializeField] Transform motorAxis4;
 
-        public List<Step> steps = new List<Step>();
+        // Step 구조로 생성된 currentStep, nextStep이다.
+        public Step currentStep = new Step();
+        public Step nextStep = new Step();
 
         public string dbURL;
         DatabaseReference dbRef;
@@ -80,15 +83,10 @@ namespace MPS
             FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri(dbURL);
             dbRef = FirebaseDatabase.DefaultInstance.RootReference; // 상위 주소 참조함.
 
-            if (dbRef != null)
-            {
-                //StartCoroutine(CoDownloadData());
-
-                DownloadData();
-            }
-
-            //InitializeData();
-            //UploadData();
+            currentStep.angleAxis1 = 0;
+            currentStep.angleAxis2 = 0;
+            currentStep.angleAxis3 = 0;
+            currentStep.angleAxis4 = 0;
         }
 
         // Update is called once per frame
@@ -100,83 +98,91 @@ namespace MPS
             }
         }
 
-        private void DownloadData()
+        private IEnumerator DownloadData()
         {
             if (dbRef != null)
             {
-                dbRef.Child("Arduino").GetValueAsync().ContinueWith(task =>
+                var task = dbRef.Child("Arduino").GetValueAsync();
+                yield return new WaitUntil(() => task.IsCompleted);
+
+                if (task.IsCanceled)
                 {
-                    if (task.IsCanceled)
+                    print("데이터 다운로드 취소");
+                }
+                else if (task.IsFaulted)
+                {
+                    print("데이터 다운로드 실패");
+                }
+                else if (task.IsCompleted)
+                {
+                    allDataStr = "";
+
+                    print("데이터 다운로드 성공!");
+
+                    DataSnapshot snapshot = task.Result;
+                    foreach (DataSnapshot item in snapshot.Children)
                     {
-                        print("데이터 다운로드 취소");
+                        IDictionary Crud_Robotaxis = (IDictionary)item.Value;
+
+                        // 각 축의 값을 로그로 출력
+                        Debug.Log("Axis1Value: " + item.Child("Axis1Value").Value);
+                        Debug.Log("Axis2Value: " + item.Child("Axis2Value").Value);
+                        Debug.Log("Axis3Value: " + item.Child("Axis3Value").Value);
+                        Debug.Log("Axis4Value: " + item.Child("Axis4Value").Value);
+
+                        angleAxis1 = item.Child("Axis1Value").Value.ToString();
+                        angleAxis2 = item.Child("Axis2Value").Value.ToString();
+                        angleAxis3 = item.Child("Axis3Value").Value.ToString();
+                        angleAxis4 = item.Child("Axis4Value").Value.ToString();
+
+                        // Parse로 문자열 -> float열로 변경하여 가져감
+                        nextStep.angleAxis1 = float.Parse(angleAxis1);
+                        nextStep.angleAxis2 = float.Parse(angleAxis2);
+                        nextStep.angleAxis3 = float.Parse(angleAxis3);
+                        nextStep.angleAxis4 = float.Parse(angleAxis4);
+                        
+                        InputField1.text = angleAxis1;
+                        InputField2.text = angleAxis2;
+                        InputField3.text = angleAxis3;
+                        InputField4.text = angleAxis4;
+                        break;
+
+                        // 전체 다 불러오는 코드
+                        //string json = snapshot.GetRawJsonValue();
+
+                        //JObject totalData = JObject.Parse(json);
                     }
-                    else if (task.IsFaulted)
-                    {
-                        print("데이터 다운로드 실패");
-                    }
-                    else if (task.IsCompleted)
-                    {
-                        allDataStr = "";
-
-                        print("데이터 다운로드 성공!");
-
-                        DataSnapshot snapshot = task.Result;
-                        foreach (DataSnapshot item in snapshot.Children)
-                        {
-                            IDictionary Crud_Robotaxis = (IDictionary)item.Value;
-
-                            // 각 축의 값을 로그로 출력
-                            Debug.Log("Axis1Value: " + item.Child("Axis1Value").Value);
-                            Debug.Log("Axis2Value: " + item.Child("Axis2Value").Value);
-                            Debug.Log("Axis3Value: " + item.Child("Axis3Value").Value);
-                            Debug.Log("Axis4Value: " + item.Child("Axis4Value").Value);
-
-                            angleAxis1 = item.Child("Axis1Value").Value.ToString();
-                            angleAxis2 = item.Child("Axis2Value").Value.ToString();
-                            angleAxis3 = item.Child("Axis3Value").Value.ToString();
-                            angleAxis4 = item.Child("Axis4Value").Value.ToString();
-
-                            //InputField1.text = item.Child("Axis1Value").Value.ToString();
-                            //InputField2.text = item.Child("Axis2Value").Value.ToString();
-                            //InputField3.text = item.Child("Axis3Value").Value.ToString();
-                            //InputField4.text = item.Child("Axis4Value").Value.ToString();
-                            break;
-
-                            // 전체 다 불러오는 코드
-                            //string json = snapshot.GetRawJsonValue();
-
-                            //JObject totalData = JObject.Parse(json);
-                        }
-                    }
-                });
-            }
+                    // 이전 스텝에서 다음 스텝으로 넘어가는 코드
+                    StartCoroutine(RunOrigin(currentStep,nextStep)); 
+                }
+            };
         }
-        IEnumerator RunOrigin(Step prevStep, Step nextStep)
+        IEnumerator RunOrigin(Step currentStep, Step nextStep)
         {
 
-            Vector3 prevAxis1Euler = new Vector3(0, prevStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
+            Vector3 prevAxis1Euler = new Vector3(0, currentStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
             Vector3 nextAxis1AEuler = new Vector3(0, nextStep.angleAxis1, 0);
 
-            Vector3 prevAxis2Euler = new Vector3(0, 0, prevStep.angleAxis2); // Axis2: Z축 기준으로 회전
+            Vector3 prevAxis2Euler = new Vector3(0, 0, currentStep.angleAxis2); // Axis2: Z축 기준으로 회전
             Vector3 nextAxis2AEuler = new Vector3(0, 0, nextStep.angleAxis2);
 
-            Vector3 prevAxis3Euler = new Vector3(0, 0, prevStep.angleAxis3); // Axis3: Z축 기준으로 회전
+            Vector3 prevAxis3Euler = new Vector3(0, 0, currentStep.angleAxis3); // Axis3: Z축 기준으로 회전
             Vector3 nextAxis3AEuler = new Vector3(0, 0, nextStep.angleAxis3);
 
-            Vector3 prevAxis4Euler = new Vector3(0, 0, prevStep.angleAxis4); // Axis4: Z축 기준으로 회전
+            Vector3 prevAxis4Euler = new Vector3(0, 0, currentStep.angleAxis4); // Axis4: Z축 기준으로 회전
             Vector3 nextAxis4AEuler = new Vector3(0, 0, nextStep.angleAxis4);
 
             float currentTime = 0;
 
 
-            while (currentTime < (prevStep.speed * 0.01f))
+            while (currentTime < (currentStep.speed * 0.01f))
             {
                 currentTime += Time.deltaTime;
 
-                motorAxis1.localRotation = RotateAngle(prevAxis1Euler, nextAxis1AEuler, currentTime / (prevStep.speed * 0.01f));
-                motorAxis2.localRotation = RotateAngle(prevAxis2Euler, nextAxis2AEuler, currentTime / (prevStep.speed * 0.01f));
-                motorAxis3.localRotation = RotateAngle(prevAxis3Euler, nextAxis3AEuler, currentTime / (prevStep.speed * 0.01f));
-                motorAxis4.localRotation = RotateAngle(prevAxis4Euler, nextAxis4AEuler, currentTime / (prevStep.speed * 0.01f));
+                motorAxis1.localRotation = RotateAngle(prevAxis1Euler, nextAxis1AEuler, currentTime / (currentStep.speed * 0.01f));
+                motorAxis2.localRotation = RotateAngle(prevAxis2Euler, nextAxis2AEuler, currentTime / (currentStep.speed * 0.01f));
+                motorAxis3.localRotation = RotateAngle(prevAxis3Euler, nextAxis3AEuler, currentTime / (currentStep.speed * 0.01f));
+                motorAxis4.localRotation = RotateAngle(prevAxis4Euler, nextAxis4AEuler, currentTime / (currentStep.speed * 0.01f));
 
                 //cycleTime += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
@@ -185,6 +191,26 @@ namespace MPS
         private Quaternion RotateAngle(Vector3 from, Vector3 to, float t)
         {
             return Quaternion.Slerp(Quaternion.Euler(from), Quaternion.Euler(to), t);
+        }
+
+        public void OnConnectBtnClkEvent()
+        {
+            if (dbRef != null)
+            {
+                StartCoroutine(DownloadData());
+            }
+
+            //InitializeData();
+            //UploadData();
+        }
+
+        public void OnDisconnectBtnClkEvent()
+        {
+
+            angleAxis1 = "0";
+            angleAxis2 = "0";
+            angleAxis3 = "0";
+            angleAxis4 = "0";
         }
     }
 }
