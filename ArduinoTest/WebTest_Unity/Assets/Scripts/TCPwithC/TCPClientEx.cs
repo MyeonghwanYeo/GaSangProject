@@ -5,12 +5,8 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using System.Threading.Tasks;
-using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
-using UnityEngine.Rendering;
 using System.Collections.Generic;
-using Firebase;
-using Firebase.Database;
+
 
 public class TCPClientEx : MonoBehaviour
 {
