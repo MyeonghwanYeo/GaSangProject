@@ -100,22 +100,22 @@ namespace ArduinoTest
             this.rpmB = new System.Windows.Forms.TextBox();
             this.motorABar = new System.Windows.Forms.TrackBar();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.angle4Box = new System.Windows.Forms.TextBox();
-            this.angle3Box = new System.Windows.Forms.TextBox();
-            this.angle2Box = new System.Windows.Forms.TextBox();
-            this.angle1Box = new System.Windows.Forms.TextBox();
-            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.linkPictureBox = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.currentAngle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.zAxisChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.linkPictureBox = new System.Windows.Forms.PictureBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.angle4Box = new System.Windows.Forms.TextBox();
+            this.angle3Box = new System.Windows.Forms.TextBox();
+            this.angle2Box = new System.Windows.Forms.TextBox();
+            this.angle1Box = new System.Windows.Forms.TextBox();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.tempChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadChart)).BeginInit();
@@ -126,9 +126,9 @@ namespace ArduinoTest
             ((System.ComponentModel.ISupportInitialize)(this.motorBBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motorABar)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.SuspendLayout();
             // 
             // tempChart
@@ -683,6 +683,7 @@ namespace ArduinoTest
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.panel3.Controls.Add(this.webView);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.button4);
@@ -701,80 +702,13 @@ namespace ArduinoTest
             this.panel3.Controls.Add(this.tempChart);
             this.panel3.Controls.Add(this.powerChart);
             this.panel3.Controls.Add(this.loadChart);
-            this.panel3.Controls.Add(this.webView);
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
-            // textBox7
+            // label10
             // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox7.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.textBox7, "textBox7");
-            this.textBox7.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.textBox7.Name = "textBox7";
-            // 
-            // angle4Box
-            // 
-            this.angle4Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle4Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle4Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle4Box, "angle4Box");
-            this.angle4Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle4Box.Name = "angle4Box";
-            // 
-            // angle3Box
-            // 
-            this.angle3Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle3Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle3Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle3Box, "angle3Box");
-            this.angle3Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle3Box.Name = "angle3Box";
-            // 
-            // angle2Box
-            // 
-            this.angle2Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle2Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle2Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle2Box, "angle2Box");
-            this.angle2Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle2Box.Name = "angle2Box";
-            // 
-            // angle1Box
-            // 
-            this.angle1Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle1Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle1Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle1Box, "angle1Box");
-            this.angle1Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle1Box.Name = "angle1Box";
-            // 
-            // webView
-            // 
-            this.webView.AllowExternalDrop = true;
-            this.webView.CreationProperties = null;
-            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.webView, "webView");
-            this.webView.Name = "webView";
-            this.webView.Source = new System.Uri("http://192.168.0.160/receiver/index.html", System.UriKind.Absolute);
-            this.webView.ZoomFactor = 1D;
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
-            // 
-            // linkPictureBox
-            // 
-            resources.ApplyResources(this.linkPictureBox, "linkPictureBox");
-            this.linkPictureBox.Name = "linkPictureBox";
-            this.linkPictureBox.TabStop = false;
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
             // label9
             // 
@@ -857,10 +791,76 @@ namespace ArduinoTest
             series13.Points.Add(dataPoint3);
             this.zAxisChart.Series.Add(series13);
             // 
-            // label10
+            // label12
             // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // linkPictureBox
+            // 
+            resources.ApplyResources(this.linkPictureBox, "linkPictureBox");
+            this.linkPictureBox.Name = "linkPictureBox";
+            this.linkPictureBox.TabStop = false;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox7.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.textBox7, "textBox7");
+            this.textBox7.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.textBox7.Name = "textBox7";
+            // 
+            // angle4Box
+            // 
+            this.angle4Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle4Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle4Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle4Box, "angle4Box");
+            this.angle4Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle4Box.Name = "angle4Box";
+            // 
+            // angle3Box
+            // 
+            this.angle3Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle3Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle3Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle3Box, "angle3Box");
+            this.angle3Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle3Box.Name = "angle3Box";
+            // 
+            // angle2Box
+            // 
+            this.angle2Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle2Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle2Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle2Box, "angle2Box");
+            this.angle2Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle2Box.Name = "angle2Box";
+            // 
+            // angle1Box
+            // 
+            this.angle1Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle1Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle1Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle1Box, "angle1Box");
+            this.angle1Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle1Box.Name = "angle1Box";
+            // 
+            // webView
+            // 
+            this.webView.AllowExternalDrop = true;
+            this.webView.CreationProperties = null;
+            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.webView, "webView");
+            this.webView.Name = "webView";
+            this.webView.Source = new System.Uri("http://192.168.0.160/receiver/index.html", System.UriKind.Absolute);
+            this.webView.ZoomFactor = 1D;
             // 
             // Form1
             // 
@@ -887,9 +887,9 @@ namespace ArduinoTest
             ((System.ComponentModel.ISupportInitialize)(this.motorABar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             this.ResumeLayout(false);
 
         }

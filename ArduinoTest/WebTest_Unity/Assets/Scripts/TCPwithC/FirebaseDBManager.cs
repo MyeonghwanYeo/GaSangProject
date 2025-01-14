@@ -158,13 +158,13 @@ public class FirebaseDBManager : MonoBehaviour
     {
 
         Vector3 prevAxis1Euler = new Vector3(0, currentStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
-        Vector3 nextAxis1AEuler = new Vector3(0, nextStep.angleAxis1, 0);
+        Vector3 nextAxis1AEuler = new Vector3(0, -nextStep.angleAxis1, 0);
 
         Vector3 prevAxis2Euler = new Vector3(0, 0, currentStep.angleAxis2); // Axis2: Z축 기준으로 회전
-        Vector3 nextAxis2AEuler = new Vector3(0, 0, nextStep.angleAxis2);
+        Vector3 nextAxis2AEuler = new Vector3(0, 0, -nextStep.angleAxis2);
 
         Vector3 prevAxis3Euler = new Vector3(0, 0, currentStep.angleAxis3); // Axis3: Z축 기준으로 회전
-        Vector3 nextAxis3AEuler = new Vector3(0, 0, nextStep.angleAxis3);
+        Vector3 nextAxis3AEuler = new Vector3(0, 0, -nextStep.angleAxis3);
 
         Vector3 prevAxis4Euler = new Vector3(0, 0, currentStep.angleAxis4); // Axis4: Z축 기준으로 회전
         Vector3 nextAxis4AEuler = new Vector3(0, 0, nextStep.angleAxis4);
@@ -224,10 +224,10 @@ public class FirebaseDBManager : MonoBehaviour
         InputField3.text = "0";
         InputField4.text = "0";
 
-        Vector3 prevAxis1Euler = new Vector3(0, currentStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
+        Vector3 prevAxis1Euler = new Vector3(0, -currentStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
         Vector3 nextAxis1AEuler = new Vector3(0, 0, 0);
 
-        Vector3 prevAxis2Euler = new Vector3(0, 0, currentStep.angleAxis2); // Axis2: Z축 기준으로 회전
+        Vector3 prevAxis2Euler = new Vector3(0, 0, -currentStep.angleAxis2); // Axis2: Z축 기준으로 회전
         Vector3 nextAxis2AEuler = new Vector3(0, 0, 0);
 
         Vector3 prevAxis3Euler = new Vector3(0, 0, currentStep.angleAxis3); // Axis3: Z축 기준으로 회전

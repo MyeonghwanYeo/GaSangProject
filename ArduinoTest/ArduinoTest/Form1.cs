@@ -41,9 +41,9 @@ namespace ArduinoTest
         string response = "";
         bool cDataProcessed = false; // C_DATA가 처리되었는지 여부를 나타내는 플래그
         private Process unityProcess;
-        static double l1 = 10.0;         // 첫 번째 링크 길이
+        static double l1 = 20.0;         // 첫 번째 링크 길이
         static double l2 = 15.0;         // 두 번째 링크 길이
-        static double l3 = 2.0;          // 세 번째 링크 길이
+        static double l3 = 5.0;          // 세 번째 링크 길이
 
         SerialPort serialPort1 = new SerialPort();
 
@@ -358,7 +358,7 @@ namespace ArduinoTest
 
                     angle2Box.Text = Math.Round(double.Parse(myProcess.StandardOutput.ReadLine()), 3).ToString();
                     angle3Box.Text = Math.Round(double.Parse(myProcess.StandardOutput.ReadLine()), 3).ToString();
-                    angle4Box.Text = Math.Round(double.Parse(myProcess.StandardOutput.ReadLine()), 3).ToString();
+                    angle4Box.Text = Math.Round(180 - double.Parse(myProcess.StandardOutput.ReadLine()), 3).ToString();
 
                     myProcess.WaitForExit();
                 }
