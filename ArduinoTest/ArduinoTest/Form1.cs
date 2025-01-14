@@ -306,6 +306,29 @@ namespace ArduinoTest
             findButton.Enabled = false;
 
             await PrintPython();
+
+            // 4축로봇 각도 C# -> Firebase에 데이터 업로드 코드1(1~4)
+            message_angle1 = angle1Box.Text.ToString();
+            message_angle2 = angle2Box.Text.ToString();
+            message_angle3 = angle3Box.Text.ToString();
+            message_angle4 = angle4Box.Text.ToString();
+
+            // 4축로봇 각도 C# -> Firebase에 데이터 업로드 코드1
+            // Firebase에 데이터 전송
+            try
+            {
+                Crud_Robotaxis robotAxis = new Crud_Robotaxis();
+                await robotAxis.SetData(
+                    message_angle1,
+                    message_angle2,
+                    message_angle3,
+                    message_angle4
+                );
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private async Task PrintPython()

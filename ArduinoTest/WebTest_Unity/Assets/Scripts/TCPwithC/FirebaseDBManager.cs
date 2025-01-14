@@ -157,11 +157,11 @@ public class FirebaseDBManager : MonoBehaviour
     IEnumerator RunOrigin(Step currentStep, Step nextStep)
     {
 
-        Vector3 prevAxis1Euler = new Vector3(0, -currentStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
-        Vector3 nextAxis1AEuler = new Vector3(0, -nextStep.angleAxis1, 0);
+        Vector3 prevAxis1Euler = new Vector3(0, currentStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
+        Vector3 nextAxis1AEuler = new Vector3(0, nextStep.angleAxis1, 0);
 
-        Vector3 prevAxis2Euler = new Vector3(0, 0, -currentStep.angleAxis2); // Axis2: Z축 기준으로 회전
-        Vector3 nextAxis2AEuler = new Vector3(0, 0, -nextStep.angleAxis2);
+        Vector3 prevAxis2Euler = new Vector3(0, 0, currentStep.angleAxis2); // Axis2: Z축 기준으로 회전
+        Vector3 nextAxis2AEuler = new Vector3(0, 0, nextStep.angleAxis2);
 
         Vector3 prevAxis3Euler = new Vector3(0, 0, currentStep.angleAxis3); // Axis3: Z축 기준으로 회전
         Vector3 nextAxis3AEuler = new Vector3(0, 0, nextStep.angleAxis3);
