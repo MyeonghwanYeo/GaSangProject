@@ -56,13 +56,15 @@ namespace ArduinoTest
         Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
         Crud_Robotaxis robotAxis;
 
+        string dir = @"C:\Git_Group_Project\GaSangProject";
+
         // 윈폼 실행시 서버 오픈
         public Form1()
         {
             InitializeComponent();
             server = new TcpListener(IPAddress.Any, 7000);
 
-            linkPictureBox.Load(@"C:\Python\LinkGraph\linkfigure_base.png");
+            linkPictureBox.Load(dir + @"\LinkGraph\linkfigure_base.png");
 
             maxXBox.Text = (l1 + l2).ToString();
             maxYBox.Text = (l1 + l2).ToString();
@@ -314,14 +316,13 @@ namespace ArduinoTest
             {
                 try
                 {
-                    myProcess.StartInfo.FileName = @"C:\Python\python.exe";
-                    myProcess.StartInfo.Arguments = @"C:\Python\winformtest.py";
+                    myProcess.StartInfo.FileName = dir + @"\PythonEXE\winformtest.exe";
                     myProcess.StartInfo.RedirectStandardInput = true;
                     myProcess.StartInfo.RedirectStandardOutput = true;
                     myProcess.StartInfo.RedirectStandardError = true;
                     myProcess.StartInfo.UseShellExecute = false;
                     myProcess.StartInfo.CreateNoWindow = true;
-                    myProcess.StartInfo.WorkingDirectory = @"C:\Python\LinkGraph";
+                    myProcess.StartInfo.WorkingDirectory = dir + @"\LinkGraph";
                     myProcess.EnableRaisingEvents = true;
                     myProcess.Exited += new EventHandler(myProcess_Exited);
 
@@ -349,7 +350,7 @@ namespace ArduinoTest
 
                 try
                 {
-                    linkPictureBox.Load(@"C:\Python\LinkGraph\linkfigure_" + endXBox.Text + '_' + endYBox.Text + '_' + endZBox.Text + ".png");
+                    linkPictureBox.Load(dir + @"\LinkGraph\linkfigure_" + endXBox.Text + '_' + endYBox.Text + '_' + endZBox.Text + ".png");
                 }
                 catch (Exception ex)
                 {
@@ -357,7 +358,7 @@ namespace ArduinoTest
                     angle3Box.Text = "Error";
                     angle4Box.Text = "Error";
 
-                    linkPictureBox.Load(@"C:\Python\LinkGraph\linkfigure_base.png");
+                    linkPictureBox.Load(dir + @"\LinkGraph\linkfigure_base.png");
 
                     return;
                 }
