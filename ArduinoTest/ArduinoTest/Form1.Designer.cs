@@ -100,6 +100,7 @@ namespace ArduinoTest
             this.rpmB = new System.Windows.Forms.TextBox();
             this.motorABar = new System.Windows.Forms.TrackBar();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -115,7 +116,6 @@ namespace ArduinoTest
             this.angle3Box = new System.Windows.Forms.TextBox();
             this.angle2Box = new System.Windows.Forms.TextBox();
             this.angle1Box = new System.Windows.Forms.TextBox();
-            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.tempChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadChart)).BeginInit();
@@ -126,9 +126,9 @@ namespace ArduinoTest
             ((System.ComponentModel.ISupportInitialize)(this.motorBBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motorABar)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.SuspendLayout();
             // 
             // tempChart
@@ -603,6 +603,7 @@ namespace ArduinoTest
             // 
             resources.ApplyResources(this.motorDBar, "motorDBar");
             this.motorDBar.Maximum = 90;
+            this.motorDBar.Minimum = 10;
             this.motorDBar.Name = "motorDBar";
             this.motorDBar.TickFrequency = 5;
             this.motorDBar.Value = 30;
@@ -627,6 +628,7 @@ namespace ArduinoTest
             // 
             resources.ApplyResources(this.motorCBar, "motorCBar");
             this.motorCBar.Maximum = 90;
+            this.motorCBar.Minimum = 10;
             this.motorCBar.Name = "motorCBar";
             this.motorCBar.TickFrequency = 5;
             this.motorCBar.Value = 30;
@@ -651,6 +653,7 @@ namespace ArduinoTest
             // 
             resources.ApplyResources(this.motorBBar, "motorBBar");
             this.motorBBar.Maximum = 90;
+            this.motorBBar.Minimum = 10;
             this.motorBBar.Name = "motorBBar";
             this.motorBBar.TickFrequency = 5;
             this.motorBBar.Value = 30;
@@ -675,6 +678,7 @@ namespace ArduinoTest
             // 
             resources.ApplyResources(this.motorABar, "motorABar");
             this.motorABar.Maximum = 90;
+            this.motorABar.Minimum = 10;
             this.motorABar.Name = "motorABar";
             this.motorABar.TickFrequency = 5;
             this.motorABar.Value = 30;
@@ -704,6 +708,16 @@ namespace ArduinoTest
             this.panel3.Controls.Add(this.loadChart);
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
+            // 
+            // webView
+            // 
+            this.webView.AllowExternalDrop = true;
+            this.webView.CreationProperties = null;
+            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.webView, "webView");
+            this.webView.Name = "webView";
+            this.webView.Source = new System.Uri("http://192.168.0.160/receiver/index.html", System.UriKind.Absolute);
+            this.webView.ZoomFactor = 1D;
             // 
             // label10
             // 
@@ -852,16 +866,6 @@ namespace ArduinoTest
             this.angle1Box.ForeColor = System.Drawing.Color.DarkMagenta;
             this.angle1Box.Name = "angle1Box";
             // 
-            // webView
-            // 
-            this.webView.AllowExternalDrop = true;
-            this.webView.CreationProperties = null;
-            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.webView, "webView");
-            this.webView.Name = "webView";
-            this.webView.Source = new System.Uri("http://192.168.0.160/receiver/index.html", System.UriKind.Absolute);
-            this.webView.ZoomFactor = 1D;
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -887,9 +891,9 @@ namespace ArduinoTest
             ((System.ComponentModel.ISupportInitialize)(this.motorABar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             this.ResumeLayout(false);
 
         }

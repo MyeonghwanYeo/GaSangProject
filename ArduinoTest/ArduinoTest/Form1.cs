@@ -56,7 +56,7 @@ namespace ArduinoTest
         Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
         Crud_Robotaxis robotAxis;
 
-        string dir = @"C:\Git_Group_Project\GaSangProject";
+        string dir = @"C:\Users\제5강의실-3\Desktop\Group\GaSangProject";
 
         // 윈폼 실행시 서버 오픈
         public Form1()
@@ -81,7 +81,7 @@ namespace ArduinoTest
 
             powerChart.ChartAreas[0].AxisX.Minimum = 0;
             powerChart.ChartAreas[0].AxisX.Maximum = 300;
-            powerChart.ChartAreas[0].AxisY.Minimum = 11;
+            powerChart.ChartAreas[0].AxisY.Minimum = 0;
             powerChart.ChartAreas[0].AxisY.Maximum = 12;
             powerChart.Series[0].Points.Add();
             powerChart.Series[1].Points.Add();
@@ -91,7 +91,7 @@ namespace ArduinoTest
             loadChart.ChartAreas[0].AxisX.Minimum = 0;
             loadChart.ChartAreas[0].AxisX.Maximum = 300;
             loadChart.ChartAreas[0].AxisY.Minimum = 0;
-            loadChart.ChartAreas[0].AxisY.Maximum = 200;
+            loadChart.ChartAreas[0].AxisY.Maximum = 1000;
             loadChart.Series[0].Points.Add();
             loadChart.Series[1].Points.Add();
             loadChart.Series[2].Points.Add();
@@ -475,19 +475,9 @@ namespace ArduinoTest
             offButton.Focus();
             if (!serialPort1.IsOpen) return;
 
-            // 각도 정보 "Arduino IDE"에 전달
-            serialPort1.Write("200");
-            serialPort1.Write("140");
-            serialPort1.Write("140");
-            serialPort1.Write("130");
-            serialPort1.Write("130");
-
             // RPM 정보 "Arduino IDE"에 전달
-            serialPort1.Write(rpmA.Text);
-            serialPort1.Write(rpmB.Text);
-            serialPort1.Write(rpmB.Text);
-            serialPort1.Write(rpmC.Text);
-            serialPort1.Write(rpmD.Text);
+            serialPort1.Write(rpmA.Text + ',' + rpmB.Text + ',' + rpmC.Text + ',' + rpmD.Text
+                + ',' + angle1Box.Text + ',' + angle2Box.Text + ',' + angle3Box.Text + ',' + angle4Box.Text);
 
             stopNum = 0;
 
@@ -501,33 +491,42 @@ namespace ArduinoTest
                 int tempValue1 = int.Parse(data);
 
                 data = serialPort1.ReadLine();
+                int tempValue2 = int.Parse(data);
+
+                data = serialPort1.ReadLine();
                 float voltValue1 = float.Parse(data) / 10.0f;
+
+                data = serialPort1.ReadLine();
+                float voltValue2 = float.Parse(data) / 10.0f;
 
                 data = serialPort1.ReadLine();
                 int loadValue1 = int.Parse(data);
 
                 data = serialPort1.ReadLine();
-                float axis1Value1 = float.Parse(data);
+                int loadValue2 = int.Parse(data);
 
-                data = serialPort1.ReadLine();
-                float axis2Value1 = float.Parse(data);
-
-                data = serialPort1.ReadLine();
-                float axis3Value1 = float.Parse(data);
-
-                data = serialPort1.ReadLine();
-                float axis4Value1 = float.Parse(data);
+                // data = serialPort1.ReadLine();
+                // float axis1Value1 = float.Parse(data);
+                // 
+                // data = serialPort1.ReadLine();
+                // float axis2Value1 = float.Parse(data);
+                // 
+                // data = serialPort1.ReadLine();
+                // float axis3Value1 = float.Parse(data);
+                // 
+                // data = serialPort1.ReadLine();
+                // float axis4Value1 = float.Parse(data);
 
                 tempChart.Series[0].Points.Add(tempValue1);
-                //tempChart.Series[1].Points.Add(tempValue2);
+                tempChart.Series[1].Points.Add(tempValue2);
                 powerChart.Series[0].Points.Add(voltValue1);
-                //powerChart.Series[1].Points.Add(voltValue2);
+                powerChart.Series[1].Points.Add(voltValue2);
                 loadChart.Series[0].Points.Add(loadValue1);
-                //loadChart.Series[1].Points.Add(loadValue2);
-                loadChart.Series[0].Points.Add(axis1Value1);
-                loadChart.Series[0].Points.Add(axis2Value1);
-                loadChart.Series[0].Points.Add(axis3Value1);
-                loadChart.Series[0].Points.Add(axis4Value1);
+                loadChart.Series[1].Points.Add(loadValue2);
+                // loadChart.Series[0].Points.Add(axis1Value1);
+                // loadChart.Series[0].Points.Add(axis2Value1);
+                // loadChart.Series[0].Points.Add(axis3Value1);
+                // loadChart.Series[0].Points.Add(axis4Value1);
 
                 TimeSpan duration = new TimeSpan(0, 0, 0, 0, 1000);
                 DateTime dateTimeAdd = dateTimeNow.Add(duration);
@@ -538,41 +537,41 @@ namespace ArduinoTest
                     dateTimeNow = DateTime.Now;
                 }
 
-                // 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
-                string currentDateTime = dateTimeNow.ToString("yyyy-MM-dd HH:mm:ss");
-
-                // Firebase 1. 온도 데이터 저장
-                data_Firebase_temperature = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "temperature",
-                    Value = tempValue1
-
-                };
-                // 온도 데이터 전송
-                crud_temperature.SetData("temperature", tempValue1, currentDateTime);
-
-                // Firebase 2. 전압 데이터 저장
-                data_Firebase_voltage = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "voltage",
-                    Value = voltValue1
-
-                };
-                // 전압 데이터 전송
-                crud_voltage.SetData("voltage", voltValue1, currentDateTime);
-
-                // Firebase 3. 하중 데이터 저장
-                data_Firebase_relativeLoad = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "relativeLoad ",
-                    Value = loadValue1
-
-                };
-                // 하중 데이터 전송
-                crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
+                //// 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
+                //string currentDateTime = dateTimeNow.ToString("yyyy-MM-dd HH:mm:ss");
+                //
+                //// Firebase 1. 온도 데이터 저장
+                //data_Firebase_temperature = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "temperature",
+                //    Value = tempValue1
+                //
+                //};
+                //// 온도 데이터 전송
+                //crud_temperature.SetData("temperature", tempValue1, currentDateTime);
+                //
+                //// Firebase 2. 전압 데이터 저장
+                //data_Firebase_voltage = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "voltage",
+                //    Value = voltValue1
+                //
+                //};
+                //// 전압 데이터 전송
+                //crud_voltage.SetData("voltage", voltValue1, currentDateTime);
+                //
+                //// Firebase 3. 하중 데이터 저장
+                //data_Firebase_relativeLoad = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "relativeLoad ",
+                //    Value = loadValue1
+                //
+                //};
+                //// 하중 데이터 전송
+                //crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
             }
         }
 
