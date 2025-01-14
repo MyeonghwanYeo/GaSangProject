@@ -4,31 +4,35 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Messaging;
 using System.Text;
-using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
-using System.Windows.Forms.DataVisualization.Charting;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Threading.Tasks;
+using System.Net;
+using System.Net.Sockets;
+using System.Reactive;
+using System.Diagnostics;
 using System.Timers;
 using System.IO;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using Newtonsoft.Json;
-using System.Threading.Tasks;
-using System.Net.Sockets;
-using System.Net;
-using System.Reactive;
-using System.Messaging;
-using System.Diagnostics;
 
 namespace ArduinoTest
 {
     public partial class Form1 : Form
     {
+        public Process myProcess;
+        private TaskCompletionSource<bool> eventHandled;
+
         public TcpListener server;
         public NetworkStream stream;
+
         public bool isRunning = false;
         string message_angle1 = "0";
         string message_angle2 = "0";
@@ -37,9 +41,9 @@ namespace ArduinoTest
         string response = "";
         bool cDataProcessed = false; // C_DATA가 처리되었는지 여부를 나타내는 플래그
         private Process unityProcess;
-        static double l1 = 10.0; // 첫 번째 링크 길이
-        static double l2 = 15.0; // 두 번째 링크 길이
-        static double l3 = 2.0; // 세 번째 링크 길이
+        static double l1 = 10.0;         // 첫 번째 링크 길이
+        static double l2 = 15.0;         // 두 번째 링크 길이
+        static double l3 = 2.0;          // 세 번째 링크 길이
 
         SerialPort serialPort1 = new SerialPort();
 
@@ -58,9 +62,11 @@ namespace ArduinoTest
             InitializeComponent();
             server = new TcpListener(IPAddress.Any, 7000);
 
-            maxXBox.Text = (l1 + l2 + l3).ToString();
-            maxYBox.Text = (l1 + l2 + l3).ToString();
-            maxZBox.Text = (l1 + l2 + l3).ToString();
+            linkPictureBox.Load(@"C:\Python\LinkGraph\linkfigure_base.png");
+
+            maxXBox.Text = (l1 + l2).ToString();
+            maxYBox.Text = (l1 + l2).ToString();
+            maxZBox.Text = (l1 + l2 - l3).ToString();
 
             tempChart.ChartAreas[0].AxisX.Minimum = 0;
             tempChart.ChartAreas[0].AxisX.Maximum = 300;
@@ -295,77 +301,72 @@ namespace ArduinoTest
 
         private async void findButton_Click(object sender, EventArgs e)
         {
-            if (endXBox.Text != "" && endYBox.Text != "" && endZBox.Text != "")
+            findButton.Enabled = false;
+
+            await PrintPython();
+        }
+
+        private async Task PrintPython()
+        {
+            eventHandled = new TaskCompletionSource<bool>();
+
+            using (myProcess = new Process())
             {
-                double x = double.Parse(endYBox.Text);
-
-                double y = double.Parse(endXBox.Text);
-
-                double z = double.Parse(endZBox.Text);
-
-                r = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
-
-                double theta1 = Math.Atan2(y, x) * (-180 / Math.PI);
-
-                z = z - l3;
-
-                double cosTheta3 = (Math.Pow(r, 2) + Math.Pow(z, 2) - Math.Pow(l1, 2) - Math.Pow(l2, 2)) / (2 * l1 * l2);
-
-                double sinTheta3CW = Math.Sqrt(1 - Math.Pow(cosTheta3, 2)) * (-1);
-
-                double theta3CW = Math.Atan2(sinTheta3CW, cosTheta3) * (180 / Math.PI);
-
-                double theta2CW = 90 - (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3CW, l1 + l2 * cosTheta3)) * (180 / Math.PI);
-
-                double sinTheta3CCW = Math.Sqrt(1 - Math.Pow(cosTheta3, 2));
-
-                double theta3CCW = Math.Atan2(sinTheta3CCW, cosTheta3) * (180 / Math.PI);
-
-                double theta2CCW = 90 - (Math.Atan2(z, r) - Math.Atan2(l2 * sinTheta3CCW, l1 + l2 * cosTheta3)) * (180 / Math.PI);
-
-                angle1Box.Text = Math.Round(theta1, 3).ToString();
-                angle2Box.Text = Math.Round(theta2CW, 3).ToString();
-                angle3Box.Text = Math.Round(-theta3CW, 3).ToString();
-
-                double theta4 = 90 - (theta2CW - theta3CW);
-                angle4Box.Text = Math.Round(theta4, 3).ToString();
-
-               message_angle1 = Math.Round(theta1, 3).ToString();
-               message_angle2 = Math.Round(theta2CW, 3).ToString();
-               message_angle3 = Math.Round(-theta3CW, 3).ToString();
-               message_angle4 = Math.Round(theta4, 3).ToString();
-
-                textBox4.Text = Math.Round(theta1, 3).ToString();
-                textBox3.Text = Math.Round(theta2CCW, 3).ToString();
-                textBox2.Text = Math.Round(-theta3CCW, 3).ToString();
-
-                theta4 = 90 - (theta2CCW - theta3CCW);
-                textBox1.Text = Math.Round(theta4, 3).ToString();
-
-                textBox6.Text = Math.Round((l1 * Math.Sin(theta2CW * Math.PI / 180) + l2 * Math.Sin((theta2CW - theta3CW) * Math.PI / 180)), 3).ToString();
-                textBox5.Text = Math.Round((l1 * Math.Cos(theta2CW * Math.PI / 180) + l2 * Math.Cos((theta2CW - theta3CW) * Math.PI / 180) + l3), 3).ToString();
-
-                // 4축로봇 각도 C# -> Firebase에 데이터 업로드
-                // Firebase에 데이터 전송
                 try
                 {
-                    Crud_Robotaxis robotAxis = new Crud_Robotaxis();
-                    await robotAxis.SetData(
-                        message_angle1,
-                        message_angle2,
-                        message_angle3,
-                        message_angle4
-                    );
+                    myProcess.StartInfo.FileName = @"C:\Python\python.exe";
+                    myProcess.StartInfo.Arguments = @"C:\Python\winformtest.py";
+                    myProcess.StartInfo.RedirectStandardInput = true;
+                    myProcess.StartInfo.RedirectStandardOutput = true;
+                    myProcess.StartInfo.RedirectStandardError = true;
+                    myProcess.StartInfo.UseShellExecute = false;
+                    myProcess.StartInfo.CreateNoWindow = true;
+                    myProcess.StartInfo.WorkingDirectory = @"C:\Python\LinkGraph";
+                    myProcess.EnableRaisingEvents = true;
+                    myProcess.Exited += new EventHandler(myProcess_Exited);
+
+                    myProcess.Start();
+
+                    myProcess.StandardInput.WriteLine(endXBox.Text);
+                    myProcess.StandardInput.WriteLine(endYBox.Text);
+                    myProcess.StandardInput.WriteLine(endZBox.Text);
+                    myProcess.StandardInput.Close();
+
+                    angle2Box.Text = Math.Round(double.Parse(myProcess.StandardOutput.ReadLine()), 3).ToString();
+                    angle3Box.Text = Math.Round(double.Parse(myProcess.StandardOutput.ReadLine()), 3).ToString();
+                    angle4Box.Text = Math.Round(double.Parse(myProcess.StandardOutput.ReadLine()), 3).ToString();
+
+                    myProcess.WaitForExit();
                 }
-                catch (FormatException ex)
+                catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    return;
+                }
+
+                await Task.WhenAny(eventHandled.Task, Task.Delay(30000));
+
+                findButton.Enabled = true;
+
+                try
+                {
+                    linkPictureBox.Load(@"C:\Python\LinkGraph\linkfigure_" + endXBox.Text + '_' + endYBox.Text + '_' + endZBox.Text + ".png");
+                }
+                catch (Exception ex)
+                {
+                    angle2Box.Text = "Error";
+                    angle3Box.Text = "Error";
+                    angle4Box.Text = "Error";
+
+                    linkPictureBox.Load(@"C:\Python\LinkGraph\linkfigure_base.png");
+
+                    return;
                 }
             }
-            else
-            {
-                return;
-            }
+        }
+
+        private void myProcess_Exited(object sender, System.EventArgs e)
+        {
+            eventHandled.TrySetResult(true);
         }
 
         private void endXBox_TextChanged(object sender, EventArgs e)
@@ -385,7 +386,7 @@ namespace ArduinoTest
 
         public void textChanged()
         {
-            double maxReach = l1 + l2 + l3;
+            double maxReach = l1 + l2;
 
             double x = 0;
             if (double.TryParse(endXBox.Text, out x))
@@ -403,11 +404,39 @@ namespace ArduinoTest
 
             if (endYBox.Text != "")
             {
-                y = double.Parse(endYBox.Text);
+                if (double.TryParse(endYBox.Text, out y))
+                {
+                    y = double.Parse(endYBox.Text);
+                }
+                else
+                {
+                    return;
+                }
+
+                double zAxisAngle = Math.Atan2(y, x) * 180 / Math.PI - 90;
+
+                angle1Box.Text = Math.Round(zAxisAngle, 3).ToString();
 
                 r = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
 
-                maxZBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(r, 2))), 3).ToString();
+                currentAngle.Text = Math.Round(zAxisAngle, 1).ToString() + "°";
+
+                if (x < 0)
+                {
+                    zAxisChart.Series["CurrentAngle"].Points[0].SetValueY(360 - Math.Abs(zAxisAngle));
+                    zAxisChart.Series["CurrentAngle"].Points[1].SetValueY(Math.Abs(zAxisAngle));
+                    zAxisChart.Series["CurrentAngle"].Points[2].SetValueY(0);
+                    zAxisChart.Invalidate();
+                }
+                else
+                {
+                    zAxisChart.Series["CurrentAngle"].Points[0].SetValueY(0);
+                    zAxisChart.Series["CurrentAngle"].Points[1].SetValueY(Math.Abs(zAxisAngle));
+                    zAxisChart.Series["CurrentAngle"].Points[2].SetValueY(360 - Math.Abs(zAxisAngle));
+                    zAxisChart.Invalidate();
+                }
+
+                maxZBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(r, 2))) - l3, 3).ToString();
 
                 textBox7.Text = Math.Round(r, 3).ToString();
             }
@@ -560,11 +589,21 @@ namespace ArduinoTest
                 else
                 {
                     serialPort1.PortName = portBox.SelectedItem.ToString();
-                    serialPort1.BaudRate = int.Parse(baudRateBox.SelectedItem.ToString());
+
+                    int baudRate = 115200;
+                    if (int.TryParse(baudRateBox.SelectedItem.ToString(), out baudRate))
+                    {
+                        serialPort1.BaudRate = baudRate;
+                    }
+                    else
+                    {
+                        serialPort1.BaudRate = baudRate;
+                    }
+
                     serialPort1.DataBits = 8;
                     serialPort1.StopBits = StopBits.One;                      // "StopBits": 정지비트의 수를 나타내는 열거형
                     serialPort1.Parity = Parity.None;                         // "Parity Bit": 데이터 전송 중 오류를 감지하는데 활용
-                    serialPort1.Open();                                       // 직렬 포트 활성화 > 읽기/쓰기 작업 수행
+                    serialPort1.Open();                                       // 직렬 포트 활성화 > 읽기/쓰기 작업 수행                                   // 직렬 포트 활성화 > 읽기/쓰기 작업 수행
                 }
             }
             catch (Exception)
@@ -766,7 +805,7 @@ namespace ArduinoTest
 
         private void motorDBar_Scroll(object sender, EventArgs e)
         {
-            rpmD.Text = (motorCBar.Value).ToString();
+            rpmD.Text = (motorDBar.Value).ToString();
         }
     }
 }
