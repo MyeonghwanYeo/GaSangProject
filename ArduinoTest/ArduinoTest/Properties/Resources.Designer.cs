@@ -63,6 +63,16 @@ namespace ArduinoTest.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Load_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Load_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap LogOut_Icon {
             get {
                 object obj = ResourceManager.GetObject("LogOut_Icon", resourceCulture);
@@ -83,9 +93,29 @@ namespace ArduinoTest.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Power_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Power_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap Simulation_Icon {
             get {
                 object obj = ResourceManager.GetObject("Simulation_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Temperature_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Temperature_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

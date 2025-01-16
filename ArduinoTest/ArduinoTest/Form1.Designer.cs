@@ -37,42 +37,35 @@ namespace ArduinoTest
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(10D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 30D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(20D, 330D);
             this.tempChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.powerChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.loadChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Motor1 = new System.Windows.Forms.Label();
-            this.onButton = new System.Windows.Forms.Button();
-            this.offButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.baudRateBox = new System.Windows.Forms.ComboBox();
             this.portBox = new System.Windows.Forms.ComboBox();
-            this.rpmA = new System.Windows.Forms.TextBox();
-            this.endX = new System.Windows.Forms.Label();
-            this.endY = new System.Windows.Forms.Label();
-            this.endZ = new System.Windows.Forms.Label();
-            this.endXBox = new System.Windows.Forms.TextBox();
-            this.endYBox = new System.Windows.Forms.TextBox();
-            this.endZBox = new System.Windows.Forms.TextBox();
             this.mainButton = new System.Windows.Forms.Button();
             this.simulationButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -80,27 +73,10 @@ namespace ArduinoTest
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.monitoringButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.maxZBox = new System.Windows.Forms.TextBox();
-            this.maxYBox = new System.Windows.Forms.TextBox();
-            this.maxXBox = new System.Windows.Forms.TextBox();
-            this.findButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.motorDBar = new System.Windows.Forms.TrackBar();
-            this.label4 = new System.Windows.Forms.Label();
-            this.rpmD = new System.Windows.Forms.TextBox();
-            this.motorCBar = new System.Windows.Forms.TrackBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rpmC = new System.Windows.Forms.TextBox();
-            this.motorBBar = new System.Windows.Forms.TrackBar();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rpmB = new System.Windows.Forms.TextBox();
-            this.motorABar = new System.Windows.Forms.TrackBar();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -116,19 +92,36 @@ namespace ArduinoTest
             this.angle3Box = new System.Windows.Forms.TextBox();
             this.angle2Box = new System.Windows.Forms.TextBox();
             this.angle1Box = new System.Windows.Forms.TextBox();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.endX = new System.Windows.Forms.Label();
+            this.onButton = new System.Windows.Forms.Button();
+            this.endY = new System.Windows.Forms.Label();
+            this.offButton = new System.Windows.Forms.Button();
+            this.endZ = new System.Windows.Forms.Label();
+            this.endXBox = new System.Windows.Forms.TextBox();
+            this.endYBox = new System.Windows.Forms.TextBox();
+            this.endZBox = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.findButton = new System.Windows.Forms.Button();
+            this.maxXBox = new System.Windows.Forms.TextBox();
+            this.maxYBox = new System.Windows.Forms.TextBox();
+            this.maxZBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.tempChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadChart)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.motorDBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motorCBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motorBBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motorABar)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tempChart
@@ -169,25 +162,33 @@ namespace ArduinoTest
             series2.LabelBackColor = System.Drawing.Color.Yellow;
             series2.Legend = "Legend1";
             series2.MarkerSize = 0;
-            series2.Name = "Motor B";
+            series2.Name = "Motor B-L";
+            series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             series3.BorderWidth = 2;
             series3.ChartArea = "TempArea";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.LabelBackColor = System.Drawing.Color.Yellow;
             series3.Legend = "Legend1";
-            series3.MarkerSize = 0;
-            series3.Name = "Motor C";
+            series3.Name = "Motor B-R";
             series4.BorderWidth = 2;
             series4.ChartArea = "TempArea";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series4.LabelBackColor = System.Drawing.Color.Yellow;
             series4.Legend = "Legend1";
             series4.MarkerSize = 0;
-            series4.Name = "Motor D";
+            series4.Name = "Motor C";
+            series5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            series5.BorderWidth = 2;
+            series5.ChartArea = "TempArea";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.LabelBackColor = System.Drawing.Color.Yellow;
+            series5.Legend = "Legend1";
+            series5.MarkerSize = 0;
+            series5.Name = "Motor D";
             this.tempChart.Series.Add(series1);
             this.tempChart.Series.Add(series2);
             this.tempChart.Series.Add(series3);
             this.tempChart.Series.Add(series4);
+            this.tempChart.Series.Add(series5);
             this.tempChart.TabStop = false;
             title1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
@@ -220,31 +221,39 @@ namespace ArduinoTest
             this.powerChart.Legends.Add(legend2);
             this.powerChart.Name = "powerChart";
             this.powerChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series5.BorderWidth = 2;
-            series5.ChartArea = "PowerArea";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Motor A";
             series6.BorderWidth = 2;
             series6.ChartArea = "PowerArea";
             series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series6.Legend = "Legend1";
-            series6.Name = "Motor B";
+            series6.Name = "Motor A";
             series7.BorderWidth = 2;
             series7.ChartArea = "PowerArea";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series7.Legend = "Legend1";
-            series7.Name = "Motor C";
+            series7.Name = "Motor B-L";
+            series8.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             series8.BorderWidth = 2;
             series8.ChartArea = "PowerArea";
             series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             series8.Legend = "Legend1";
-            series8.Name = "Motor D";
-            this.powerChart.Series.Add(series5);
+            series8.Name = "Motor B-R";
+            series9.BorderWidth = 2;
+            series9.ChartArea = "PowerArea";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "Motor C";
+            series10.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot;
+            series10.BorderWidth = 2;
+            series10.ChartArea = "PowerArea";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            series10.Legend = "Legend1";
+            series10.Name = "Motor D";
             this.powerChart.Series.Add(series6);
             this.powerChart.Series.Add(series7);
             this.powerChart.Series.Add(series8);
+            this.powerChart.Series.Add(series9);
+            this.powerChart.Series.Add(series10);
             title2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
             title2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             title2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
@@ -277,64 +286,43 @@ namespace ArduinoTest
             this.loadChart.Legends.Add(legend3);
             this.loadChart.Name = "loadChart";
             this.loadChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series9.BorderWidth = 2;
-            series9.ChartArea = "LoadArea";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "Motor A";
-            series10.BorderWidth = 2;
-            series10.ChartArea = "LoadArea";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Legend = "Legend1";
-            series10.Name = "Motor B";
             series11.BorderWidth = 2;
             series11.ChartArea = "LoadArea";
             series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series11.Legend = "Legend1";
-            series11.Name = "Motor C";
+            series11.Name = "Motor A";
             series12.BorderWidth = 2;
             series12.ChartArea = "LoadArea";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series12.Legend = "Legend1";
-            series12.Name = "Motor D";
-            this.loadChart.Series.Add(series9);
-            this.loadChart.Series.Add(series10);
+            series12.Name = "Motor B-L";
+            series13.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series13.BorderWidth = 2;
+            series13.ChartArea = "LoadArea";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Legend = "Legend1";
+            series13.Name = "Motor B-R";
+            series14.BorderWidth = 2;
+            series14.ChartArea = "LoadArea";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Legend = "Legend1";
+            series14.Name = "Motor C";
+            series15.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot;
+            series15.BorderWidth = 2;
+            series15.ChartArea = "LoadArea";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Legend = "Legend1";
+            series15.Name = "Motor D";
             this.loadChart.Series.Add(series11);
             this.loadChart.Series.Add(series12);
+            this.loadChart.Series.Add(series13);
+            this.loadChart.Series.Add(series14);
+            this.loadChart.Series.Add(series15);
             title3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             title3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
             title3.Name = "Title1";
             title3.Text = "Relative Load";
             this.loadChart.Titles.Add(title3);
-            // 
-            // Motor1
-            // 
-            resources.ApplyResources(this.Motor1, "Motor1");
-            this.Motor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.Motor1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.Motor1.Name = "Motor1";
-            // 
-            // onButton
-            // 
-            this.onButton.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.onButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.onButton.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.onButton, "onButton");
-            this.onButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.onButton.Name = "onButton";
-            this.onButton.UseVisualStyleBackColor = false;
-            this.onButton.Click += new System.EventHandler(this.onButton_Click);
-            // 
-            // offButton
-            // 
-            this.offButton.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.offButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.offButton.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.offButton, "offButton");
-            this.offButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.offButton.Name = "offButton";
-            this.offButton.UseVisualStyleBackColor = false;
-            this.offButton.Click += new System.EventHandler(this.offButton_Click);
             // 
             // button3
             // 
@@ -367,58 +355,6 @@ namespace ArduinoTest
             this.portBox.FormattingEnabled = true;
             this.portBox.Name = "portBox";
             this.portBox.Click += new System.EventHandler(this.portBox_Click);
-            // 
-            // rpmA
-            // 
-            this.rpmA.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmA.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.rpmA, "rpmA");
-            this.rpmA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.rpmA.Name = "rpmA";
-            // 
-            // endX
-            // 
-            resources.ApplyResources(this.endX, "endX");
-            this.endX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.endX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.endX.Name = "endX";
-            // 
-            // endY
-            // 
-            resources.ApplyResources(this.endY, "endY");
-            this.endY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.endY.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.endY.Name = "endY";
-            // 
-            // endZ
-            // 
-            resources.ApplyResources(this.endZ, "endZ");
-            this.endZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.endZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.endZ.Name = "endZ";
-            // 
-            // endXBox
-            // 
-            this.endXBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            resources.ApplyResources(this.endXBox, "endXBox");
-            this.endXBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.endXBox.Name = "endXBox";
-            this.endXBox.TextChanged += new System.EventHandler(this.endXBox_TextChanged);
-            // 
-            // endYBox
-            // 
-            this.endYBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            resources.ApplyResources(this.endYBox, "endYBox");
-            this.endYBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.endYBox.Name = "endYBox";
-            this.endYBox.TextChanged += new System.EventHandler(this.endYBox_TextChanged);
-            // 
-            // endZBox
-            // 
-            this.endZBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            resources.ApplyResources(this.endZBox, "endZBox");
-            this.endZBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.endZBox.Name = "endZBox";
             // 
             // mainButton
             // 
@@ -491,203 +427,12 @@ namespace ArduinoTest
             this.monitoringButton.UseVisualStyleBackColor = false;
             this.monitoringButton.Click += new System.EventHandler(this.monitoringButton_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.panel1.Controls.Add(this.maxZBox);
-            this.panel1.Controls.Add(this.maxYBox);
-            this.panel1.Controls.Add(this.maxXBox);
-            this.panel1.Controls.Add(this.findButton);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox8);
-            this.panel1.Controls.Add(this.motorDBar);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.rpmD);
-            this.panel1.Controls.Add(this.motorCBar);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.rpmC);
-            this.panel1.Controls.Add(this.motorBBar);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.rpmB);
-            this.panel1.Controls.Add(this.motorABar);
-            this.panel1.Controls.Add(this.endZBox);
-            this.panel1.Controls.Add(this.endYBox);
-            this.panel1.Controls.Add(this.Motor1);
-            this.panel1.Controls.Add(this.endXBox);
-            this.panel1.Controls.Add(this.rpmA);
-            this.panel1.Controls.Add(this.endZ);
-            this.panel1.Controls.Add(this.offButton);
-            this.panel1.Controls.Add(this.endY);
-            this.panel1.Controls.Add(this.onButton);
-            this.panel1.Controls.Add(this.endX);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
-            // maxZBox
-            // 
-            this.maxZBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.maxZBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maxZBox.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.maxZBox, "maxZBox");
-            this.maxZBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.maxZBox.Name = "maxZBox";
-            // 
-            // maxYBox
-            // 
-            this.maxYBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.maxYBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maxYBox.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.maxYBox, "maxYBox");
-            this.maxYBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.maxYBox.Name = "maxYBox";
-            // 
-            // maxXBox
-            // 
-            this.maxXBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.maxXBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maxXBox.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.maxXBox, "maxXBox");
-            this.maxXBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.maxXBox.Name = "maxXBox";
-            // 
-            // findButton
-            // 
-            this.findButton.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.findButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.findButton.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.findButton, "findButton");
-            this.findButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.findButton.Name = "findButton";
-            this.findButton.UseVisualStyleBackColor = false;
-            this.findButton.Click += new System.EventHandler(this.findButton_Click);
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.label6.Name = "label6";
-            // 
-            // textBox9
-            // 
-            resources.ApplyResources(this.textBox9, "textBox9");
-            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.ShortcutsEnabled = false;
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.label5.Name = "label5";
-            // 
-            // textBox8
-            // 
-            resources.ApplyResources(this.textBox8, "textBox8");
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.ShortcutsEnabled = false;
-            // 
-            // motorDBar
-            // 
-            resources.ApplyResources(this.motorDBar, "motorDBar");
-            this.motorDBar.Maximum = 90;
-            this.motorDBar.Minimum = 10;
-            this.motorDBar.Name = "motorDBar";
-            this.motorDBar.TickFrequency = 5;
-            this.motorDBar.Value = 30;
-            this.motorDBar.Scroll += new System.EventHandler(this.motorDBar_Scroll);
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.label4.Name = "label4";
-            // 
-            // rpmD
-            // 
-            this.rpmD.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmD.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.rpmD, "rpmD");
-            this.rpmD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.rpmD.Name = "rpmD";
-            // 
-            // motorCBar
-            // 
-            resources.ApplyResources(this.motorCBar, "motorCBar");
-            this.motorCBar.Maximum = 90;
-            this.motorCBar.Minimum = 10;
-            this.motorCBar.Name = "motorCBar";
-            this.motorCBar.TickFrequency = 5;
-            this.motorCBar.Value = 30;
-            this.motorCBar.Scroll += new System.EventHandler(this.motorCBar_Scroll);
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.label3.Name = "label3";
-            // 
-            // rpmC
-            // 
-            this.rpmC.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmC.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.rpmC, "rpmC");
-            this.rpmC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.rpmC.Name = "rpmC";
-            // 
-            // motorBBar
-            // 
-            resources.ApplyResources(this.motorBBar, "motorBBar");
-            this.motorBBar.Maximum = 90;
-            this.motorBBar.Minimum = 10;
-            this.motorBBar.Name = "motorBBar";
-            this.motorBBar.TickFrequency = 5;
-            this.motorBBar.Value = 30;
-            this.motorBBar.Scroll += new System.EventHandler(this.motorBBar_Scroll);
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.label2.Name = "label2";
-            // 
-            // rpmB
-            // 
-            this.rpmB.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rpmB.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.rpmB, "rpmB");
-            this.rpmB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.rpmB.Name = "rpmB";
-            // 
-            // motorABar
-            // 
-            resources.ApplyResources(this.motorABar, "motorABar");
-            this.motorABar.Maximum = 90;
-            this.motorABar.Minimum = 10;
-            this.motorABar.Name = "motorABar";
-            this.motorABar.TickFrequency = 5;
-            this.motorABar.Value = 30;
-            this.motorABar.Scroll += new System.EventHandler(this.motorABar_Scroll);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.panel3.Controls.Add(this.webView);
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.button4);
@@ -706,18 +451,30 @@ namespace ArduinoTest
             this.panel3.Controls.Add(this.tempChart);
             this.panel3.Controls.Add(this.powerChart);
             this.panel3.Controls.Add(this.loadChart);
+            this.panel3.Controls.Add(this.webView);
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
-            // webView
+            // pictureBox3
             // 
-            this.webView.AllowExternalDrop = true;
-            this.webView.CreationProperties = null;
-            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.webView, "webView");
-            this.webView.Name = "webView";
-            this.webView.Source = new System.Uri("http://192.168.0.160/receiver/index.html", System.UriKind.Absolute);
-            this.webView.ZoomFactor = 1D;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Image = global::ArduinoTest.Properties.Resources.Load_Icon;
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Image = global::ArduinoTest.Properties.Resources.Power_Icon;
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Image = global::ArduinoTest.Properties.Resources.Temperature_Icon;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // label10
             // 
@@ -778,12 +535,12 @@ namespace ArduinoTest
             resources.ApplyResources(this.zAxisChart, "zAxisChart");
             this.zAxisChart.Name = "zAxisChart";
             this.zAxisChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series13.BorderWidth = 2;
-            series13.ChartArea = "AngleArea";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series13.CustomProperties = "PieStartAngle=270, PieLineColor=Transparent, CollectedColor=White";
-            series13.Name = "CurrentAngle";
-            series13.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series16.BorderWidth = 2;
+            series16.ChartArea = "AngleArea";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series16.CustomProperties = "PieStartAngle=270, PieLineColor=Transparent, CollectedColor=White";
+            series16.Name = "CurrentAngle";
+            series16.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             dataPoint1.AxisLabel = "Remainder1";
             dataPoint1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
             dataPoint1.IsValueShownAsLabel = false;
@@ -800,10 +557,10 @@ namespace ArduinoTest
             dataPoint3.AxisLabel = "Remainder2";
             dataPoint3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
             dataPoint3.LabelForeColor = System.Drawing.Color.Transparent;
-            series13.Points.Add(dataPoint1);
-            series13.Points.Add(dataPoint2);
-            series13.Points.Add(dataPoint3);
-            this.zAxisChart.Series.Add(series13);
+            series16.Points.Add(dataPoint1);
+            series16.Points.Add(dataPoint2);
+            series16.Points.Add(dataPoint3);
+            this.zAxisChart.Series.Add(series16);
             // 
             // label12
             // 
@@ -866,6 +623,178 @@ namespace ArduinoTest
             this.angle1Box.ForeColor = System.Drawing.Color.DarkMagenta;
             this.angle1Box.Name = "angle1Box";
             // 
+            // webView
+            // 
+            this.webView.AllowExternalDrop = true;
+            this.webView.CreationProperties = null;
+            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.webView, "webView");
+            this.webView.Name = "webView";
+            this.webView.Source = new System.Uri("http://192.168.0.160/receiver/index.html", System.UriKind.Absolute);
+            this.webView.ZoomFactor = 1D;
+            // 
+            // endX
+            // 
+            resources.ApplyResources(this.endX, "endX");
+            this.endX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
+            this.endX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.endX.Name = "endX";
+            // 
+            // onButton
+            // 
+            this.onButton.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.onButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.onButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.onButton, "onButton");
+            this.onButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.onButton.Name = "onButton";
+            this.onButton.UseVisualStyleBackColor = false;
+            this.onButton.Click += new System.EventHandler(this.onButton_Click);
+            // 
+            // endY
+            // 
+            resources.ApplyResources(this.endY, "endY");
+            this.endY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
+            this.endY.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.endY.Name = "endY";
+            // 
+            // offButton
+            // 
+            this.offButton.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.offButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.offButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.offButton, "offButton");
+            this.offButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.offButton.Name = "offButton";
+            this.offButton.UseVisualStyleBackColor = false;
+            this.offButton.Click += new System.EventHandler(this.offButton_Click);
+            // 
+            // endZ
+            // 
+            resources.ApplyResources(this.endZ, "endZ");
+            this.endZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
+            this.endZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.endZ.Name = "endZ";
+            // 
+            // endXBox
+            // 
+            this.endXBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            resources.ApplyResources(this.endXBox, "endXBox");
+            this.endXBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.endXBox.Name = "endXBox";
+            this.endXBox.TextChanged += new System.EventHandler(this.endXBox_TextChanged);
+            // 
+            // endYBox
+            // 
+            this.endYBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            resources.ApplyResources(this.endYBox, "endYBox");
+            this.endYBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.endYBox.Name = "endYBox";
+            this.endYBox.TextChanged += new System.EventHandler(this.endYBox_TextChanged);
+            // 
+            // endZBox
+            // 
+            this.endZBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            resources.ApplyResources(this.endZBox, "endZBox");
+            this.endZBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.endZBox.Name = "endZBox";
+            // 
+            // textBox8
+            // 
+            resources.ApplyResources(this.textBox8, "textBox8");
+            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.ShortcutsEnabled = false;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.label5.Name = "label5";
+            // 
+            // textBox9
+            // 
+            resources.ApplyResources(this.textBox9, "textBox9");
+            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox9.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.ShortcutsEnabled = false;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.label6.Name = "label6";
+            // 
+            // findButton
+            // 
+            this.findButton.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.findButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.findButton.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.findButton, "findButton");
+            this.findButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.findButton.Name = "findButton";
+            this.findButton.UseVisualStyleBackColor = false;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            // 
+            // maxXBox
+            // 
+            this.maxXBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.maxXBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maxXBox.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.maxXBox, "maxXBox");
+            this.maxXBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.maxXBox.Name = "maxXBox";
+            // 
+            // maxYBox
+            // 
+            this.maxYBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.maxYBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maxYBox.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.maxYBox, "maxYBox");
+            this.maxYBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.maxYBox.Name = "maxYBox";
+            // 
+            // maxZBox
+            // 
+            this.maxZBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.maxZBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maxZBox.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.maxZBox, "maxZBox");
+            this.maxZBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            this.maxZBox.Name = "maxZBox";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
+            this.panel1.Controls.Add(this.maxZBox);
+            this.panel1.Controls.Add(this.maxYBox);
+            this.panel1.Controls.Add(this.maxXBox);
+            this.panel1.Controls.Add(this.findButton);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.textBox9);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.endZBox);
+            this.panel1.Controls.Add(this.endYBox);
+            this.panel1.Controls.Add(this.endXBox);
+            this.panel1.Controls.Add(this.endZ);
+            this.panel1.Controls.Add(this.offButton);
+            this.panel1.Controls.Add(this.endY);
+            this.panel1.Controls.Add(this.onButton);
+            this.panel1.Controls.Add(this.endX);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -883,17 +812,16 @@ namespace ArduinoTest
             ((System.ComponentModel.ISupportInitialize)(this.loadChart)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.motorDBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motorCBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motorBBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motorABar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -902,36 +830,11 @@ namespace ArduinoTest
         private System.Windows.Forms.DataVisualization.Charting.Chart tempChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart powerChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart loadChart;
-        private System.Windows.Forms.Label Motor1;
-        private System.Windows.Forms.Button onButton;
-        private System.Windows.Forms.Button offButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox baudRateBox;
-        private System.Windows.Forms.TextBox rpmA;
-        private System.Windows.Forms.Label endX;
-        private System.Windows.Forms.Label endY;
-        private System.Windows.Forms.Label endZ;
-        private System.Windows.Forms.TextBox endXBox;
-        private System.Windows.Forms.TextBox endYBox;
-        private System.Windows.Forms.TextBox endZBox;
         private System.Windows.Forms.Button mainButton;
         private System.Windows.Forms.Button simulationButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TrackBar motorABar;
-        private System.Windows.Forms.TrackBar motorCBar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox rpmC;
-        private System.Windows.Forms.TrackBar motorBBar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox rpmB;
-        private System.Windows.Forms.TrackBar motorDBar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox rpmD;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.ComboBox portBox;
         private System.Windows.Forms.Panel panel3;
         public Microsoft.Web.WebView2.WinForms.WebView2 webView;
@@ -943,10 +846,6 @@ namespace ArduinoTest
         private System.Windows.Forms.TextBox angle3Box;
         private System.Windows.Forms.TextBox angle2Box;
         private System.Windows.Forms.TextBox angle1Box;
-        private System.Windows.Forms.Button findButton;
-        private System.Windows.Forms.TextBox maxZBox;
-        private System.Windows.Forms.TextBox maxYBox;
-        private System.Windows.Forms.TextBox maxXBox;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -958,6 +857,26 @@ namespace ArduinoTest
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox linkPictureBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label endX;
+        private System.Windows.Forms.Button onButton;
+        private System.Windows.Forms.Label endY;
+        private System.Windows.Forms.Button offButton;
+        private System.Windows.Forms.Label endZ;
+        private System.Windows.Forms.TextBox endXBox;
+        private System.Windows.Forms.TextBox endYBox;
+        private System.Windows.Forms.TextBox endZBox;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button findButton;
+        private System.Windows.Forms.TextBox maxXBox;
+        private System.Windows.Forms.TextBox maxYBox;
+        private System.Windows.Forms.TextBox maxZBox;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

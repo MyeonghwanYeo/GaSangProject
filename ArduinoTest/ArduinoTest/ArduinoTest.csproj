@@ -179,6 +179,9 @@
     <None Include="Resources\LogOut_Icon.png" />
     <None Include="Resources\Monitoring_Icon.png" />
     <None Include="Resources\Simulation_Icon.png" />
+    <None Include="Resources\Temperature_Icon.png" />
+    <None Include="Resources\Power_Icon.png" />
+    <None Include="Resources\Load_Icon.png" />
     <Content Include="WinForm_Icon.ico" />
   </ItemGroup>
   <ItemGroup>
