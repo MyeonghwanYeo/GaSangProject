@@ -33,22 +33,6 @@ using namespace ControlTableItem;
 
 void setup() 
 {
-  stringRPM[0] = "";
-  stringRPM[1] = "";
-  stringRPM[2] = "";
-  stringRPM[3] = "";
-
-  stringTarget[0] = "";
-  stringTarget[1] = "";
-  stringTarget[2] = "";
-  stringTarget[3] = "";
-
-  targetAngle_arr[0] = 0;
-  targetAngle_arr[1] = 0;
-  targetAngle_arr[2] = 0;
-  targetAngle_arr[3] = 0;
-  targetAngle_arr[4] = 0;
-
   DEBUG_SERIAL.begin(115200);
 
   dxl.begin(1000000);
@@ -86,7 +70,7 @@ void loop()
     {
       data = DEBUG_SERIAL.readString();
       
-      delay(10);
+      delay(100);
       stringTarget[0] = data.substring(0, data.indexOf(','));
       int index1 = data.indexOf(',') + 1;
       stringTarget[1] = data.substring(index1, data.indexOf(',', index1));
@@ -95,13 +79,11 @@ void loop()
       int index3 = data.indexOf(',', index2) + 1;
       stringTarget[3] = data.substring(index3);
 
-      data = "";
-
-      targetAngle_arr[0] = 150.0f+stringTarget[0].toFloat();
-      targetAngle_arr[1] = 150.0f+stringTarget[1].toFloat();
-      targetAngle_arr[2] = 150.0f-stringTarget[1].toFloat();
-      targetAngle_arr[3] = 150.0f-stringTarget[2].toFloat();
-      targetAngle_arr[4] = 150.0f+stringTarget[3].toFloat();
+      targetAngle_arr[0] = 150+stringTarget[0].toFloat();
+      targetAngle_arr[1] = 150+stringTarget[1].toFloat();
+      targetAngle_arr[2] = 150-stringTarget[1].toFloat();
+      targetAngle_arr[3] = 150-stringTarget[2].toFloat();
+      targetAngle_arr[4] = 150+stringTarget[3].toFloat();
 
       startNum = 1;
     }
@@ -124,6 +106,7 @@ void loop()
 
   if(nowtime - pretime >= 1000)
   {
+
     DEBUG_SERIAL.println(temperature_arr[0]);
     DEBUG_SERIAL.println(voltage_arr[0]);
     DEBUG_SERIAL.println(load_arr[0]);
@@ -143,7 +126,7 @@ void loop()
     DEBUG_SERIAL.println(temperature_arr[4]);
     DEBUG_SERIAL.println(voltage_arr[4]);
     DEBUG_SERIAL.println(load_arr[4]);
-    delay(100);
+    delay(10);
 
     pretime = nowtime;
   }

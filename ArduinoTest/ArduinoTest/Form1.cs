@@ -46,10 +46,8 @@ namespace ArduinoTest
         static double l2 = 81.0;         // 두 번째 링크 길이
         static double l3 = 34.0;          // 세 번째 링크 길이
 
-        SerialPort serialPort1 = new SerialPort();
-
+        int modeNum = 0;
         int stopNum = 0;
-
         double r = 0;
 
         Crud_temperature crud_temperature = new Crud_temperature();
@@ -57,6 +55,7 @@ namespace ArduinoTest
         Crud_relativeLoad crud_relativeLoad = new Crud_relativeLoad();
         Crud_Robotaxis robotAxis;
 
+        public string data;
         string dir = @"C:\Users\제5강의실-3\Desktop\Group\GaSangProject";
 
         // 윈폼 실행시 서버 오픈
@@ -66,6 +65,8 @@ namespace ArduinoTest
             server = new TcpListener(IPAddress.Any, 7000);
 
             linkPictureBox.Load(dir + @"\LinkGraph\linkfigure_base.png");
+
+            readButton.Checked = true;
 
             maxXBox.Text = (l1 + l2).ToString();
             maxYBox.Text = (l1 + l2).ToString();
@@ -307,13 +308,13 @@ namespace ArduinoTest
 
             await PrintPython();
 
-            // 4축로봇 각도 C# -> Firebase에 데이터 업로드 코드1(1~4)
+            // 4축로봇 각도 C# => Firebase에 데이터 업로드 코드1(1~4)
             message_angle1 = angle1Box.Text.ToString();
             message_angle2 = angle2Box.Text.ToString();
             message_angle3 = angle3Box.Text.ToString();
             message_angle4 = angle4Box.Text.ToString();
 
-            // 4축로봇 각도 C# -> Firebase에 데이터 업로드 코드1
+            // 4축로봇 각도 C# => Firebase에 데이터 업로드 코드1
             // Firebase에 데이터 전송
             try
             {
@@ -475,77 +476,45 @@ namespace ArduinoTest
             offButton.Focus();
             if (!serialPort1.IsOpen) return;
 
-            // RPM 정보 "Arduino IDE"에 전달
-            string combineddata = $"{angle1Box.Text},{angle2Box.Text},{angle3Box.Text},{angle4Box.Text}\n";
+            if (modeNum == 0)
+            {
+                // RPM 정보 "Arduino IDE"에 전달
+                string combineddata = $"{angle1Box.Text},{angle2Box.Text},{angle3Box.Text},{angle4Box.Text}\n";
 
-            serialPort1.Write(combineddata);
-
-            // combineddata = "";
+                serialPort1.Write(combineddata);
+            }
+            else if (modeNum == 1)
+            {
+                serialPort1.Write("1");
+            }
 
             stopNum = 0;
 
+            findButton.Enabled = false;
             onButton.Enabled = false;
             offButton.Enabled = true;
 
-            // int firstNum = 0;
+            List<int> tempList = new List<int>();
+            List<float> voltList = new List<float>();
+            List<int> loadList = new List<int>();
 
             DateTime dateTimeNow = DateTime.Now;
             while (stopNum == 0)
             {
-                int tempValue1 = int.Parse(serialPort1.ReadLine());
-                float voltValue1 = float.Parse(serialPort1.ReadLine()) / 10.0f;
-                int loadValue1 = int.Parse(serialPort1.ReadLine());
-                
-                int tempValue2 = int.Parse(serialPort1.ReadLine());
-                float voltValue2 = float.Parse(serialPort1.ReadLine()) / 10.0f;
-                int loadValue2 = int.Parse(serialPort1.ReadLine());
-                
-                int tempValue3 = int.Parse(serialPort1.ReadLine());
-                float voltValue3 = float.Parse(serialPort1.ReadLine()) / 10.0f;
-                int loadValue3 = int.Parse(serialPort1.ReadLine());
-                
-                int tempValue4 = int.Parse(serialPort1.ReadLine());
-                float voltValue4 = float.Parse(serialPort1.ReadLine()) / 10.0f;
-                int loadValue4 = int.Parse(serialPort1.ReadLine());
-                
-                int tempValue5 = int.Parse(serialPort1.ReadLine());
-                float voltValue5 = float.Parse(serialPort1.ReadLine()) / 10.0f;
-                int loadValue5 = int.Parse(serialPort1.ReadLine());
-
-                // data = serialPort1.ReadLine();
-                // float axis1Value1 = float.Parse(data);
+                // string data = serialPort1.ReadLine();
+                // string[] result = data.Split(',');
                 // 
-                // data = serialPort1.ReadLine();
-                // float axis2Value1 = float.Parse(data);
+                // for (int i = 0; i < 5; i++)
+                // {
+                //     tempList.Add(int.Parse(result[3*i]));
+                //     voltList.Add(float.Parse(result[3*i+1]) / 10.0f);
+                //     loadList.Add(int.Parse(result[3*i+2]));
                 // 
-                // data = serialPort1.ReadLine();
-                // float axis3Value1 = float.Parse(data);
-                // 
-                // data = serialPort1.ReadLine();
-                // float axis4Value1 = float.Parse(data);
+                //     tempChart.Series[i].Points.Add(tempList[i]);
+                //     powerChart.Series[i].Points.Add(voltList[i]);
+                //     loadChart.Series[i].Points.Add(loadList[i]);
+                // }
 
-                tempChart.Series[0].Points.Add(tempValue1);
-                tempChart.Series[1].Points.Add(tempValue2);
-                tempChart.Series[2].Points.Add(tempValue3);
-                tempChart.Series[3].Points.Add(tempValue4);
-                tempChart.Series[4].Points.Add(tempValue5);
-                
-                powerChart.Series[0].Points.Add(voltValue1);
-                powerChart.Series[1].Points.Add(voltValue2);
-                powerChart.Series[2].Points.Add(voltValue3);
-                powerChart.Series[3].Points.Add(voltValue4);
-                powerChart.Series[4].Points.Add(voltValue5);
-                
-                loadChart.Series[0].Points.Add(loadValue1);
-                loadChart.Series[1].Points.Add(loadValue2);
-                loadChart.Series[2].Points.Add(loadValue3);
-                loadChart.Series[3].Points.Add(loadValue4);
-                loadChart.Series[4].Points.Add(loadValue5);
-
-                // loadChart.Series[0].Points.Add(axis1Value1);
-                // loadChart.Series[0].Points.Add(axis2Value1);
-                // loadChart.Series[0].Points.Add(axis3Value1);
-                // loadChart.Series[0].Points.Add(axis4Value1);
 
                 TimeSpan duration = new TimeSpan(0, 0, 0, 0, 1000);
                 DateTime dateTimeAdd = dateTimeNow.Add(duration);
@@ -558,39 +527,39 @@ namespace ArduinoTest
 
                 // 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
                 string currentDateTime = dateTimeNow.ToString("yyyy-MM-dd HH:mm:ss");
-                
+
                 // Firebase 1. 온도 데이터 저장
-                data_Firebase_temperature = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "temperature",
-                    Value = tempValue1
-                
-                };
-                // 온도 데이터 전송
-                crud_temperature.SetData("temperature", tempValue1, currentDateTime);
-                
-                // Firebase 2. 전압 데이터 저장
-                data_Firebase_voltage = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "voltage",
-                    Value = voltValue1
-                
-                };
-                // 전압 데이터 전송
-                crud_voltage.SetData("voltage", voltValue1, currentDateTime);
-                
-                // Firebase 3. 하중 데이터 저장
-                data_Firebase_relativeLoad = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "relativeLoad ",
-                    Value = loadValue1
-                
-                };
-                // 하중 데이터 전송
-                crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
+                //data_Firebase_temperature = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "temperature",
+                //    Value = tempValue1
+                //
+                //};
+                //// 온도 데이터 전송
+                //crud_temperature.SetData("temperature", tempValue1, currentDateTime);
+                //
+                //// Firebase 2. 전압 데이터 저장
+                //data_Firebase_voltage = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "voltage",
+                //    Value = voltValue1
+                //
+                //};
+                //// 전압 데이터 전송
+                //crud_voltage.SetData("voltage", voltValue1, currentDateTime);
+                //
+                //// Firebase 3. 하중 데이터 저장
+                //data_Firebase_relativeLoad = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "relativeLoad ",
+                //    Value = loadValue1
+                //
+                //};
+                //// 하중 데이터 전송
+                //crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
             }
         }
 
@@ -598,10 +567,11 @@ namespace ArduinoTest
         {
             if (!serialPort1.IsOpen) return;
 
-            serialPort1.Write("1");
+            serialPort1.Write("123");
 
             stopNum = 1;
 
+            findButton.Enabled = true;
             onButton.Enabled = true;
             offButton.Enabled = false;
         }
@@ -647,7 +617,7 @@ namespace ArduinoTest
                     serialPort1.DataBits = 8;
                     serialPort1.StopBits = StopBits.One;                      // "StopBits": 정지비트의 수를 나타내는 열거형
                     serialPort1.Parity = Parity.None;                         // "Parity Bit": 데이터 전송 중 오류를 감지하는데 활용
-                    serialPort1.Open();                                       // 직렬 포트 활성화 > 읽기/쓰기 작업 수행                                   // 직렬 포트 활성화 > 읽기/쓰기 작업 수행
+                    serialPort1.Open();
                 }
             }
             catch (Exception)
@@ -680,7 +650,7 @@ namespace ArduinoTest
                 }
                 else if (messageFromClient.Contains("C_DATA")) // C_DATA가 처음 들어왔을 때만 처리
                 {
-                    response = $"{ message_angle1},{message_angle2},{message_angle3},{message_angle4}";
+                    response = $"{message_angle1},{message_angle2},{message_angle3},{message_angle4}";
                     cDataProcessed = false; // 다음 C_DATA를 위해 플래그를 초기화
                 }
                 else if (messageFromClient.Contains("Disconnect"))
@@ -765,7 +735,7 @@ namespace ArduinoTest
         private void portBox_Click(object sender, EventArgs e)
         {
             portBox.Items.Clear();
-            
+
             foreach (var item in SerialPort.GetPortNames())
             {
                 portBox.Items.Add(item);
@@ -831,5 +801,28 @@ namespace ArduinoTest
             monitoringButton.Enabled = false;
             monitoringButton.Visible = false;
         }
+
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (readButton.Checked)
+            {
+                modeNum = 0;
+
+                endXBox.Enabled = true;
+                endYBox.Enabled = true;
+                endZBox.Enabled = true;
+                findButton.Enabled = true;
+            }
+            else if (writeButton.Checked)
+            {
+                modeNum = 1;
+
+                endXBox.Enabled = false;
+                endYBox.Enabled = false;
+                endZBox.Enabled = false;
+                findButton.Enabled = false;
+            }
+        }
+
     }
 }

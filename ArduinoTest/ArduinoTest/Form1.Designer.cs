@@ -74,9 +74,6 @@ namespace ArduinoTest
             this.label1 = new System.Windows.Forms.Label();
             this.monitoringButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -101,8 +98,6 @@ namespace ArduinoTest
             this.endXBox = new System.Windows.Forms.TextBox();
             this.endYBox = new System.Windows.Forms.TextBox();
             this.endZBox = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
@@ -110,14 +105,13 @@ namespace ArduinoTest
             this.maxYBox = new System.Windows.Forms.TextBox();
             this.maxZBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.readButton = new System.Windows.Forms.RadioButton();
+            this.writeButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.tempChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadChart)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
@@ -430,9 +424,6 @@ namespace ArduinoTest
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.button4);
@@ -454,27 +445,6 @@ namespace ArduinoTest
             this.panel3.Controls.Add(this.webView);
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
-            // 
-            // pictureBox3
-            // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Image = global::ArduinoTest.Properties.Resources.Load_Icon;
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Image = global::ArduinoTest.Properties.Resources.Power_Icon;
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::ArduinoTest.Properties.Resources.Temperature_Icon;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
             // 
             // label10
             // 
@@ -699,24 +669,6 @@ namespace ArduinoTest
             this.endZBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
             this.endZBox.Name = "endZBox";
             // 
-            // textBox8
-            // 
-            resources.ApplyResources(this.textBox8, "textBox8");
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.ShortcutsEnabled = false;
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            this.label5.Name = "label5";
-            // 
             // textBox9
             // 
             resources.ApplyResources(this.textBox9, "textBox9");
@@ -776,14 +728,14 @@ namespace ArduinoTest
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(144)))), ((int)(((byte)(195)))));
+            this.panel1.Controls.Add(this.readButton);
+            this.panel1.Controls.Add(this.writeButton);
             this.panel1.Controls.Add(this.maxZBox);
             this.panel1.Controls.Add(this.maxYBox);
             this.panel1.Controls.Add(this.maxXBox);
             this.panel1.Controls.Add(this.findButton);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox8);
             this.panel1.Controls.Add(this.endZBox);
             this.panel1.Controls.Add(this.endYBox);
             this.panel1.Controls.Add(this.endXBox);
@@ -794,6 +746,20 @@ namespace ArduinoTest
             this.panel1.Controls.Add(this.endX);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // readButton
+            // 
+            resources.ApplyResources(this.readButton, "readButton");
+            this.readButton.Name = "readButton";
+            this.readButton.TabStop = true;
+            this.readButton.UseVisualStyleBackColor = true;
+            // 
+            // writeButton
+            // 
+            resources.ApplyResources(this.writeButton, "writeButton");
+            this.writeButton.Name = "writeButton";
+            this.writeButton.TabStop = true;
+            this.writeButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -814,9 +780,6 @@ namespace ArduinoTest
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zAxisChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linkPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
@@ -857,9 +820,6 @@ namespace ArduinoTest
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox linkPictureBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label endX;
         private System.Windows.Forms.Button onButton;
         private System.Windows.Forms.Label endY;
@@ -868,8 +828,6 @@ namespace ArduinoTest
         private System.Windows.Forms.TextBox endXBox;
         private System.Windows.Forms.TextBox endYBox;
         private System.Windows.Forms.TextBox endZBox;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button findButton;
@@ -877,6 +835,8 @@ namespace ArduinoTest
         private System.Windows.Forms.TextBox maxYBox;
         private System.Windows.Forms.TextBox maxZBox;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton readButton;
+        private System.Windows.Forms.RadioButton writeButton;
     }
 }
 
