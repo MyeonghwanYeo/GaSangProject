@@ -34,6 +34,8 @@ namespace ArduinoTest
         public TcpListener server;
         public NetworkStream stream;
 
+        SerialPort serialPort1 = new SerialPort();
+
         public bool isRunning = false;
         string message_angle1 = "0";
         string message_angle2 = "0";
@@ -42,9 +44,11 @@ namespace ArduinoTest
         string response = "";
         bool cDataProcessed = false; // C_DATA가 처리되었는지 여부를 나타내는 플래그
         private Process unityProcess;
-        static double l1 = 150.0;         // 첫 번째 링크 길이
-        static double l2 = 81.0;         // 두 번째 링크 길이
-        static double l3 = 34.0;          // 세 번째 링크 길이
+
+        // 링크 킬이 정의
+        static double l1 = 150.0;
+        static double l2 = 81.0;
+        static double l3 = 34.0;
 
         int modeNum = 0;
         int stopNum = 0;
@@ -56,7 +60,7 @@ namespace ArduinoTest
         Crud_Robotaxis robotAxis;
 
         public string data;
-        string dir = @"C:\Users\제5강의실-3\Desktop\Group\GaSangProject";
+        string dir = "";
 
         // 윈폼 실행시 서버 오픈
         public Form1()
@@ -64,9 +68,7 @@ namespace ArduinoTest
             InitializeComponent();
             server = new TcpListener(IPAddress.Any, 7000);
 
-            linkPictureBox.Load(dir + @"\LinkGraph\linkfigure_base.png");
-
-            readButton.Checked = true;
+            writeButton.Checked = true;
 
             maxXBox.Text = (l1 + l2).ToString();
             maxYBox.Text = (l1 + l2).ToString();
@@ -804,7 +806,7 @@ namespace ArduinoTest
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (readButton.Checked)
+            if (writeButton.Checked)
             {
                 modeNum = 0;
 
@@ -813,7 +815,7 @@ namespace ArduinoTest
                 endZBox.Enabled = true;
                 findButton.Enabled = true;
             }
-            else if (writeButton.Checked)
+            else if (readButton.Checked)
             {
                 modeNum = 1;
 
@@ -824,5 +826,15 @@ namespace ArduinoTest
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                dir = folderBrowserDialog.SelectedPath;
+                pathButton.Text = dir;
+            }
+        }
     }
 }

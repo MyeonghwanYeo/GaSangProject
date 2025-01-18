@@ -182,6 +182,7 @@
     <None Include="Resources\Temperature_Icon.png" />
     <None Include="Resources\Power_Icon.png" />
     <None Include="Resources\Load_Icon.png" />
+    <None Include="Resources\Robot_IMAGE.png" />
     <Content Include="WinForm_Icon.ico" />
   </ItemGroup>
   <ItemGroup>

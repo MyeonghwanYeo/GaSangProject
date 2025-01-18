@@ -103,6 +103,16 @@ namespace ArduinoTest.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Robot_IMAGE {
+            get {
+                object obj = ResourceManager.GetObject("Robot_IMAGE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap Simulation_Icon {
             get {
                 object obj = ResourceManager.GetObject("Simulation_Icon", resourceCulture);
