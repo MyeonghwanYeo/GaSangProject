@@ -1,5 +1,4 @@
 #include <DynamixelShield.h>
-#include <avr/wdt.h>
 
 #if defined(ARDUINO_AVR_UNO) || defined(ARDUINO_AVR_MEGA2560)
   #include <SoftwareSerial.h>
@@ -26,6 +25,14 @@ unsigned long pretime;
 String stringRPM[4];
 String stringTarget[4];
 float targetAngle_arr[5];
+
+int angleID6 = 512;
+int angleID2 = 512;
+int angleID3 = 512;
+int angleID4 = 512;
+int angleID5 = 512;
+
+String presnetAngle;
 
 DynamixelShield dxl;
 
@@ -65,97 +72,111 @@ void setup()
   delay(100);
 }
 
-void loop() 
+void loop()
 {
-  if(DEBUG_SERIAL.available() > 0)
+  if(DEBUG_SERIAL.available() > 2)
   {
-    while(true)
+    String modeStr = DEBUG_SERIAL.readString();
+
+    delay(100);
+
+    if(modeStr == "Read")
     {
       // 6번 모터 제어
       if(analogRead(A0) > 1000)
       {
-        int angleID6 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[0]);
-
         dxl.setGoalPosition(DXL_ID_Arr[0], angleID6+5);
 
         delay(100);
+
+        angleID6 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[0]);
       }
       else if (analogRead(A0) < 25)
       {
-        int angleID6 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[0]);
-
         dxl.setGoalPosition(DXL_ID_Arr[0], angleID6-5);
 
         delay(100);
+
+        angleID6 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[0]);
       }
 
       // 2번, 3번 모터 제어
       if(analogRead(A1) > 1000)
       {
-        int angleID2 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[1]);
-        int angleID3 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[2]);
-
         dxl.setGoalPosition(DXL_ID_Arr[1], angleID2+5);
         dxl.setGoalPosition(DXL_ID_Arr[2], angleID3-5);
 
         delay(100);
+
+        angleID2 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[1]);
+        angleID3 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[2]);
       }
       else if (analogRead(A1) < 25)
       {
-        int angleID2 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[1]);
-        int angleID3 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[2]);
-
         dxl.setGoalPosition(DXL_ID_Arr[1], angleID2-5);
         dxl.setGoalPosition(DXL_ID_Arr[2], angleID3+5);
 
         delay(100);
+
+        angleID2 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[1]);
+        angleID3 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[2]);
       }
 
       // 4번 모터 제어
       if(analogRead(A2) > 1000)
       {
-        int angleID4 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[3]);
-
         dxl.setGoalPosition(DXL_ID_Arr[3], angleID4+5);
 
         delay(100);
+
+        angleID4 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[3]);
       }
       else if (analogRead(A2) < 25)
       {
-        int angleID4 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[3]);
-
         dxl.setGoalPosition(DXL_ID_Arr[3], angleID4-5);
 
         delay(100);
+
+        angleID4 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[3]);
       }
 
       // 5번 모터 제어
       if(analogRead(A3) > 1000)
       {
-        int angleID5 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[4]);
-
         dxl.setGoalPosition(DXL_ID_Arr[4], angleID5+5);
 
         delay(100);
+
+        angleID5 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[4]);
       }
       else if (analogRead(A3) < 25)
       {
-        int angleID5 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[4]);
-
         dxl.setGoalPosition(DXL_ID_Arr[4], angleID5-5);
 
         delay(100);
+
+        angleID5 = dxl.readControlTableItem(PRESENT_POSITION, DXL_ID_Arr[4]);
       }
+
+      presnetAngle = String(angleID6) + ',' + String(angleID2) + ',' + String(angleID4) + ',' + String(angleID5)) + ',';
     }
-  }
-  
-  while(startNum == 0)
-  {
-    if(DEBUG_SERIAL.available() > 0)
+
+    else if(modeStr == "Off")
+    {
+      for(int i = 0; i < 5; i++)
+      {
+        dxl.setGoalPosition(DXL_ID_Arr[i], 150, UNIT_DEGREE);
+      }
+
+      delay(3000);
+    }
+
+    else if(modeStr != "Read" && modeStr != "Off")
     {
       data = DEBUG_SERIAL.readString();
-      
+    
       delay(100);
+
       stringTarget[0] = data.substring(0, data.indexOf(','));
       int index1 = data.indexOf(',') + 1;
       stringTarget[1] = data.substring(index1, data.indexOf(',', index1));
@@ -170,58 +191,33 @@ void loop()
       targetAngle_arr[3] = 150-stringTarget[2].toFloat();
       targetAngle_arr[4] = 150+stringTarget[3].toFloat();
 
-      startNum = 1;
+      presnetAngle = "";
     }
+
+    int tempArr[5];
+    int voltArr[5];
+    int loadArr[5];
+
+    if(modeStr != "Off")
+    {
+      for(int i = 0; i < 5; i++)
+      {
+        dxl.setGoalPosition(DXL_ID_Arr[i], targetAngle_arr[i], UNIT_DEGREE);
+
+        tempArr[i] = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID_Arr[i]);
+        voltArr[i] = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID_Arr[i]);
+        loadArr[i] = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID_Arr[i]);
+      }
+    }
+
+    String sendData = presnetAngle + String(tempArr[0]) + ',' + String(voltArr[0]) + ',' + String(loadArr[0])
+    + ',' + String(tempArr[1]) + ',' + String(voltArr[1]) + ',' + String(loadArr[1])
+    + ',' + String(tempArr[2]) + ',' + String(voltArr[2]) + ',' + String(loadArr[2])
+    + ',' + String(tempArr[3]) + ',' + String(voltArr[3]) + ',' + String(loadArr[3])
+    + ',' + String(tempArr[4]) + ',' + String(voltArr[4]) + ',' + String(loadArr[4])
+
+    DEBUG_SERIAL.println(sendData);
+
+    delay(100);
   }
-  
-  int temperature_arr[5];
-  int voltage_arr[5];
-  int load_arr[5];
-
-  for(int i = 0; i < 5; i++)
-  {
-    dxl.setGoalPosition(DXL_ID_Arr[i], targetAngle_arr[i], UNIT_DEGREE);
-
-    temperature_arr[i] = dxl.readControlTableItem(PRESENT_TEMPERATURE, DXL_ID_Arr[i]);
-    voltage_arr[i] = dxl.readControlTableItem(PRESENT_VOLTAGE, DXL_ID_Arr[i]);
-    load_arr[i] = dxl.readControlTableItem(PRESENT_LOAD, DXL_ID_Arr[i]);
-  }
-
-  unsigned long nowtime = millis();
-
-  if(nowtime - pretime >= 1000)
-  {
-
-    DEBUG_SERIAL.println(temperature_arr[0]);
-    DEBUG_SERIAL.println(voltage_arr[0]);
-    DEBUG_SERIAL.println(load_arr[0]);
-
-    DEBUG_SERIAL.println(temperature_arr[1]);
-    DEBUG_SERIAL.println(voltage_arr[1]);
-    DEBUG_SERIAL.println(load_arr[1]);
-
-    DEBUG_SERIAL.println(temperature_arr[2]);
-    DEBUG_SERIAL.println(voltage_arr[2]);
-    DEBUG_SERIAL.println(load_arr[2]);
-
-    DEBUG_SERIAL.println(temperature_arr[3]);
-    DEBUG_SERIAL.println(voltage_arr[3]);
-    DEBUG_SERIAL.println(load_arr[3]);
-
-    DEBUG_SERIAL.println(temperature_arr[4]);
-    DEBUG_SERIAL.println(voltage_arr[4]);
-    DEBUG_SERIAL.println(load_arr[4]);
-    delay(10);
-
-    pretime = nowtime;
-  }
-
-  if (DEBUG_SERIAL.available() > 0)
-  {
-    startNum = 0;
-
-    wdt_enable(WDTO_15MS);
-    while(1) 
-    {}
-  }
-}
+} 

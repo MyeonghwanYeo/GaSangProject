@@ -464,8 +464,6 @@ namespace ArduinoTest
                 }
 
                 maxZBox.Text = Math.Round((Math.Sqrt(Math.Pow(maxReach, 2) - Math.Pow(r, 2))) - l3, 3).ToString();
-
-                textBox7.Text = Math.Round(r, 3).ToString();
             }
             else
             {
@@ -478,90 +476,110 @@ namespace ArduinoTest
             offButton.Focus();
             if (!serialPort1.IsOpen) return;
 
-            if (modeNum == 0)
-            {
-                // RPM 정보 "Arduino IDE"에 전달
-                string combineddata = $"{angle1Box.Text},{angle2Box.Text},{angle3Box.Text},{angle4Box.Text}\n";
-
-                serialPort1.Write(combineddata);
-            }
-            else if (modeNum == 1)
-            {
-                serialPort1.Write("1");
-            }
-
-            stopNum = 0;
-
             findButton.Enabled = false;
             onButton.Enabled = false;
             offButton.Enabled = true;
 
-            List<int> tempList = new List<int>();
-            List<float> voltList = new List<float>();
-            List<int> loadList = new List<int>();
-
-            DateTime dateTimeNow = DateTime.Now;
+            stopNum = 0;
             while (stopNum == 0)
             {
-                // string data = serialPort1.ReadLine();
-                // string[] result = data.Split(',');
-                // 
-                // for (int i = 0; i < 5; i++)
-                // {
-                //     tempList.Add(int.Parse(result[3*i]));
-                //     voltList.Add(float.Parse(result[3*i+1]) / 10.0f);
-                //     loadList.Add(int.Parse(result[3*i+2]));
-                // 
-                //     tempChart.Series[i].Points.Add(tempList[i]);
-                //     powerChart.Series[i].Points.Add(voltList[i]);
-                //     loadChart.Series[i].Points.Add(loadList[i]);
-                // }
-
-
-                TimeSpan duration = new TimeSpan(0, 0, 0, 0, 1000);
-                DateTime dateTimeAdd = dateTimeNow.Add(duration);
-
-                while (dateTimeAdd >= dateTimeNow)
+                if (modeNum == 0)
                 {
-                    System.Windows.Forms.Application.DoEvents();
-                    dateTimeNow = DateTime.Now;
+                    // 각도 정보 "Arduino IDE"에 전달
+                    string combineddata = $"{angle1Box.Text},{angle2Box.Text},{angle3Box.Text},{angle4Box.Text}\n";
+
+                    serialPort1.Write(combineddata);
+                }
+                else if (modeNum == 1)
+                {
+                    serialPort1.Write("Read\n");
                 }
 
+                List<int> tempList = new List<int>();
+                List<float> voltList = new List<float>();
+                List<int> loadList = new List<int>();
+
+                // 별도의 스레드 실행을 통한 아두이노 IDE 데이터 수신
+                Thread readThread = new Thread(() =>
+                {
+                    while (true)
+                    {
+                        try
+                        {
+                            // 읽을 데이터가 있을 때까지 대기
+                            if (serialPort1.BytesToRead > 0)
+                            {
+                                string receivedData = serialPort1.ReadLine();
+                                string[] result = receivedData.Split(',');
+
+                                List<string> dataList = new List<string>(result);
+                                if (modeNum == 1)
+                                {
+                                    angle1Box.Text = result[0];
+                                    angle2Box.Text = result[1];
+                                    angle3Box.Text = result[2];
+                                    angle4Box.Text = result[3];
+
+                                    dataList.RemoveRange(0, 4);
+                                }
+
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    tempList.Add(int.Parse(dataList[3 * i]));
+                                    voltList.Add(float.Parse(dataList[3 * i + 1]) / 10.0f);
+                                    loadList.Add(int.Parse(dataList[3 * i + 2]));
+
+                                    tempChart.Series[i].Points.Add(tempList[i]);
+                                    powerChart.Series[i].Points.Add(voltList[i]);
+                                    loadChart.Series[i].Points.Add(loadList[i]);
+                                }
+                            }
+                            // 약간의 지연 
+                            Thread.Sleep(100);
+
+                        }
+                        catch (TimeoutException) { }
+                    }
+                });
+
+                readThread.IsBackground = true;
+                readThread.Start();
+
                 // 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
-                string currentDateTime = dateTimeNow.ToString("yyyy-MM-dd HH:mm:ss");
+                string currentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                 // Firebase 1. 온도 데이터 저장
-                //data_Firebase_temperature = new Data
-                //{
-                //    Timestamp = currentDateTime,
-                //    Category = "temperature",
-                //    Value = tempValue1
-                //
-                //};
-                //// 온도 데이터 전송
-                //crud_temperature.SetData("temperature", tempValue1, currentDateTime);
-                //
-                //// Firebase 2. 전압 데이터 저장
-                //data_Firebase_voltage = new Data
-                //{
-                //    Timestamp = currentDateTime,
-                //    Category = "voltage",
-                //    Value = voltValue1
-                //
-                //};
-                //// 전압 데이터 전송
-                //crud_voltage.SetData("voltage", voltValue1, currentDateTime);
-                //
-                //// Firebase 3. 하중 데이터 저장
-                //data_Firebase_relativeLoad = new Data
-                //{
-                //    Timestamp = currentDateTime,
-                //    Category = "relativeLoad ",
-                //    Value = loadValue1
-                //
-                //};
-                //// 하중 데이터 전송
-                //crud_relativeLoad.SetData("relativeLoad", loadValue1, currentDateTime);
+                data_Firebase_temperature = new Data
+                {
+                    Timestamp = currentDateTime,
+                    Category = "temperature",
+                    Value = tempList[0]
+
+                };
+                // 온도 데이터 전송
+                crud_temperature.SetData("temperature", tempList[0], currentDateTime);
+                
+                // Firebase 2. 전압 데이터 저장
+                data_Firebase_voltage = new Data
+                {
+                    Timestamp = currentDateTime,
+                    Category = "voltage",
+                    Value = voltList[0]
+                
+                };
+                // 전압 데이터 전송
+                crud_voltage.SetData("voltage", voltList[0], currentDateTime);
+                
+                // Firebase 3. 하중 데이터 저장
+                data_Firebase_relativeLoad = new Data
+                {
+                    Timestamp = currentDateTime,
+                    Category = "relativeLoad ",
+                    Value = loadList[0]
+                
+                };
+                // 하중 데이터 전송
+                crud_relativeLoad.SetData("relativeLoad", loadList[0], currentDateTime);
             }
         }
 
@@ -569,7 +587,7 @@ namespace ArduinoTest
         {
             if (!serialPort1.IsOpen) return;
 
-            serialPort1.Write("123");
+            serialPort1.Write("Off\n");
 
             stopNum = 1;
 
@@ -826,7 +844,7 @@ namespace ArduinoTest
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void pathButton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
