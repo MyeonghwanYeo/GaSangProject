@@ -802,6 +802,8 @@ namespace ArduinoTest
 
         private void simulationButton_Click(object sender, EventArgs e)
         {
+            panel3.Visible = false;
+            panel5.Visible = true;
             webView.Visible = true;
 
             monitoringButton.Enabled = true;
@@ -813,6 +815,8 @@ namespace ArduinoTest
 
         private void monitoringButton_Click(object sender, EventArgs e)
         {
+            panel3.Visible = true;
+            panel5.Visible = false;
             webView.Visible = false;
 
             simulationButton.Enabled = true;

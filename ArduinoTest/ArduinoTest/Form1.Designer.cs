@@ -30,36 +30,36 @@ namespace ArduinoTest
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea21 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(10D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 30D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(20D, 330D);
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series81 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series82 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series83 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series84 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series85 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea22 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series86 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series87 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series88 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series89 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series90 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title17 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea23 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series91 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series92 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series93 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series94 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series95 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title18 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea24 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series96 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint16 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(10D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint17 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 30D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint18 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(20D, 330D);
             this.tempChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.powerChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.loadChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -75,6 +75,10 @@ namespace ArduinoTest
             this.label1 = new System.Windows.Forms.Label();
             this.monitoringButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.angle4Box = new System.Windows.Forms.TextBox();
+            this.angle3Box = new System.Windows.Forms.TextBox();
+            this.angle2Box = new System.Windows.Forms.TextBox();
+            this.angle1Box = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -88,10 +92,6 @@ namespace ArduinoTest
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.linkPictureBox = new System.Windows.Forms.PictureBox();
-            this.angle4Box = new System.Windows.Forms.TextBox();
-            this.angle3Box = new System.Windows.Forms.TextBox();
-            this.angle2Box = new System.Windows.Forms.TextBox();
-            this.angle1Box = new System.Windows.Forms.TextBox();
             this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.endX = new System.Windows.Forms.Label();
             this.onButton = new System.Windows.Forms.Button();
@@ -123,6 +123,7 @@ namespace ArduinoTest
             this.writeButton = new System.Windows.Forms.RadioButton();
             this.readButton = new System.Windows.Forms.RadioButton();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.tempChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.powerChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadChart)).BeginInit();
@@ -142,207 +143,208 @@ namespace ArduinoTest
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tempChart
             // 
             this.tempChart.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.Title = "Time Step [sec]";
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            chartArea1.Name = "TempArea";
-            this.tempChart.ChartAreas.Add(chartArea1);
+            chartArea21.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea21.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea21.AxisX.MajorGrid.Enabled = false;
+            chartArea21.AxisX.Title = "Time Step [sec]";
+            chartArea21.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            chartArea21.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea21.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea21.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea21.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            chartArea21.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            chartArea21.Name = "TempArea";
+            this.tempChart.ChartAreas.Add(chartArea21);
             resources.ApplyResources(this.tempChart, "tempChart");
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.tempChart.Legends.Add(legend1);
+            legend16.BackColor = System.Drawing.Color.Transparent;
+            legend16.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            legend16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            legend16.IsTextAutoFit = false;
+            legend16.Name = "Legend1";
+            this.tempChart.Legends.Add(legend16);
             this.tempChart.Name = "tempChart";
             this.tempChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.BorderWidth = 2;
-            series1.ChartArea = "TempArea";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 0;
-            series1.Name = "Motor A";
-            series2.BorderWidth = 2;
-            series2.ChartArea = "TempArea";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.LabelBackColor = System.Drawing.Color.Yellow;
-            series2.Legend = "Legend1";
-            series2.MarkerSize = 0;
-            series2.Name = "Motor B-L";
-            series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            series3.BorderWidth = 2;
-            series3.ChartArea = "TempArea";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Motor B-R";
-            series4.BorderWidth = 2;
-            series4.ChartArea = "TempArea";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.LabelBackColor = System.Drawing.Color.Yellow;
-            series4.Legend = "Legend1";
-            series4.MarkerSize = 0;
-            series4.Name = "Motor C";
-            series5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
-            series5.BorderWidth = 2;
-            series5.ChartArea = "TempArea";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.LabelBackColor = System.Drawing.Color.Yellow;
-            series5.Legend = "Legend1";
-            series5.MarkerSize = 0;
-            series5.Name = "Motor D";
-            this.tempChart.Series.Add(series1);
-            this.tempChart.Series.Add(series2);
-            this.tempChart.Series.Add(series3);
-            this.tempChart.Series.Add(series4);
-            this.tempChart.Series.Add(series5);
+            series81.BorderWidth = 2;
+            series81.ChartArea = "TempArea";
+            series81.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series81.Font = new System.Drawing.Font("Segoe UI", 10F);
+            series81.Legend = "Legend1";
+            series81.MarkerSize = 0;
+            series81.Name = "Motor A";
+            series82.BorderWidth = 2;
+            series82.ChartArea = "TempArea";
+            series82.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series82.LabelBackColor = System.Drawing.Color.Yellow;
+            series82.Legend = "Legend1";
+            series82.MarkerSize = 0;
+            series82.Name = "Motor B-L";
+            series83.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series83.BorderWidth = 2;
+            series83.ChartArea = "TempArea";
+            series83.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series83.Legend = "Legend1";
+            series83.Name = "Motor B-R";
+            series84.BorderWidth = 2;
+            series84.ChartArea = "TempArea";
+            series84.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series84.LabelBackColor = System.Drawing.Color.Yellow;
+            series84.Legend = "Legend1";
+            series84.MarkerSize = 0;
+            series84.Name = "Motor C";
+            series85.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            series85.BorderWidth = 2;
+            series85.ChartArea = "TempArea";
+            series85.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series85.LabelBackColor = System.Drawing.Color.Yellow;
+            series85.Legend = "Legend1";
+            series85.MarkerSize = 0;
+            series85.Name = "Motor D";
+            this.tempChart.Series.Add(series81);
+            this.tempChart.Series.Add(series82);
+            this.tempChart.Series.Add(series83);
+            this.tempChart.Series.Add(series84);
+            this.tempChart.Series.Add(series85);
             this.tempChart.TabStop = false;
-            title1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            title1.Name = "Title1";
-            title1.Text = "Temperature [°C]";
-            this.tempChart.Titles.Add(title1);
+            title16.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            title16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            title16.Name = "Title1";
+            title16.Text = "Temperature [°C]";
+            this.tempChart.Titles.Add(title16);
             // 
             // powerChart
             // 
             this.powerChart.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea2.AxisX.MajorGrid.Enabled = false;
-            chartArea2.AxisX.Title = "Time Step [sec]";
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            chartArea2.Name = "PowerArea";
-            this.powerChart.ChartAreas.Add(chartArea2);
+            chartArea22.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea22.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea22.AxisX.MajorGrid.Enabled = false;
+            chartArea22.AxisX.Title = "Time Step [sec]";
+            chartArea22.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            chartArea22.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea22.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea22.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea22.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            chartArea22.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            chartArea22.Name = "PowerArea";
+            this.powerChart.ChartAreas.Add(chartArea22);
             resources.ApplyResources(this.powerChart, "powerChart");
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.powerChart.Legends.Add(legend2);
+            legend17.BackColor = System.Drawing.Color.Transparent;
+            legend17.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            legend17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            legend17.IsTextAutoFit = false;
+            legend17.Name = "Legend1";
+            this.powerChart.Legends.Add(legend17);
             this.powerChart.Name = "powerChart";
             this.powerChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series6.BorderWidth = 2;
-            series6.ChartArea = "PowerArea";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Motor A";
-            series7.BorderWidth = 2;
-            series7.ChartArea = "PowerArea";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Legend = "Legend1";
-            series7.Name = "Motor B-L";
-            series8.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            series8.BorderWidth = 2;
-            series8.ChartArea = "PowerArea";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Legend = "Legend1";
-            series8.Name = "Motor B-R";
-            series9.BorderWidth = 2;
-            series9.ChartArea = "PowerArea";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "Motor C";
-            series10.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot;
-            series10.BorderWidth = 2;
-            series10.ChartArea = "PowerArea";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            series10.Legend = "Legend1";
-            series10.Name = "Motor D";
-            this.powerChart.Series.Add(series6);
-            this.powerChart.Series.Add(series7);
-            this.powerChart.Series.Add(series8);
-            this.powerChart.Series.Add(series9);
-            this.powerChart.Series.Add(series10);
-            title2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            title2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            title2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            title2.Name = "Title1";
-            title2.Text = "Power [W]";
-            this.powerChart.Titles.Add(title2);
+            series86.BorderWidth = 2;
+            series86.ChartArea = "PowerArea";
+            series86.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series86.Legend = "Legend1";
+            series86.Name = "Motor A";
+            series87.BorderWidth = 2;
+            series87.ChartArea = "PowerArea";
+            series87.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series87.Legend = "Legend1";
+            series87.Name = "Motor B-L";
+            series88.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series88.BorderWidth = 2;
+            series88.ChartArea = "PowerArea";
+            series88.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series88.Legend = "Legend1";
+            series88.Name = "Motor B-R";
+            series89.BorderWidth = 2;
+            series89.ChartArea = "PowerArea";
+            series89.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series89.Legend = "Legend1";
+            series89.Name = "Motor C";
+            series90.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot;
+            series90.BorderWidth = 2;
+            series90.ChartArea = "PowerArea";
+            series90.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series90.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            series90.Legend = "Legend1";
+            series90.Name = "Motor D";
+            this.powerChart.Series.Add(series86);
+            this.powerChart.Series.Add(series87);
+            this.powerChart.Series.Add(series88);
+            this.powerChart.Series.Add(series89);
+            this.powerChart.Series.Add(series90);
+            title17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            title17.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            title17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            title17.Name = "Title1";
+            title17.Text = "Power [W]";
+            this.powerChart.Titles.Add(title17);
             // 
             // loadChart
             // 
             this.loadChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.Title = "Time Step [sec]";
-            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            chartArea3.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            chartArea3.Name = "LoadArea";
-            this.loadChart.ChartAreas.Add(chartArea3);
+            chartArea23.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea23.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea23.AxisX.MajorGrid.Enabled = false;
+            chartArea23.AxisX.Title = "Time Step [sec]";
+            chartArea23.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            chartArea23.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea23.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea23.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea23.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            chartArea23.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            chartArea23.Name = "LoadArea";
+            this.loadChart.ChartAreas.Add(chartArea23);
             resources.ApplyResources(this.loadChart, "loadChart");
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            legend3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.loadChart.Legends.Add(legend3);
+            legend18.BackColor = System.Drawing.Color.Transparent;
+            legend18.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            legend18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            legend18.IsTextAutoFit = false;
+            legend18.Name = "Legend1";
+            this.loadChart.Legends.Add(legend18);
             this.loadChart.Name = "loadChart";
             this.loadChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series11.BorderWidth = 2;
-            series11.ChartArea = "LoadArea";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Legend = "Legend1";
-            series11.Name = "Motor A";
-            series12.BorderWidth = 2;
-            series12.ChartArea = "LoadArea";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Legend = "Legend1";
-            series12.Name = "Motor B-L";
-            series13.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            series13.BorderWidth = 2;
-            series13.ChartArea = "LoadArea";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.Legend = "Legend1";
-            series13.Name = "Motor B-R";
-            series14.BorderWidth = 2;
-            series14.ChartArea = "LoadArea";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series14.Legend = "Legend1";
-            series14.Name = "Motor C";
-            series15.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot;
-            series15.BorderWidth = 2;
-            series15.ChartArea = "LoadArea";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series15.Legend = "Legend1";
-            series15.Name = "Motor D";
-            this.loadChart.Series.Add(series11);
-            this.loadChart.Series.Add(series12);
-            this.loadChart.Series.Add(series13);
-            this.loadChart.Series.Add(series14);
-            this.loadChart.Series.Add(series15);
-            title3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            title3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            title3.Name = "Title1";
-            title3.Text = "Relative Load";
-            this.loadChart.Titles.Add(title3);
+            series91.BorderWidth = 2;
+            series91.ChartArea = "LoadArea";
+            series91.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series91.Legend = "Legend1";
+            series91.Name = "Motor A";
+            series92.BorderWidth = 2;
+            series92.ChartArea = "LoadArea";
+            series92.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series92.Legend = "Legend1";
+            series92.Name = "Motor B-L";
+            series93.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            series93.BorderWidth = 2;
+            series93.ChartArea = "LoadArea";
+            series93.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series93.Legend = "Legend1";
+            series93.Name = "Motor B-R";
+            series94.BorderWidth = 2;
+            series94.ChartArea = "LoadArea";
+            series94.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series94.Legend = "Legend1";
+            series94.Name = "Motor C";
+            series95.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot;
+            series95.BorderWidth = 2;
+            series95.ChartArea = "LoadArea";
+            series95.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series95.Legend = "Legend1";
+            series95.Name = "Motor D";
+            this.loadChart.Series.Add(series91);
+            this.loadChart.Series.Add(series92);
+            this.loadChart.Series.Add(series93);
+            this.loadChart.Series.Add(series94);
+            this.loadChart.Series.Add(series95);
+            title18.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            title18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            title18.Name = "Title1";
+            title18.Text = "Relative Load";
+            this.loadChart.Titles.Add(title18);
             // 
             // button3
             // 
@@ -479,12 +481,47 @@ namespace ArduinoTest
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.linkPictureBox);
-            this.panel3.Controls.Add(this.tempChart);
             this.panel3.Controls.Add(this.powerChart);
             this.panel3.Controls.Add(this.loadChart);
-            this.panel3.Controls.Add(this.webView);
+            this.panel3.Controls.Add(this.tempChart);
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
+            // 
+            // angle4Box
+            // 
+            this.angle4Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle4Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle4Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle4Box, "angle4Box");
+            this.angle4Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle4Box.Name = "angle4Box";
+            // 
+            // angle3Box
+            // 
+            this.angle3Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle3Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle3Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle3Box, "angle3Box");
+            this.angle3Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle3Box.Name = "angle3Box";
+            // 
+            // angle2Box
+            // 
+            this.angle2Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle2Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle2Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle2Box, "angle2Box");
+            this.angle2Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle2Box.Name = "angle2Box";
+            // 
+            // angle1Box
+            // 
+            this.angle1Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            this.angle1Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.angle1Box.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.angle1Box, "angle1Box");
+            this.angle1Box.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.angle1Box.Name = "angle1Box";
             // 
             // pictureBox4
             // 
@@ -546,49 +583,49 @@ namespace ArduinoTest
             // zAxisChart
             // 
             this.zAxisChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Empty;
-            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            chartArea4.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea4.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
-            chartArea4.AxisY.MajorGrid.Enabled = false;
-            chartArea4.AxisY.MajorGrid.Interval = 20D;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
-            chartArea4.Name = "AngleArea";
-            this.zAxisChart.ChartAreas.Add(chartArea4);
+            chartArea24.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea24.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea24.AxisX.MajorGrid.LineColor = System.Drawing.Color.Empty;
+            chartArea24.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            chartArea24.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea24.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea24.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            chartArea24.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(85)))));
+            chartArea24.AxisY.MajorGrid.Enabled = false;
+            chartArea24.AxisY.MajorGrid.Interval = 20D;
+            chartArea24.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            chartArea24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            chartArea24.Name = "AngleArea";
+            this.zAxisChart.ChartAreas.Add(chartArea24);
             resources.ApplyResources(this.zAxisChart, "zAxisChart");
             this.zAxisChart.Name = "zAxisChart";
             this.zAxisChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series16.BorderWidth = 2;
-            series16.ChartArea = "AngleArea";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series16.CustomProperties = "PieStartAngle=270, PieLineColor=Transparent, CollectedColor=White";
-            series16.Name = "CurrentAngle";
-            series16.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            dataPoint1.AxisLabel = "Remainder1";
-            dataPoint1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            dataPoint1.IsValueShownAsLabel = false;
-            dataPoint1.LabelForeColor = System.Drawing.Color.Transparent;
-            dataPoint2.AxisLabel = "Value";
-            dataPoint2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.TopLeft;
-            dataPoint2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataPoint2.CustomProperties = "LabelsHorizontalLineSize=0, PieLineColor=Transparent, LabelsRadialLineSize=0";
-            dataPoint2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            dataPoint2.IsValueShownAsLabel = false;
-            dataPoint2.IsVisibleInLegend = false;
-            dataPoint2.LabelBorderWidth = 1;
-            dataPoint2.LabelForeColor = System.Drawing.Color.Transparent;
-            dataPoint3.AxisLabel = "Remainder2";
-            dataPoint3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            dataPoint3.LabelForeColor = System.Drawing.Color.Transparent;
-            series16.Points.Add(dataPoint1);
-            series16.Points.Add(dataPoint2);
-            series16.Points.Add(dataPoint3);
-            this.zAxisChart.Series.Add(series16);
+            series96.BorderWidth = 2;
+            series96.ChartArea = "AngleArea";
+            series96.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series96.CustomProperties = "PieStartAngle=270, PieLineColor=Transparent, CollectedColor=White";
+            series96.Name = "CurrentAngle";
+            series96.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            dataPoint16.AxisLabel = "Remainder1";
+            dataPoint16.Color = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            dataPoint16.IsValueShownAsLabel = false;
+            dataPoint16.LabelForeColor = System.Drawing.Color.Transparent;
+            dataPoint17.AxisLabel = "Value";
+            dataPoint17.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.TopLeft;
+            dataPoint17.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataPoint17.CustomProperties = "LabelsHorizontalLineSize=0, PieLineColor=Transparent, LabelsRadialLineSize=0";
+            dataPoint17.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            dataPoint17.IsValueShownAsLabel = false;
+            dataPoint17.IsVisibleInLegend = false;
+            dataPoint17.LabelBorderWidth = 1;
+            dataPoint17.LabelForeColor = System.Drawing.Color.Transparent;
+            dataPoint18.AxisLabel = "Remainder2";
+            dataPoint18.Color = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
+            dataPoint18.LabelForeColor = System.Drawing.Color.Transparent;
+            series96.Points.Add(dataPoint16);
+            series96.Points.Add(dataPoint17);
+            series96.Points.Add(dataPoint18);
+            this.zAxisChart.Series.Add(series96);
             // 
             // label12
             // 
@@ -605,42 +642,6 @@ namespace ArduinoTest
             resources.ApplyResources(this.linkPictureBox, "linkPictureBox");
             this.linkPictureBox.Name = "linkPictureBox";
             this.linkPictureBox.TabStop = false;
-            // 
-            // angle4Box
-            // 
-            this.angle4Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle4Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle4Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle4Box, "angle4Box");
-            this.angle4Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle4Box.Name = "angle4Box";
-            // 
-            // angle3Box
-            // 
-            this.angle3Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle3Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle3Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle3Box, "angle3Box");
-            this.angle3Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle3Box.Name = "angle3Box";
-            // 
-            // angle2Box
-            // 
-            this.angle2Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle2Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle2Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle2Box, "angle2Box");
-            this.angle2Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle2Box.Name = "angle2Box";
-            // 
-            // angle1Box
-            // 
-            this.angle1Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(15)))), ((int)(((byte)(43)))));
-            this.angle1Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.angle1Box.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.angle1Box, "angle1Box");
-            this.angle1Box.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.angle1Box.Name = "angle1Box";
             // 
             // webView
             // 
@@ -911,6 +912,13 @@ namespace ArduinoTest
             this.readButton.UseVisualStyleBackColor = true;
             this.readButton.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(92)))), ((int)(((byte)(145)))));
+            this.panel5.Controls.Add(this.webView);
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Name = "panel5";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -920,6 +928,7 @@ namespace ArduinoTest
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel5);
             this.Name = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -946,6 +955,7 @@ namespace ArduinoTest
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1014,6 +1024,7 @@ namespace ArduinoTest
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 
