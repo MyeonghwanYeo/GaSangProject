@@ -127,35 +127,82 @@ public class FirebaseDBManager : MonoBehaviour
                     angleAxis3 = item.Child("Axis3Value").Value.ToString();
                     angleAxis4 = item.Child("Axis4Value").Value.ToString();
 
-                    // Parse로 문자열 -> float열로 변경하여 가져감
-                    nextStep.angleAxis1 = float.Parse(angleAxis1);
-                    nextStep.angleAxis2 = float.Parse(angleAxis2);
-                    nextStep.angleAxis3 = float.Parse(angleAxis3);
-                    nextStep.angleAxis4 = float.Parse(angleAxis4);
+                    // Try Parse로 float 가져오는데 오류 없으면 그대로 아니면 0
+                    float newAxis1 = 0;
+                    float newAxis2 = 0;
+                    float newAxis3 = 0;
+                    float newAxis4 = 0;
 
-                    InputField1.text = angleAxis1;
-                    InputField2.text = angleAxis2;
-                    InputField3.text = angleAxis3;
-                    InputField4.text = angleAxis4;
+                    newAxis1 = (float.TryParse(angleAxis1, out newAxis1)) ? newAxis1 : 0;
+                    newAxis2 = (float.TryParse(angleAxis2, out newAxis2)) ?  newAxis2 : 0;
+                    newAxis3 = (float.TryParse(angleAxis3, out newAxis3)) ? newAxis3 : 0;
+                    newAxis4 = (float.TryParse(angleAxis4, out newAxis4)) ? newAxis4 : 0;
+
+                    // 이전 값과 비교하여 변경된 경우에만 업데이트
+                    if (newAxis1 != currentStep.angleAxis1 ||
+                        newAxis2 != currentStep.angleAxis2 ||
+                        newAxis3 != currentStep.angleAxis3 ||
+                        newAxis4 != currentStep.angleAxis4)
+                    {
+                        nextStep.angleAxis1 = newAxis1;
+                        nextStep.angleAxis2 = newAxis2;
+                        nextStep.angleAxis3 = newAxis3;
+                        nextStep.angleAxis4 = newAxis4;
+
+                        // UI 업데이트
+                        InputField1.text = angleAxis1;
+                        InputField2.text = angleAxis2;
+                        InputField3.text = angleAxis3;
+                        InputField4.text = angleAxis4;
+
+                        // 모터 위치 업데이트
+                        StartCoroutine(RunOrigin(currentStep, nextStep));
+
+                        // 현재 스텝 업데이트
+                        currentStep.angleAxis1 = nextStep.angleAxis1;
+                        currentStep.angleAxis2 = nextStep.angleAxis2;
+                        currentStep.angleAxis3 = nextStep.angleAxis3;
+                        currentStep.angleAxis4 = nextStep.angleAxis4;
+                    }
+                    else
+                    {
+                        Debug.Log("변경된 데이터가 없어 업데이트를 건너뜁니다.");
+                    }
                     break;
-
-                    // 전체 다 불러오는 코드
-                    //string json = snapshot.GetRawJsonValue();
-
-                    //JObject totalData = JObject.Parse(json);
                 }
-                // 이전 스텝에서 다음 스텝으로 넘어가는 코드
-                StartCoroutine(RunOrigin(currentStep, nextStep));
-
-                currentStep.angleAxis1 = nextStep.angleAxis1;
-                currentStep.angleAxis2 = nextStep.angleAxis2;
-                currentStep.angleAxis3 = nextStep.angleAxis3;
-                currentStep.angleAxis4 = nextStep.angleAxis4;
             }
         };
     }
+
+    // Firebase로 부터 데이터 연속 동기화
+    IEnumerator Arduino2unity()
+    {
+        var task = dbRef.Child("Arduino").GetValueAsync();
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsCanceled)
+        {
+            print("데이터 다운로드 취소");
+        }
+        else if (task.IsFaulted)
+        {
+            print("데이터 다운로드 실패");
+        }
+        else if (task.IsCompleted)
+        {
+            isConnected = true;
+        }
+            while (isConnected)
+        {
+            yield return DownloadData();
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
     IEnumerator RunOrigin(Step currentStep, Step nextStep)
     {
+
+
 
         Vector3 prevAxis1Euler = new Vector3(0, currentStep.angleAxis1, 0); // Axis1: Y축 기준으로 회전
         Vector3 nextAxis1AEuler = new Vector3(0, -nextStep.angleAxis1, 0);
@@ -185,6 +232,8 @@ public class FirebaseDBManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+
+
     private Quaternion RotateAngle(Vector3 from, Vector3 to, float t)
     {
         return Quaternion.Slerp(Quaternion.Euler(from), Quaternion.Euler(to), t);
@@ -194,7 +243,7 @@ public class FirebaseDBManager : MonoBehaviour
     {
         if (dbRef != null)
         {
-            StartCoroutine(DownloadData());
+            StartCoroutine(Arduino2unity());
         }
 
         //InitializeData();

@@ -37,10 +37,66 @@ namespace ArduinoTest
         SerialPort serialPort1 = new SerialPort();
 
         public bool isRunning = false;
-        string message_angle1 = "0";
-        string message_angle2 = "0";
-        string message_angle3 = "0";
-        string message_angle4 = "0";
+        private string message_angle1 = "0";
+        public string _message_angle1
+        {
+            get { return message_angle1; }
+            set
+            {
+                message_angle1 = value;
+                Crud_Robotaxis robotAxis = new Crud_Robotaxis();
+                robotAxis.SetData(message_angle1,
+                   message_angle2,
+                   message_angle3,
+                   message_angle4).Wait();
+            }
+        }
+
+        private string message_angle2 = "0";
+        public string _message_angle2
+        {
+            get { return message_angle2; }
+            set
+            {
+                message_angle2 = value;
+                Crud_Robotaxis robotAxis = new Crud_Robotaxis();
+                robotAxis.SetData(message_angle1,
+                   message_angle2,
+                   message_angle3,
+                   message_angle4).Wait();
+            }
+        }
+
+        private string message_angle3 = "0";
+        public string _message_angle3
+        {
+            get { return message_angle3; }
+            set
+            {
+                message_angle3 = value;
+                Crud_Robotaxis robotAxis = new Crud_Robotaxis();
+                robotAxis.SetData(message_angle1,
+                   message_angle2,
+                   message_angle3,
+                   message_angle4).Wait();
+            }
+        }
+
+        private string message_angle4 = "0";
+        public string _message_angle4
+        {
+            get { return message_angle4; }
+            set
+            {
+                message_angle4 = value;
+                Crud_Robotaxis robotAxis = new Crud_Robotaxis();
+                robotAxis.SetData(message_angle1,
+                   message_angle2,
+                   message_angle3,
+                   message_angle4).Wait();
+            }
+        }
+
         string response = "";
         bool cDataProcessed = false; // C_DATA가 처리되었는지 여부를 나타내는 플래그
         private Process unityProcess;
@@ -326,32 +382,6 @@ namespace ArduinoTest
 
             await PrintPython();
 
-            // 4축로봇 각도 C# => Firebase에 데이터 업로드 코드1(1~4)
-            message_angle1 = angle1Box.Text.ToString();
-            message_angle2 = angle2Box.Text.ToString();
-            message_angle3 = angle3Box.Text.ToString();
-            message_angle4 = angle4Box.Text.ToString();
-
-            // 4축로봇 각도 C# => Firebase에 데이터 업로드 코드1
-            // Firebase에 데이터 전송
-            try
-            {
-                Crud_Robotaxis robotAxis = new Crud_Robotaxis();
-                await robotAxis.SetData(
-                    message_angle1,
-                    message_angle2,
-                    message_angle3,
-                    message_angle4
-                );
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
-        private async void test_Send()
-        {
             // 4축로봇 각도 C# => Firebase에 데이터 업로드 코드1(1~4)
             message_angle1 = angle1Box.Text.ToString();
             message_angle2 = angle2Box.Text.ToString();
