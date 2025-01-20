@@ -859,7 +859,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="angle4Box.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -999,7 +999,7 @@
   <data name="pictureBox4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0wAADdMBvdUcagAAOCRJREFUeF7t3XmcFNXV//GAgME17sYl7kvct6hxw8QlUaM+ihrjGmMk6iMIMRF8
+        0gAADdIBb5L+jgAAOCRJREFUeF7t3XmcFNXV//GAgME17sYl7kvct6hxw8QlUaM+ihrjGmMk6iMIMRF8
         XEAjRsUoESWKj2hcEA0gYESigCsCLiwCyiYKDMiMwDA4DMMsfX59fyavn/L7zjDTU7fqVvXnj/fL1+vI
         dJ+qW1XndHfVvd8xMwAAUGRkEAAAZJsMAgCAbJNBAACQbTIIAACyTQYBAEC2ySAAAMg2GQQAANkmgwAA
         INtkEAAAZJsMAgCAbJNBIGk5szYllfaTge/afV2etRePurt84g+uHrWg3cnd137n2E4GhMYdm+4Ydceq
@@ -1278,7 +1278,7 @@
   <data name="pictureBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHUXSURBVHhe7d0H
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHUXSURBVHhe7d0H
         eBTl9gbwIFIVFMUCFuyK2LEhIKELiAISBOmI2K69YDd2LIDSNGRLtsxuMpvo/140EFqkiKChhjRCICE0
         6Z30739mczZGpOabTXZ33t/znCfc4pnN6r3vu7O7M2EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1817,7 +1817,7 @@
   <data name="pictureBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAIDBSURBVHhe7Z0H
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAIDBSURBVHhe7Z0H
         mBVV1q6n6Yamm5xzTk3OOeeccxYJgoqAiglJogiKCAgIiEgSMI1jHLOoY8IcwIwBA0hWxyz7rnX+wUv4
         4OxKp0/43ud5n/v8d2RXnepTa61Ttffa/yCEkDghv9hGHCvOEzeKT4hviV+Jh8SjohGP/e//3iN+JL4u
         PiPeJy4Ux4mtxeIiIYQQQqKENLGVeJX4kKiJXBN7EP4kviRqYdBdzCMSQgghJEJUFqeJj4u/iChZR8I/
@@ -4043,7 +4043,7 @@
   <data name="pictureBox9.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAYAAACKAxD9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        uQAAMrkB+rTEbQAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
+        uAAAMrgBKPMmiQAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
         iogvYj6k2IP50MNALwpa0ZeG2kzOmJVOmWaajR+YpaCGaH5ERvVb45rmtt3O3Llz7z3n7L3+8GOYe/bZ
         Z++11tkf5+xzjotVzc71h9vhcZj7uXONsAqale/hkMde6Ny+Bho3O7eQ/SfBHdBfszflUeIgeFCchvM+
         gnb4p0ZIwKznWK9zzFEWHBlqi3PX4oiH4DVYC4c9Z9WToxz/A/4uIChGwyAtpqlW0jNwCYZv85yRJ3ZT
@@ -4121,7 +4121,7 @@
   <data name="pictureBox8.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAYAAACKAxD9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        ugAAMroBVw3lAAAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
+        uQAAMrkB+rTEbQAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
         iogvYj6k2IP50MNALwpa0ZeG2kzOmJVOmWaajR+YpaCGaH5ERvVb45rmtt3O3Llz7z3n7L3+8GOYe/bZ
         Z++11tkf5+xzjotVzc71h9vhcZj7uXONsAqale/hkMde6Ny+Bho3O7eQ/SfBHdBfszflUeIgeFCchvM+
         gnb4p0ZIwKznWK9zzFEWHBlqi3PX4oiH4DVYC4c9Z9WToxz/A/4uIChGwyAtpqlW0jNwCYZv85yRJ3ZT
@@ -4199,7 +4199,7 @@
   <data name="pictureBox7.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAYAAACKAxD9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        uwAAMrsBhUoH5AAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
+        ugAAMroBVw3lAAAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
         iogvYj6k2IP50MNALwpa0ZeG2kzOmJVOmWaajR+YpaCGaH5ERvVb45rmtt3O3Llz7z3n7L3+8GOYe/bZ
         Z++11tkf5+xzjotVzc71h9vhcZj7uXONsAqale/hkMde6Ny+Bho3O7eQ/SfBHdBfszflUeIgeFCchvM+
         gnb4p0ZIwKznWK9zzFEWHBlqi3PX4oiH4DVYC4c9Z9WToxz/A/4uIChGwyAtpqlW0jNwCYZv85yRJ3ZT
@@ -4277,7 +4277,7 @@
   <data name="pictureBox6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAYAAACKAxD9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        vAAAMrwB1w6hmwAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
+        uwAAMrsBhUoH5AAACFxJREFUeF7tnV2IVVUUx/eDkYRZgZKGUA89BPZQYhRFEeWDoZJYmFLBlBoaGZlW
         iogvYj6k2IP50MNALwpa0ZeG2kzOmJVOmWaajR+YpaCGaH5ERvVb45rmtt3O3Llz7z3n7L3+8GOYe/bZ
         Z++11tkf5+xzjotVzc71h9vhcZj7uXONsAqale/hkMde6Ny+Bho3O7eQ/SfBHdBfszflUeIgeFCchvM+
         gnb4p0ZIwKznWK9zzFEWHBlqi3PX4oiH4DVYC4c9Z9WToxz/A/4uIChGwyAtpqlW0jNwCYZv85yRJ3ZT
@@ -4352,7 +4352,7 @@
   <data name="pictureBox5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAACewAAAfrCAYAAADUPHqnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAy
-        vAAAMrwB1w6hmwAA/7JJREFUeF7s3Qu0JFdBL+5BFDAgXEH9IxfERyQwYbrqzBgEHyQgKCDCRQkiKqBi
+        uwAAMrsBhUoH5AAA/7JJREFUeF7s3Qu0JFdBL+5BFDAgXEH9IxfERyQwYbrqzBgEHyQgKCDCRQkiKqBi
         kCTnVJ+ZhICv4eUVEQQkoiEzXdUzBEgUeYqgAoqKiqhcBBQBkZdPfKKoCOS/68yeZObMPo9+VHdV9/et
         9VtDTnfvvau6qw9rnd/atQcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -12499,7 +12499,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
