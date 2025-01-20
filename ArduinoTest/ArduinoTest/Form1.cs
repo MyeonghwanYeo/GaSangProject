@@ -492,7 +492,7 @@ namespace ArduinoTest
                 }
                 else if (modeNum == 1)
                 {
-                    serialPort1.Write("Read\n");
+                    serialPort1.Write("Read");
                 }
 
                 List<int> tempList = new List<int>();
@@ -500,86 +500,86 @@ namespace ArduinoTest
                 List<int> loadList = new List<int>();
 
                 // 별도의 스레드 실행을 통한 아두이노 IDE 데이터 수신
-                Thread readThread = new Thread(() =>
-                {
-                    while (true)
-                    {
-                        try
-                        {
-                            // 읽을 데이터가 있을 때까지 대기
-                            if (serialPort1.BytesToRead > 0)
-                            {
-                                string receivedData = serialPort1.ReadLine();
-                                string[] result = receivedData.Split(',');
+                // Thread readThread = new Thread(() =>
+                // {
+                //     while (true)
+                //     {
+                //         try
+                //         {
+                //             // 읽을 데이터가 있을 때까지 대기
+                //             if (serialPort1.BytesToRead > 0)
+                //             {
+                //                 string receivedData = serialPort1.ReadLine();
+                //                 string[] result = receivedData.Split(',');
+                // 
+                //                 List<string> dataList = new List<string>(result);
+                //                 if (modeNum == 1)
+                //                 {
+                //                     angle1Box.Text = result[0];
+                //                     angle2Box.Text = result[1];
+                //                     angle3Box.Text = result[2];
+                //                     angle4Box.Text = result[3];
+                // 
+                //                     dataList.RemoveRange(0, 4);
+                //                 }
+                // 
+                //                 for (int i = 0; i < 5; i++)
+                //                 {
+                //                     tempList.Add(int.Parse(dataList[3 * i]));
+                //                     voltList.Add(float.Parse(dataList[3 * i + 1]) / 10.0f);
+                //                     loadList.Add(int.Parse(dataList[3 * i + 2]));
+                // 
+                //                     tempChart.Series[i].Points.Add(tempList[i]);
+                //                     powerChart.Series[i].Points.Add(voltList[i]);
+                //                     loadChart.Series[i].Points.Add(loadList[i]);
+                //                 }
+                //             }
+                //             // 약간의 지연 
+                //             Thread.Sleep(100);
+                // 
+                //         }
+                //         catch (TimeoutException) { }
+                //     }
+                // });
+                // 
+                // readThread.IsBackground = true;
+                // readThread.Start();
 
-                                List<string> dataList = new List<string>(result);
-                                if (modeNum == 1)
-                                {
-                                    angle1Box.Text = result[0];
-                                    angle2Box.Text = result[1];
-                                    angle3Box.Text = result[2];
-                                    angle4Box.Text = result[3];
-
-                                    dataList.RemoveRange(0, 4);
-                                }
-
-                                for (int i = 0; i < 5; i++)
-                                {
-                                    tempList.Add(int.Parse(dataList[3 * i]));
-                                    voltList.Add(float.Parse(dataList[3 * i + 1]) / 10.0f);
-                                    loadList.Add(int.Parse(dataList[3 * i + 2]));
-
-                                    tempChart.Series[i].Points.Add(tempList[i]);
-                                    powerChart.Series[i].Points.Add(voltList[i]);
-                                    loadChart.Series[i].Points.Add(loadList[i]);
-                                }
-                            }
-                            // 약간의 지연 
-                            Thread.Sleep(100);
-
-                        }
-                        catch (TimeoutException) { }
-                    }
-                });
-
-                readThread.IsBackground = true;
-                readThread.Start();
-
-                // 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
-                string currentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                // Firebase 1. 온도 데이터 저장
-                data_Firebase_temperature = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "temperature",
-                    Value = tempList[0]
-
-                };
-                // 온도 데이터 전송
-                crud_temperature.SetData("temperature", tempList[0], currentDateTime);
-                
-                // Firebase 2. 전압 데이터 저장
-                data_Firebase_voltage = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "voltage",
-                    Value = voltList[0]
-                
-                };
-                // 전압 데이터 전송
-                crud_voltage.SetData("voltage", voltList[0], currentDateTime);
-                
-                // Firebase 3. 하중 데이터 저장
-                data_Firebase_relativeLoad = new Data
-                {
-                    Timestamp = currentDateTime,
-                    Category = "relativeLoad ",
-                    Value = loadList[0]
-                
-                };
-                // 하중 데이터 전송
-                crud_relativeLoad.SetData("relativeLoad", loadList[0], currentDateTime);
+                //// 현재 날짜 및 시간 "yyyy-MM-dd HH:mm:ss"로 읽기
+                //string currentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                //
+                //// Firebase 1. 온도 데이터 저장
+                //data_Firebase_temperature = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "temperature",
+                //    Value = tempList[0]
+                //
+                //};
+                //// 온도 데이터 전송
+                //crud_temperature.SetData("temperature", tempList[0], currentDateTime);
+                //
+                //// Firebase 2. 전압 데이터 저장
+                //data_Firebase_voltage = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "voltage",
+                //    Value = voltList[0]
+                //
+                //};
+                //// 전압 데이터 전송
+                //crud_voltage.SetData("voltage", voltList[0], currentDateTime);
+                //
+                //// Firebase 3. 하중 데이터 저장
+                //data_Firebase_relativeLoad = new Data
+                //{
+                //    Timestamp = currentDateTime,
+                //    Category = "relativeLoad ",
+                //    Value = loadList[0]
+                //
+                //};
+                //// 하중 데이터 전송
+                //crud_relativeLoad.SetData("relativeLoad", loadList[0], currentDateTime);
             }
         }
 
