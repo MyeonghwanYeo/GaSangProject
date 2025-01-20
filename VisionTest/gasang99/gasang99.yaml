@@ -1,0 +1,8 @@
+name:
+  0: griper
+  1: niper
+  2: core
+  3: Ricecake
+test: /gasang99/test/
+train: /gasang99/train/
+val: /gasang99/valid/
